@@ -1,3 +1,4 @@
+This is Federated
 Welcome to Lumache's documentation!
 ===================================
 
