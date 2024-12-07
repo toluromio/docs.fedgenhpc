@@ -23,3 +23,17 @@ and “omics” research in Africa that will lead to accelerated discoveries, an
    :toctree: generated
 
    lumache
+
+
+You can also build the documentation locally with ``make``:
+
+.. code-block:: console
+
+    # Enter the Sphinx project
+    cd docs/
+    
+    # Build with make
+    make html
+    
+    # Open with your preferred browser, pointing it to the documentation index page
+    firefox _build/html/index.html
