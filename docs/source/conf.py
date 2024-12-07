@@ -2,8 +2,8 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
+project = 'FEDGEN HPC User Guide'
+copyright = '2024, Graziella'
 author = 'Graziella'
 
 release = '0.1'
