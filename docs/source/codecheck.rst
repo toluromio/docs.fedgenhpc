@@ -18,7 +18,7 @@ hard values. When you, for example, ask for 6000 MB of memory
 (--mem=6000MB) and your job uses more than that, the job will be
 automatically killed by the manager.
 
-.. codeblock
+.. code-block:: language
 
 *#!/bin/bash -l*
 *##############################*
