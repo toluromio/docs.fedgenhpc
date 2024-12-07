@@ -210,17 +210,14 @@ In this example we wish to run many similar sequential jobs in parallel
 using job arrays. We take Python as an example but this does not matter
 for the job arrays:
 
-#!/usr/bin/env python
+.. code-block:: language
 
-import time
-
-print('start at ' + time.strftime('%H:%M:%S'))
-
-print('sleep for 10 seconds ...')
-
-time.sleep(10)
-
-print('stop at ' + time.strftime('%H:%M:%S'))
+  #!/usr/bin/env python
+  import time
+  print('start at ' + time.strftime('%H:%M:%S'))
+  print('sleep for 10 seconds ...')
+  time.sleep(10)
+  print('stop at ' + time.strftime('%H:%M:%S'))
 
 Save this to a file called “test.py” and try it out:
 
