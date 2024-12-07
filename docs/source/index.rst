@@ -7,7 +7,7 @@ Check out the :doc:`hpcinfo` section for further information, including
 how to :ref:`installation` the project.
 
 Check out ConRST :doc:`ict`
-Check out ConRST :doc:`userguide`
+Check out ConRST :doc:`userguide` <User Guide>
 
 .. note::
 
@@ -19,5 +19,5 @@ Contents
 .. toctree::
 
    usage
-   api
    userguide
+   api
