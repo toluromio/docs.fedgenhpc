@@ -7,6 +7,7 @@ Check out the :doc:`hpcinfo` section for further information, including
 how to :ref:`installation` the project.
 
 Check out ConRST :doc:`ict`
+Check out ConRST :doc:`userguide`
 
 .. note::
 
@@ -19,3 +20,4 @@ Contents
 
    usage
    api
+   userguide
