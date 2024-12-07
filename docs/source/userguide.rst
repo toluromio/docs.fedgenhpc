@@ -1,6 +1,8 @@
-**User Guide**
+User Guide
+==========
 
-**How to submit a job on DANTE**
+How to submit a job on DANTE
+----------------------------
 
 DANTE use Slurm Scheduler. You can find Slurm documentation on
 their `website <https://slurm.schedmd.com/documentation.html>`__.
