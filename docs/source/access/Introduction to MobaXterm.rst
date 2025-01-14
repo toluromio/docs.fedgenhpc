@@ -12,16 +12,16 @@ To install MobaXterm, go to the `MobaXterm
 website <https://mobaxterm.mobatek.net/>`__ and selected 'Download' at
 the top of the page
 
-|img!|
+|Introduction to MobaXterm441|
 
 On the next page, choose "Download Now" under Home Edition
 
-|image1|
+|Introduction to MobaXterm503|
 
 Finally, click the blue "Portable Edition" button or the green installer
 edition.
 
-|image2|
+|Introduction to MobaXterm588|
 
 The Portable offers the convenience of unzip and run, no need for
 installation.
@@ -29,7 +29,7 @@ installation.
 Go into the unzipped folder and click on the MobaXterm application to
 run the program
 
-|image3|
+|Introduction to MobaXterm759|
 
 **Setting up and SSH connection session to FEDGEN HPC CLUSTER**
 
@@ -47,7 +47,7 @@ Now, if you click the yellow star on the left panel, you should see a
 line in the 'User sessions' column named something like
 "allot.hpc.fedgen.net (Fedgen UserID)
 
-|image4|
+|Introduction to MobaXterm1362|
 
 Click this and you will be prompted to enter the password for your
 username, after which you will be logged into Allot login node.
@@ -67,23 +67,23 @@ interact with the sftp browser (see the figure below). Remember always
 to press the Refresh current folder button **after** you copied
 something or a new file or folder is created on the cluster.
 
-|SFTP MobaXtermNew|
+|Introduction to MobaXterm2126|
 
-.. |img!| image:: media/image1.png
+.. |img!| image:: media/Introduction to MobaXterm441.png
    :width: 13.47847in
    :height: 8.25069in
-.. |image1| image:: media/image2.png
+.. |image1| image:: media/Introduction to MobaXterm503.png
    :width: 13.76042in
    :height: 8.37778in
-.. |image2| image:: media/image3.png
+.. |image2| image:: media/Introduction to MobaXterm588.png
    :width: 14.35139in
    :height: 7.50347in
-.. |image3| image:: media/image4.png
+.. |image3| image:: media/Introduction to MobaXterm759.png
    :width: 12.20069in
    :height: 6.70833in
-.. |image4| image:: media/image5.jpeg
+.. |image4| image:: media/Introduction to MobaXterm1362.jpeg
    :width: 11.975in
    :height: 8.125in
-.. |SFTP MobaXtermNew| image:: media/image6.png
+.. |SFTP MobaXtermNew| image:: media/Introduction to MobaXterm2126.png
    :width: 7.5in
    :height: 5.6in
