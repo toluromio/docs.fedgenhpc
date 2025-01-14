@@ -13,9 +13,9 @@ Check out ConRST :doc:`Code Check <userguide>`
 
    This project is under active development.
 
-Contents
+welcome
 --------
-.. WELCOME
+
 .. toctree::
    :maxdepth: 2
    index
@@ -26,6 +26,7 @@ Contents
 
 
 FEDGEN HPC RESOURCES
+
 .. toctree::
    :maxdepth: 2
    fedgen_hpc_resources/FEDGEN HPC layout
@@ -35,6 +36,7 @@ FEDGEN HPC RESOURCES
 
 
 GETTING STARTED
+
 .. toctree::
    :maxdepth: 2
    access/Obtaining a FEDGEN HPC account
@@ -45,6 +47,7 @@ GETTING STARTED
    
    
 JOB SCHEDULING
+
 .. toctree::
    :maxdepth: 2
    job_scheduling/Resource Manager
