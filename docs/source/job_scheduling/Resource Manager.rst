@@ -1,4 +1,5 @@
 **Resource Manager**
+----------------------
 
 Resource sharing on a high-performance cluster dedicated to scientific
 computing is organized by a piece of software called a *resource
