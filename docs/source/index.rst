@@ -15,9 +15,8 @@ Check out ConRST :doc:`Code Check <userguide>`
 
 Contents
 --------
-
-.. toctree::
 WELCOME
+.. toctree::
 index
 FEDGEN HPC Overview
 Dashboard
@@ -26,6 +25,7 @@ Acknowledgements
 
 
 FEDGEN HPC RESOURCES
+.. toctree::
 fedgen_hpc_resources/FEDGEN HPC layout
 fedgen_hpc_resources/Cluster resources
 fedgen_hpc_resources/GPU resources
@@ -33,6 +33,7 @@ fedgen_hpc_resources/Storage
 
 
 GETTING STARTED
+.. toctree::
    access/Obtaining a FEDGEN HPC account
    access/Connect to the Cluster
    access/Working With An SSH Client
@@ -41,6 +42,7 @@ GETTING STARTED
    
    
 JOB SCHEDULING
+.. toctree::
    job_scheduling/Resource Manager
    job_scheduling/SLURM Workload ManagerMain
    job_scheduling/Scheduling Jobs
