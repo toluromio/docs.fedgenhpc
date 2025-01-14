@@ -69,21 +69,21 @@ something or a new file or folder is created on the cluster.
 
 |SFTP MobaXtermNew|
 
-.. |img!| image:: media/Introduction to MobaXterm441.png
+.. |img!| image:: media/Introduction_to_MobaXterm441.png
    :width: 13.47847in
    :height: 8.25069in
-.. |image1| image:: media/Introduction to MobaXterm503.png
+.. |image1| image:: media/Introduction_to_MobaXterm503.png
    :width: 13.76042in
    :height: 8.37778in
-.. |image2| image:: media/Introduction to MobaXterm588.png
+.. |image2| image:: media/Introduction_to_MobaXterm588.png
    :width: 14.35139in
    :height: 7.50347in
-.. |image3| image:: media/Introduction to MobaXterm759.png
+.. |image3| image:: media/Introduction_to_MobaXterm759.png
    :width: 12.20069in
    :height: 6.70833in
-.. |image4| image:: media/Introduction to MobaXterm1362.jpeg
+.. |image4| image:: media/Introduction_to_MobaXterm1362.jpeg
    :width: 11.975in
    :height: 8.125in
-.. |SFTP MobaXtermNew| image:: media/Introduction to MobaXterm2126.png
+.. |SFTP MobaXtermNew| image:: media/Introduction_to_MobaXterm2126.png
    :width: 7.5in
    :height: 5.6in
