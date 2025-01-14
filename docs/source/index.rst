@@ -17,13 +17,39 @@ Contents
 --------
 
 .. toctree::
+WELCOME
+About FEDGEN
+FEDGEN HPC Overview
+Dashboard
+others/Contact Us
+Acknowledgements
 
-   access/Connect to the Cluster
-   access/Introduction to MobaXterm
+
+FEDGEN HPC RESOURCES
+fedgen_hpc_resources/FEDGEN HPC layout
+fedgen_hpc_resources/Cluster resources
+fedgen_hpc_resources/GPU resources
+fedgen_hpc_resources/Storage
+
+
+GETTING STARTED
    access/Obtaining a FEDGEN HPC account
+   access/Connect to the Cluster
    access/Working With An SSH Client
-   userguide
-   api
+      access/Introduction to MobaXterm
+      --access/SSH connection via VS Code
+   
+   
+JOB SCHEDULING
+   job_scheduling/Resource Manager
+   job_scheduling/SLURM Workload ManagerMain
+   job_scheduling/Scheduling Jobs
+   job_scheduling/Applications
+   job_scheduling/Job script examples
+   job_scheduling/Interactive jobs
+   job_scheduling/Managing and Monitoring jobs
+   job_scheduling/Going Parallel
+
 
 .. autosummary::
    :toctree: generated
