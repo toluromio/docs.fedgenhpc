@@ -1,4 +1,5 @@
 **Using Pre-installed Applications**
+---------------------------------------
 
 Applications on FEDGEN HPC Cluster are made available through Miniconda
 and Easybuild package managers. Software packages have to be activated
