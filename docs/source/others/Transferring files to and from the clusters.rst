@@ -1,4 +1,5 @@
 **Transferring files to and from the Cluster**
+-------------------------------------------------
 
 Files can be moved between your computer and the cluster using a number
 of tools.
