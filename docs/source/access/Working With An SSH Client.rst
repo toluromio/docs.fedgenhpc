@@ -1,5 +1,5 @@
 Working With An SSH Client
-==========================
+---------------------------
 
 Modern Operating (Microsoft Windows, Apple MacOS and Linux) Systems
 already have ssh client inbuilt; however there are other ssh
