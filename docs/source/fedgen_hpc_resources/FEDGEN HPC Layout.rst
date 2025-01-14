@@ -88,7 +88,7 @@ pieces of hardware where heavy computations can be offloaded. GPUs are
 often much more powerfull than regular processors, but do not have the
 same flexibility and require specific programming skills.
 
-.. |FEDGEN HPC Flow| image:: media/image1.png
+.. |FEDGEN HPC Flow| image:: media/FEDGEN_HPC_Layout489.png.png
    :width: 5.89167in
    :height: 3.69167in
 .. |image1| image:: media/image2.jpeg
