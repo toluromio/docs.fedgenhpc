@@ -13,7 +13,7 @@ Check out ConRST :doc:`Code Check <userguide>`
 
    This project is under active development.
 
-welcome
+WELCOME
 --------
 
 .. toctree::
@@ -26,17 +26,17 @@ welcome
 
 
 FEDGEN HPC RESOURCES
-
+--------------------
 .. toctree::
    :maxdepth: 2
-   fedgen_hpc_resources/FEDGEN HPC layout
-   fedgen_hpc_resources/Cluster resources
-   fedgen_hpc_resources/GPU resources
-   fedgen_hpc_resources/Storage
+      fedgen_hpc_resources/FEDGEN HPC layout
+      fedgen_hpc_resources/Cluster resources
+      fedgen_hpc_resources/GPU resources
+      fedgen_hpc_resources/Storage
 
 
 GETTING STARTED
-
+--------------------
 .. toctree::
    :maxdepth: 2
    access/Obtaining a FEDGEN HPC account
@@ -47,7 +47,7 @@ GETTING STARTED
    
    
 JOB SCHEDULING
-
+--------------------
 .. toctree::
    :maxdepth: 2
    job_scheduling/Resource Manager
