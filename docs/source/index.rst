@@ -17,10 +17,9 @@ WELCOME
 -------
 .. toctree::
 
-   index
    FEDGEN HPC Overview
    Dashboard
-   others/Contact Us
+   others/Contact
    Acknowledgements
 
 
@@ -28,7 +27,7 @@ FEDGEN HPC RESOURCES
 --------------------
 .. toctree::
    
-   fedgen_hpc_resources/FEDGEN HPC layout
+   fedgen_hpc_resources/FEDGEN HPC Layout
    fedgen_hpc_resources/Cluster resources
    fedgen_hpc_resources/GPU resources
    fedgen_hpc_resources/Storage
@@ -41,8 +40,11 @@ GETTING STARTED
    access/Obtaining a FEDGEN HPC account
    access/Connect to the Cluster
    access/Working With An SSH Client
-      access/Introduction to MobaXterm
-      --access/SSH connection via VS Code
+   access/Introduction to MobaXterm
+   access/SSH connection via VS Code
+   others/Linux command line
+   others/Making your files safe
+   others/Transferring files to and from the clusters
    
    
 JOB SCHEDULING
@@ -52,10 +54,16 @@ JOB SCHEDULING
    job_scheduling/Resource Manager
    job_scheduling/SLURM Workload ManagerMAIN
    job_scheduling/Scheduling Jobs
-   job_scheduling/Applications
    job_scheduling/Job script examples
    job_scheduling/Interactive jobs
    job_scheduling/Managing and Monitoring jobs
    job_scheduling/Going Parallel
 
+
+APPLICATIONS
+--------------------
+.. toctree::
+   
+   others/Juoyter
+   job_scheduling/Applications
 
