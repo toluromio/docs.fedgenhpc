@@ -13,10 +13,10 @@ Check out ConRST :doc:`Code Check <userguide>`
 
    This project is under active development.
 
-::WELCOME
-
+WELCOME
+-------
 .. toctree::
-   :maxdepth: 
+
    index
    FEDGEN HPC Overview
    Dashboard
@@ -28,15 +28,16 @@ FEDGEN HPC RESOURCES
 --------------------
 .. toctree::
    
-      fedgen_hpc_resources/FEDGEN HPC layout
-      fedgen_hpc_resources/Cluster resources
-      fedgen_hpc_resources/GPU resources
-      fedgen_hpc_resources/Storage
+   fedgen_hpc_resources/FEDGEN HPC layout
+   fedgen_hpc_resources/Cluster resources
+   fedgen_hpc_resources/GPU resources
+   fedgen_hpc_resources/Storage
 
 
 GETTING STARTED
 --------------------
 .. toctree::
+
    access/Obtaining a FEDGEN HPC account
    access/Connect to the Cluster
    access/Working With An SSH Client
@@ -49,7 +50,7 @@ JOB SCHEDULING
 .. toctree::
    
    job_scheduling/Resource Manager
-   job_scheduling/SLURM Workload ManagerMain
+   job_scheduling/SLURM Workload ManagerMAIN
    job_scheduling/Scheduling Jobs
    job_scheduling/Applications
    job_scheduling/Job script examples
@@ -58,7 +59,3 @@ JOB SCHEDULING
    job_scheduling/Going Parallel
 
 
-.. autosummary::
-   :toctree: generated
-
-   lumache
