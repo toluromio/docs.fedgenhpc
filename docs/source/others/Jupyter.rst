@@ -1,4 +1,5 @@
 **JupyterLab**
+-----------------
 
 JupyterLab is the latest web-based interactive development environment
 for notebooks, code, and data. Its flexible interface allows users to
