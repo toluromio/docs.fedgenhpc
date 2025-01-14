@@ -12,16 +12,16 @@ To install MobaXterm, go to the `MobaXterm
 website <https://mobaxterm.mobatek.net/>`__ and selected 'Download' at
 the top of the page
 
-|Introduction to MobaXterm441|
+|img!|
 
 On the next page, choose "Download Now" under Home Edition
 
-|Introduction to MobaXterm503|
+|image1|
 
 Finally, click the blue "Portable Edition" button or the green installer
 edition.
 
-|Introduction to MobaXterm588|
+|image2|
 
 The Portable offers the convenience of unzip and run, no need for
 installation.
@@ -29,7 +29,7 @@ installation.
 Go into the unzipped folder and click on the MobaXterm application to
 run the program
 
-|Introduction to MobaXterm759|
+|image3|
 
 **Setting up and SSH connection session to FEDGEN HPC CLUSTER**
 
@@ -47,7 +47,7 @@ Now, if you click the yellow star on the left panel, you should see a
 line in the 'User sessions' column named something like
 "allot.hpc.fedgen.net (Fedgen UserID)
 
-|Introduction to MobaXterm1362|
+|image4|
 
 Click this and you will be prompted to enter the password for your
 username, after which you will be logged into Allot login node.
@@ -67,7 +67,7 @@ interact with the sftp browser (see the figure below). Remember always
 to press the Refresh current folder button **after** you copied
 something or a new file or folder is created on the cluster.
 
-|Introduction to MobaXterm2126|
+|SFTP MobaXtermNew|
 
 .. |img!| image:: media/Introduction to MobaXterm441.png
    :width: 13.47847in
