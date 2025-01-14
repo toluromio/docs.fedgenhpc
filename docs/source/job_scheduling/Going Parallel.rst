@@ -1,4 +1,5 @@
 **Going parallel**
+--------------------
 
 There are several ways a **parallel job**, one that leverages multiple
 compute units (CPUs) at the same time, can be created.
