@@ -15,8 +15,9 @@ Check out ConRST :doc:`Code Check <userguide>`
 
 Contents
 --------
-WELCOME
+.. WELCOME
 .. toctree::
+   :maxdepth: 1
 index
 FEDGEN HPC Overview
 Dashboard
