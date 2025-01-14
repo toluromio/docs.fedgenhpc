@@ -21,3 +21,8 @@ Contents
    usage
    userguide
    api
+
+.. autosummary::
+   :toctree: generated
+
+   lumache
