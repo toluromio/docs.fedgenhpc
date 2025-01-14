@@ -343,21 +343,21 @@ simply cloning the repository you desire.
 
 For example, cloning the source of the make software:
 
-**[user@allor]$** git clone https://git.savannah.gnu.org/git/make.git
+**[user@allot]$** git clone https://git.savannah.gnu.org/git/make.git
 
 Git is installed on the clusters and can be used on any node and
 all `commands <https://blog.testproject.io/2021/03/22/git-commands-every-sdet-should-know/>`__ such
 as **push**, **pull** etc… are supported.
 
-.. |image1| image:: media/image2.png
+.. |image1| image:: media/Transferring_files_to_and_from_the_clusters8280.png
    :width: 6.525in
    :height: 4.63333in
-.. |image2| image:: media/image3.png
+.. |image2| image:: media/Transferring_files_to_and_from_the_clusters8701.png
    :width: 11.67708in
    :height: 6.88542in
-.. |IMG_258| image:: media/image4.png
+.. |IMG_258| image:: media/Transferring_files_to_and_from_the_clusters9148.png
    :width: 12.5625in
    :height: 8.22917in
-.. |IMG_256| image:: media/image5.png
+.. |IMG_256| image:: media/Transferring_files_to_and_from_the_clusters10687.png
    :width: 9.33333in
    :height: 5in
