@@ -18,7 +18,7 @@ Contents
 
 .. toctree::
 WELCOME
-About FEDGEN
+index
 FEDGEN HPC Overview
 Dashboard
 others/Contact Us
