@@ -1,4 +1,5 @@
 FEDGEN HPC Layout
+--------------------
 
 The FEDGEN HPC comprises of three different kinds of nodes: the login
 node, the compute/GPU nodes, and the storage nodes. In a typical
