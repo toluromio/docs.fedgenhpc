@@ -37,6 +37,7 @@ GETTING STARTED
 --------------------
 .. toctree::
    :maxdepth: 1
+
    access/Obtaining a FEDGEN HPC account
    access/Connect to the Cluster
    access/Working With An SSH Client
