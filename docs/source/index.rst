@@ -27,11 +27,11 @@ Contents
 
 FEDGEN HPC RESOURCES
 .. toctree::
-:maxdepth: 2
-fedgen_hpc_resources/FEDGEN HPC layout
-fedgen_hpc_resources/Cluster resources
-fedgen_hpc_resources/GPU resources
-fedgen_hpc_resources/Storage
+   :maxdepth: 2
+   fedgen_hpc_resources/FEDGEN HPC layout
+   fedgen_hpc_resources/Cluster resources
+   fedgen_hpc_resources/GPU resources
+   fedgen_hpc_resources/Storage
 
 
 GETTING STARTED
