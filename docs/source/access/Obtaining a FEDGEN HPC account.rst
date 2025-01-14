@@ -1,4 +1,5 @@
 **Obtaining a FEDGEN HPC account**
+------------------------------------
 
 You need an account on FEDGEN HPC cluster to have access and to submit
 jobs on the cluster.
