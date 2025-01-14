@@ -87,15 +87,15 @@ from `https://www.hivesystems.io <https://www.hivesystems.io/>`__
 *Fig. 2 *\ The 2019 annual SplashData password survey revealed the most
 common passwords from 2015 to 2019.
 
-.. |FedgenDC1-Welcome| image:: media/image1.png
+.. |FedgenDC1-Welcome| image:: media/Working_With_An_SSH_Client1337.png
    :width: 9.9375in
    :height: 2.88542in
-.. |Authenticity| image:: media/image2.png
+.. |Authenticity| image:: media/Working_With_An_SSH_Client1447.png
    :width: 8.34375in
    :height: 2.27083in
-.. |image1| image:: media/image3.jpeg
+.. |image1| image:: media/Working_With_An_SSH_Client2145.png
    :width: 9.78611in
    :height: 9.78611in
-.. |image2| image:: media/image4.png
+.. |image2| image:: media/Working_With_An_SSH_Client2628.png
    :width: 7.85in
    :height: 3.225in
