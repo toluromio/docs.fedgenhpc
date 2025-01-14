@@ -1,4 +1,5 @@
 **Managing & Monitoring jobs**
+---------------------------------
 
 The lifecycle of a job can be managed with as little as three different
 commands:
