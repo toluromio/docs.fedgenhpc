@@ -1,5 +1,5 @@
 Introduction to MobaXterm
-=========================
+--------------------------
 
 MobaXterm is a comprehensive terminal application with many features
 that provides remote computing tools such as SSH, RDP, X11, SFTP, FTP,
