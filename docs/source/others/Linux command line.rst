@@ -9,7 +9,7 @@ your home directory on a shell prompt (username@server:~$\_). The
 following are some of the commands for system operations via the shell
 
 **Man pages**
--------------
+=======================
 
 Man pages refers to manual pages on Linux. They provide the help guide
 for most commands and applications on linux. Most Linux files and
@@ -26,7 +26,7 @@ username@allot:~$ man syslogd (show the manual for a daemon (background
 program))
 
 **Working with directories**
-----------------------------
+=======================
 
 The Linux filesystem is based around files and directories. Users issue
 commands to navigate around the filesystem. The common file system
@@ -39,7 +39,7 @@ completion in the bash shell.
 .. _section-1:
 
 **pwd**
-~~~~~~~
+=======================
 
 The pwd (Print Working Directory) command basically displays the current
 directory you are in. This would appear as:
@@ -51,7 +51,7 @@ username@allot:~$ pwd
 .. _section-2:
 
 **cd**
-~~~~~~
+=======================
 
 On the command line cd (or change directory) changes your current
 directory to the one specified:
@@ -97,7 +97,7 @@ not useful for the cd command but is very useful for copying files to
 your current directory.
 
 **Absolute and relative paths**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=======================
 
 Important to note that When you type a path starting with a slash (/),
 then the root of the file tree is assumed. If you don't start your path
@@ -146,7 +146,7 @@ username@allot:~$ cd /home/user/myfiles
 .. _section-3:
 
 **ls**
-~~~~~~
+=======================
 
 This command lists the contents of a directory:
 
@@ -166,7 +166,7 @@ username@allot:~$ ls –la (combines both of the options above)
 .. _section-4:
 
 **mkdir**
-~~~~~~~~~
+=======================
 
 This commands creates a directory (folder) in the current (or specified)
 directory:
@@ -182,7 +182,7 @@ username@allot:~$ pwd
 .. _section-5:
 
 **rmdir**
-~~~~~~~~~
+=======================
 
 This command removes the specified directory, note the directory must be
 empty and must not be the directory you are currently in:
@@ -194,7 +194,7 @@ username@allot:~$ rmdir workdirectory1
 .. _section-7:
 
 **Working with files**
-----------------------
+=======================
 
 Working on the linux shell would require you to carry out file
 operations using commands to create, remove, copy, move and rename
@@ -214,7 +214,7 @@ be specified while executing any given command e.g. ls -l
 .. _section-8:
 
 **file**
-~~~~~~~~
+=======================
 
 This command determines the file type. Unlike Windows, Linux does not
 determine the file type from the extension but from examining the file
@@ -231,7 +231,7 @@ parallel.c: ASCII C program text
 .. _section-9:
 
 **touch**
-~~~~~~~~~
+=======================
 
 This creates an empty file, which can be useful for various uses.
 
@@ -242,7 +242,7 @@ username@allot:~$ ls
 newfile.c
 
 **rm**
-~~~~~~
+=======================
 
 Remove a file, as always be very careful with this command and without a
 backup, this file will be lost forever.
@@ -275,7 +275,7 @@ with **rm** (these can be view by typing **man rm**).
 .. _section-10:
 
 **cp**
-~~~~~~
+=======================
 
 Copy files or directories from a source to a destination:
 
@@ -299,7 +299,7 @@ with **cp** (these can be view by typing **man cp**).
 .. _section-11:
 
 **mv**
-~~~~~~
+=======================
 
 Move files from a source to a destination. A versatile command that can
 rename a file too:
@@ -312,7 +312,7 @@ username@allot:~$ mv file1.c /home/user/myrepo (mv file1.c to
 /home/user/myrepo/file1.c)
 
 **rename**
-~~~~~~~~~~
+=======================
 
 Although preferably to use the **mv** command, this command does exist
 to rename files
@@ -332,7 +332,7 @@ file1.backup file2.backup file3.backup
 .. _section-12:
 
 **Working with file contents**
-------------------------------
+=======================
 
 This section will look at working with file contents themselves, such
 commands
@@ -341,7 +341,7 @@ are **head**, **tail**, **cat**, **tac**, **more** and **less**.
 .. _section-13:
 
 **head**
-~~~~~~~~
+=======================
 
 By default, the head command will show the first ten lines of a file.
 
@@ -370,7 +370,7 @@ news:x:9:9:news:/var/spool/news:/bin/sh
 .. _section-14:
 
 **tail**
-~~~~~~~~
+=======================
 
 Similar to **head** but this time it will show the last 10 lines of the
 file by default.
@@ -396,7 +396,7 @@ fido 60179/tcp # fidonet EMSI over TCP
 .. _section-15:
 
 **cat**
-~~~~~~~
+=======================
 
 The **cat** command (short for concatenate) one of the most universal
 tools, yet all it does is copy standard input to standard output. In
@@ -417,7 +417,7 @@ into file3.all)
 .. _section-16:
 
 **tac**
-~~~~~~~
+=======================
 
 Works the same as **cat** but will show you the file backwards:
 
@@ -440,7 +440,7 @@ one
 .. _section-17:
 
 **more**
-~~~~~~~~
+=======================
 
 The more command is useful for displaying files that take up more than
 one screen. More will allow you to see the contents of the file page by
@@ -450,20 +450,20 @@ prefer the less command to more.
 .. _section-18:
 
 **less**
-~~~~~~~~
+=======================
 
 Very similar to more but with some additional features
 
 .. _section-19:
 
 **Basic Linux Tools**
----------------------
+=======================
 
 This chapter introduces commands to find or locate files and to compress
 files, together with other common tools that were not discussed before.
 
 **find**
-~~~~~~~~
+=======================
 
 This command is very useful to find files, more options are provided on
 the command line by typing **man find**. Here are some useful examples
@@ -485,7 +485,7 @@ put them in (pipe) to the file etcfiles.txt)
 .. _section-21:
 
 **date**
-~~~~~~~~
+=======================
 
 The **date** command can display the date, time, time zone, and more.
 
@@ -496,7 +496,7 @@ Tue Jan 14 12:18:58 PM WAT 2025
 .. _section-22:
 
 **cal**
-~~~~~~~
+=======================
 
 The **cal** command displays the current month, with the current day
 highlighted.
@@ -518,7 +518,7 @@ Su Mo Tu We Th Fr Sa
 24 25 26 27 28 29 30
 
 **sleep**
-~~~~~~~~~
+=======================
 
 The **sleep** command is sometimes used in scripts to wait a number of
 seconds. This example shows a five-second sleep.
@@ -530,7 +530,7 @@ username@allot:~$
 .. _section-23:
 
 **sort**
-~~~~~~~~
+=======================
 
 The command **sort** will sort lines of text files. By default, the
 output is to the screen but this can be piped to a file or another
@@ -547,7 +547,7 @@ cherry
 .. _section-24:
 
 **gzip – gunzip**
-~~~~~~~~~~~~~~~~~
+=======================
 
 This is a useful compression program (like **zip** which also exists in
 Linux). The **gzip** command can make files take up less space.
@@ -559,7 +559,7 @@ username@allot:~$ gunzip myfile.c.gz (will create myfile.c again)
 .. _section-25:
 
 **bzip2 – bunzip2**
-~~~~~~~~~~~~~~~~~~~
+=======================
 
 Files can also be compressed with **bzip2** which takes a little more
 time than **gzip**, but compresses better.
@@ -571,7 +571,7 @@ username@allot:~$ bunzip2 myfile.c.bz2 (will create myfile.c again)
 .. _section-26:
 
 **zip – unzip**
-~~~~~~~~~~~~~~~
+=======================
 
 A compression program which is compatible with other **zip** programs
 found in MS Windows and other OSes.
@@ -583,7 +583,7 @@ username@allot:~$ unzip myfile.c.zip (will create myfile.c again)
 .. _section-27:
 
 **grep**
-~~~~~~~~
+=======================
 
 The **grep** filter is famous among Linux (and UNIX) users. The most
 common use of **grep** is to filter lines of text containing (or not
@@ -607,7 +607,7 @@ containing “Word”)
 .. _section-28:
 
 **wc**
-~~~~~~
+=======================
 
 Counting words, lines, and characters are easy with **wc**.
 
@@ -619,10 +619,10 @@ characters)
 .. _section-29:
 
 **File Permissions**
---------------------
+=======================
 
 **Introduction**
-~~~~~~~~~~~~~~~~
+=======================
 
 Similar to many other operating systems Linux uses a method of access
 rights on files and directories. These can be view by using the ls
@@ -686,7 +686,7 @@ Using the example above would mean:
   ‘execution’ permission set for that user also.
 
 **Changing access rights**
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+=======================
 
 This command allows the user to change file (and directory) permissions.
 
