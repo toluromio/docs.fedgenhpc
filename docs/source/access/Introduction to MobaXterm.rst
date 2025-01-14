@@ -81,7 +81,7 @@ something or a new file or folder is created on the cluster.
 .. |image3| image:: media/Introduction_to_MobaXterm759.png
    :width: 12.20069in
    :height: 6.70833in
-.. |image4| image:: media/Introduction_to_MobaXterm1362.jpeg
+.. |image4| image:: media/Introduction_to_MobaXterm1362.png
    :width: 11.975in
    :height: 8.125in
 .. |SFTP MobaXtermNew| image:: media/Introduction_to_MobaXterm2126.png
