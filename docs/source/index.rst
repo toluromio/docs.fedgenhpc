@@ -13,11 +13,10 @@ Check out ConRST :doc:`Code Check <userguide>`
 
    This project is under active development.
 
-WELCOME
---------
+::WELCOME
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 
    index
    FEDGEN HPC Overview
    Dashboard
@@ -28,7 +27,7 @@ WELCOME
 FEDGEN HPC RESOURCES
 --------------------
 .. toctree::
-   :maxdepth: 2
+   
       fedgen_hpc_resources/FEDGEN HPC layout
       fedgen_hpc_resources/Cluster resources
       fedgen_hpc_resources/GPU resources
@@ -48,7 +47,7 @@ GETTING STARTED
 JOB SCHEDULING
 --------------------
 .. toctree::
-   :maxdepth: 4
+   
    job_scheduling/Resource Manager
    job_scheduling/SLURM Workload ManagerMain
    job_scheduling/Scheduling Jobs
