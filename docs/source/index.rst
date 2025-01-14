@@ -18,7 +18,10 @@ Contents
 
 .. toctree::
 
-   usage
+   access/Connect to the Cluster
+   access/Introduction to MobaXterm
+   access/Obtaining a FEDGEN HPC account
+   access/Working With An SSH Client
    userguide
    api
 
