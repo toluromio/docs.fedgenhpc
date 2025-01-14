@@ -16,6 +16,6 @@ Happy researching!
 
 |IMG_256|
 
-.. |IMG_256| image:: media/Contact517.jpeg
+.. |IMG_256| image:: media/Contact517.png
    :width: 5.33542in
    :height: 3.93194in
