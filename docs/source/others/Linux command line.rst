@@ -1,4 +1,5 @@
 **Linux command line Basics**
+-----------------------------------
 
 The command line in Linux is referred to as a shell. The shell is a
 program that allows the user to interact with Linux at the command line.
