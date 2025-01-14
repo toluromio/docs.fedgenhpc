@@ -179,12 +179,12 @@ Enter the Token to Access the Interface
 
 **Run JupyterLab Interactively**
 
-.. |image1| image:: media/image1.png
+.. |image1| image:: media/Jupyter_Lab3021.png
    :width: 12.51042in
    :height: 7.53125in
-.. |image2| image:: media/image2.png
+.. |image2| image:: media/Jupyter_Lab_Notebook3279.png
    :width: 12.16667in
    :height: 7.85417in
-.. |image3| image:: media/image3.png
+.. |image3| image:: media/Jupyter_Notebook3325.png
    :width: 13.1875in
    :height: 8.98958in
