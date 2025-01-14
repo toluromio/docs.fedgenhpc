@@ -1,4 +1,5 @@
 **Making your files safe**
+--------------------------
 
 Your data on FEDGEN HPC cluster is stored on arrays of redundant SSD
 disks (RAID) to ensure data protection in the face of hardware failures,
