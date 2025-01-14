@@ -1,4 +1,5 @@
 **Connect to the Cluster**
+--------------------------
 
 Once you have received an email confirming the creation of your
 Fedgen-UserID, you have access to the FEDGEN HPC Cluster.
