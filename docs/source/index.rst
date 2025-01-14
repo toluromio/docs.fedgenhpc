@@ -36,7 +36,7 @@ FEDGEN HPC RESOURCES
 GETTING STARTED
 --------------------
 .. toctree::
-
+   :maxdepth: 1
    access/Obtaining a FEDGEN HPC account
    access/Connect to the Cluster
    access/Working With An SSH Client
@@ -64,6 +64,6 @@ APPLICATIONS
 --------------------
 .. toctree::
    
-   others/Juoyter
+   others/Jupyter
    job_scheduling/Applications
 
