@@ -36,7 +36,7 @@ FEDGEN HPC RESOURCES
 
 GETTING STARTED
 .. toctree::
-:maxdepth: 2
+   :maxdepth: 2
    access/Obtaining a FEDGEN HPC account
    access/Connect to the Cluster
    access/Working With An SSH Client
@@ -46,7 +46,7 @@ GETTING STARTED
    
 JOB SCHEDULING
 .. toctree::
-:maxdepth: 2
+   :maxdepth: 2
    job_scheduling/Resource Manager
    job_scheduling/SLURM Workload ManagerMain
    job_scheduling/Scheduling Jobs
