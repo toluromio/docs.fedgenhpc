@@ -25,10 +25,10 @@ It is based on the FTP protocol with included SSH security components.
 
 **Hint**
 
-If you need to move large files (e.g. larger than a gigabyte) from one
-remote machine to the cluster you should SSH in to the computer hosting
-the files and use scp or rsync to transfer over to the other directly as
-this will usually be quicker and more reliable.
+   If you need to move large files (e.g. larger than a gigabyte) from one
+   remote machine to the cluster you should SSH in to the computer hosting
+   the files and use scp or rsync to transfer over to the other directly as
+   this will usually be quicker and more reliable.
 
 SCP/SFTP can be done directly on the command-line or through GUI
 Applications. SCP/SFTP GUI Applications for Windows, Linux and MacOS are
@@ -36,25 +36,25 @@ listed below;
 
 **Windows machines**
 
-1. WinSCP - Opens Source GUI Secure File Transfer Protocol (sFTP) Clinet
+   1. WinSCP - Opens Source GUI Secure File Transfer Protocol (sFTP) Clinet
+   
+   2. `MobaXterm <https://sites.google.com/a/case.edu/hpcc/hpc-cluster/hpc-visual-access/mobaxterm?authuser=0>`__ -
+      It has visual enabled SSH, SFTP, RDP sessions under a single hood to
+      enable easy file transfer and remote desktop
 
-2. `MobaXterm <https://sites.google.com/a/case.edu/hpcc/hpc-cluster/hpc-visual-access/mobaxterm?authuser=0>`__ -
-   It has visual enabled SSH, SFTP, RDP sessions under a single hood to
-   enable easy file transfer and remote desktop
-
-3. FileZilla - Open Source GNU/GPL FTP Clinet
+   3. FileZilla - Open Source GNU/GPL FTP Clinet
 
 **Mac machines**
 
-1. Cyberduck
-
-2. FileZilla
+   1. Cyberduck
+   
+   2. FileZilla
 
 **For Linux:**
 
-1. Cyberduck
-
-2. FileZilla
+   1. Cyberduck
+   
+   2. FileZilla
 
 **Use Command-line SCP to transfer single files (Windows/Linux/MacOS)**
 
