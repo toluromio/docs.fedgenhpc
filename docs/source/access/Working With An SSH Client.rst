@@ -27,11 +27,12 @@ done.
 For Robust Terminal experience, Alternatives include
 `Termius <https://termius.com/>`__ and `iTerm2 <https://iterm2.com/>`__
 
-Connect to the login node from the terminal:
+Connect to the login node from your terminal:
+=============================================
 
 Type the following on the command-line
 
-.. codeblock:
+.. codeblock::
 
       ssh username@allot.hpc.fedgen.net
 
@@ -39,7 +40,7 @@ First time login users will be prompted to change their password.
 Passwords must adhere to standard complexity requirements.
 
 The more complex the password, the more robust it is against brute
-force.
+force. see **password section** below
 
 If everything worked properly, you should be greeted by a message
 similar to
@@ -48,8 +49,8 @@ similar to
 
 **Note**
 
-Upon your very first connection to each FEDGEN HPC Cluster, you will be
-greeted by a warning such as:
+      Upon your very first connection to each FEDGEN HPC Cluster, you will be
+      greeted by a warning such as:
 
 |Authenticity|
 
@@ -64,7 +65,13 @@ If they match, you are safe to proceed and enter **yes**. That hostname
 key will be stored and used to check in every subsquent SSH connection
 that the server is indeed always the same.
 
+Using Secured Passwords
+===========================
+
 |image1|
+
+
+
 
 *Fig. 1 *\ Time to brute force a password in 2023 as a function of
 length and complexity. Credit: Hive Systems with data sourced
