@@ -8,6 +8,7 @@ configuration in memory capacity or number of CPUs. All the nodes share
 resources over networks for storage and cluster communication
 
 **Resource Manager**
+=====================
 
 FEDGEN HPC Uses SLURM Resource and Queue Manager Software to manage
 Cluster Resources. Jobs submitted to SLURM job queue can run on any
@@ -18,10 +19,12 @@ SLURM scheduler will assign the job to an appropriate node or set of
 nodes.
 
 **Operating Software**
+==========================
 
 FEDGEN HPC Cluster currently runs on *Ubuntu 22.04* .
 
 **Node Info**
+===============
 
 +--------------+------------+---------------------------+-------+---------+-----------+------------------------------------------+----------------+------------+
 | Cluster Type | Node Count | Processors (Architecture) | Cores | Memory  | Disk Size | GPUs (Number)                            | Node Name      | Model      |
@@ -41,11 +44,13 @@ FEDGEN HPC Cluster currently runs on *Ubuntu 22.04* .
 +--------------+------------+---------------------------+-------+---------+-----------+------------------------------------------+----------------+------------+
 
 **Networks**
+==================
 
 All nodes are connected to a 10Gb Ethernet network for Cluster
 Communications as well as a **10Gbps** to storage node
 
 **Storage**
+===============
 
 - Local Scratch space ~ 412GB High Speed SSD Drive (Available on each
   Node)
