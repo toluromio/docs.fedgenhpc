@@ -108,10 +108,14 @@ is the following:
 
 With Intel MPI, We recommend using srun:
 
-$ srun --mpi=pmi2 ./my_application
+.. code-block:: python
+
+    $ srun --mpi=pmi2 ./my_application
 
 **OpenMPI**
 
 With OpenMPI, we recommend using mpirun:
 
-$ mpirun ./my_application
+.. code-block:: python
+
+    $ mpirun ./my_application
