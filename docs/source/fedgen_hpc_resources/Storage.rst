@@ -13,20 +13,20 @@ to store files. These disk spaces have different properties and each of
 them is designed to best fit different usage intents. They are listed in
 the table below.
 
-+----------+--------+-----------------+---------------------+--------+
-| **Disk   | **S    | **Environment   | **Lifetime**        | **     |
-| space**  | cope** | variables**     |                     | Filesy |
-|          |        |                 |                     | stem** |
-+==========+========+=================+=====================+========+
-| fe       | c      | $FEDGENHOME     | cluster or account  | NFS    |
-| dgenhome | luster |                 | lifetime            |        |
-+----------+--------+-----------------+---------------------+--------+
-| fedge    | c      | $FEDGENSCRATCH  | 1 month             | NFS    |
-| nscratch | luster |                 |                     |        |
-+----------+--------+-----------------+---------------------+--------+
-| fed      | node   | $FEDGENLOCAL    | job lifetime        | NFS    |
-| genlocal |        |                 |                     |        |
-+----------+--------+-----------------+---------------------+--------+
++-----------+------+----------------+------------------+-------------+
+| **Disk    | *    | **Environment  | **Lifetime**     | **F         |
+| space**   | *Sco | variables**    |                  | ilesystem** |
+|           | pe** |                |                  |             |
++===========+======+================+==================+=============+
+| f         | clu  | $FEDGENHOME or | cluster or       | NFS         |
+| edgenhome | ster | $HOME          | account lifetime |             |
++-----------+------+----------------+------------------+-------------+
+| fedg      | clu  | $FEDGENSCRATCH | 1 month          | NFS         |
+| enscratch | ster |                |                  |             |
++-----------+------+----------------+------------------+-------------+
+| fe        | node | $FEDGENLOCAL   | job lifetime     | NFS         |
+| dgenlocal |      |                |                  |             |
++-----------+------+----------------+------------------+-------------+
 
 The ‘Scope’ column indicates from where the disk space is accessible. A
 scope of ‘cluster’ means all compute nodes and frontend in the cluster
