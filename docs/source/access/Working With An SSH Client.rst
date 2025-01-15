@@ -6,15 +6,18 @@ already have ssh client inbuilt; however there are other ssh
 applications with added features that offers better experience.
 
 **Windows**
+
 Microsoft Windows does offer ssh which is accessible through Powershell
 or the CMD.
 Users have the alternative of `putty <https://www.putty.org/>`__ and
 `MobaXterm <https://mobaxterm.mobatek.net/>`__.
 
 **Linux**
+
 Linux offers a command line terminal by default
 
 **MacOS**
+
 MacOS includes a built-in terminal window, there's nothing to install.
 Just open the terminal app and type your SSH command. The default
 terminal app doesn't offer many bells and whistles but it gets the job
