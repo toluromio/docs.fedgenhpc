@@ -83,4 +83,4 @@ Communications as well as a **10Gbps** to storage node
   from storage node
 
 For more details
-see `Storage <https://scihpc.ir/docs/storage/storage/>`__ section.
+see `Storage <Storage>`__ section.
