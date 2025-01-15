@@ -6,7 +6,7 @@
 Here’s a list of some commonly used user commands. See Slurm `man
 pages <https://slurm.schedmd.com/man_index.html>`__ for a complete list
 of commands or download
-the `command summary PDF <https://usp-hpc.readthedocs.io/en/latest/_downloads/ed645709b8b700878a7e0385574b6c60/summary.pdf>`__.
+the `command summary PDF <media/summary.pdf>`__.
 Note that all Slurm commands start with **‘s’**.
 
 +------------------------+---------------------------------------------+
