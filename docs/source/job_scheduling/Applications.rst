@@ -6,6 +6,7 @@ and Easybuild package managers. Software packages have to be activated
 or deactivated through ‘Modules’ before program execution.
 
 **Environment Variables**
+==============================
 
 The program environment on the HPC is controlled by pre-defined
 settings, which are stored in environment (or shell) variables. All the
@@ -14,6 +15,7 @@ different settings. These packages include compilers, interpreters,
 scientific software as well as other applications and libraries.
 
 **The module command**
+==========================
 
 In order to administer the active software and their environment
 variables, the module system:
@@ -99,6 +101,7 @@ letters matter in module names.
 
 
 **Organisation of modules in toolchains**
+============================================
 
 The amount of modules on the system can be overwhelming, and it is not
 always immediately clear which modules can be loaded safely together if
@@ -122,6 +125,7 @@ with the same toolchain name and version can work together without
 conflicts.
 
 **Loading and unloading modules**
+=======================================
 
 **module load**
 
@@ -252,6 +256,7 @@ clean state, you can use:
 
 
 **Using explicit version numbers**
+======================================
 
 Once a module has been installed on the cluster, the executables or
 libraries it comprises are never modified. This policy ensures that the
@@ -327,6 +332,7 @@ With the module spider command, you can search for modules:
       --------------------------------------------------------------------------------
 
 **Save and load collections of modules**
+===============================================
 
 If you have a set of modules that you need to load often, you can save
 these in a *collection*. This will enable you to load all the modules
@@ -387,6 +393,7 @@ To remove a collection, remove the corresponding file in $HOME/.lmod.d/:
       rm $HOME/.lmod.d/my-collection
 
 **Getting module details**
+======================================
 
 To see how a module would change the environment, you can use the module
 show command:
