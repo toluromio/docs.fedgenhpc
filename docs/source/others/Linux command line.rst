@@ -357,16 +357,13 @@ tools, yet all it does is copy standard input to standard output. In
 combination with the shell, this can be very powerful and diverse. Some
 examples will give a glimpse into the possibilities.
 
-username@allot:~$ cat /etc/resolv.conf
+.. code-block:: python
 
-domain example.com
-
-search example.com
-
-nameserver 192.168.1.42
-
-username@allot:~$ cat file1.c file2.c >file3.all (concatenate c files
-into file3.all)
+    username@allot:~$ cat /etc/resolv.conf
+    domain example.com
+    search example.com
+    nameserver 192.168.1.42
+    username@allot:~$ cat file1.c file2.c >file3.all (concatenate c files into file3.all)
 
 .. _section-16:
 
@@ -375,21 +372,18 @@ into file3.all)
 
 Works the same as **cat** but will show you the file backwards:
 
-username@allot:~$ cat numbers
+.. code-block:: python
 
-one
+        username@allot:~$ cat numbers
+        one
+        two
+        three
+        
+        username@allot:~$ tac numbers
+        three
+        two
+        one
 
-two
-
-three
-
-username@allot:~$ tac numbers
-
-three
-
-two
-
-one
 
 .. _section-17:
 
@@ -423,16 +417,12 @@ This command is very useful to find files, more options are provided on
 the command line by typing **man find**. Here are some useful examples
 below:
 
+.. code-block:: python
+
 username@allot:~$ find /etc (find all files in the /etc directory)
-
-username@allot:~$ find . –name “\*.conf” (find all files that end in
-.conf from the current directory)
-
-username@allot:~$ find . –newer file1.c (find all files newer than
-file1.c)
-
-username@allot:~$ find /etc >etcfiles.txt (find all files but this time
-put them in (pipe) to the file etcfiles.txt)
+username@allot:~$ find . –name “\*.conf” (find all files that end in .conf from the current directory)
+username@allot:~$ find . –newer file1.c (find all files newer than file1.c)
+username@allot:~$ find /etc >etcfiles.txt (find all files but this time put them in (pipe) to the file etcfiles.txt)
 
 .. _section-20:
 
@@ -443,9 +433,10 @@ put them in (pipe) to the file etcfiles.txt)
 
 The **date** command can display the date, time, time zone, and more.
 
-username@allot:~$ date
+.. code-block:: python
 
-Tue Jan 14 12:18:58 PM WAT 2025
+        username@allot:~$ date
+        Tue Jan 14 12:18:58 PM WAT 2025
 
 .. _section-22:
 
@@ -455,21 +446,15 @@ Tue Jan 14 12:18:58 PM WAT 2025
 The **cal** command displays the current month, with the current day
 highlighted.
 
-username@allot:~$ cal
-
-April 2022
-
-Su Mo Tu We Th Fr Sa
-
-1 2
-
-3 4 5 6 7 8 9
-
-10 11 12 13 14 15 16
-
-17 18 19 20 21 22 23
-
-24 25 26 27 28 29 30
+.. code-block:: python
+        username@allot:~$ cal
+        April 2022
+        Su Mo Tu We Th Fr Sa
+                        1 2
+        3 4 5 6 7 8 9
+        10 11 12 13 14 15 16
+        17 18 19 20 21 22 23
+        24 25 26 27 28 29 30
 
 **sleep**
 =======================
@@ -477,9 +462,10 @@ Su Mo Tu We Th Fr Sa
 The **sleep** command is sometimes used in scripts to wait a number of
 seconds. This example shows a five-second sleep.
 
-username@allot:~$ sleep 5 (five seconds later)
+.. code-block:: python
 
-username@allot:~$
+        username@allot:~$ sleep 5 (five seconds later)
+        username@allot:~$
 
 .. _section-23:
 
@@ -490,13 +476,12 @@ The command **sort** will sort lines of text files. By default, the
 output is to the screen but this can be piped to a file or another
 program.
 
-username@allot:~$ sort myfile.txt
+.. code-block:: python
 
-apple
-
-banana
-
-cherry
+        username@allot:~$ sort myfile.txt
+        apple
+        banana
+        cherry
 
 .. _section-24:
 
@@ -506,9 +491,10 @@ cherry
 This is a useful compression program (like **zip** which also exists in
 Linux). The **gzip** command can make files take up less space.
 
-username@allot:~$ gzip myfile.c (will create myfile.c.gz)
+.. code-block:: python
 
-username@allot:~$ gunzip myfile.c.gz (will create myfile.c again)
+        username@allot:~$ gzip myfile.c (will create myfile.c.gz)
+        username@allot:~$ gunzip myfile.c.gz (will create myfile.c again)
 
 .. _section-25:
 
@@ -518,9 +504,10 @@ username@allot:~$ gunzip myfile.c.gz (will create myfile.c again)
 Files can also be compressed with **bzip2** which takes a little more
 time than **gzip**, but compresses better.
 
-username@allot:~$ bzip2 myfile.c (will create myfile.c.bz2)
+.. code-block:: python
 
-username@allot:~$ bunzip2 myfile.c.bz2 (will create myfile.c again)
+        username@allot:~$ bzip2 myfile.c (will create myfile.c.bz2)
+        username@allot:~$ bunzip2 myfile.c.bz2 (will create myfile.c again)
 
 .. _section-26:
 
@@ -530,9 +517,10 @@ username@allot:~$ bunzip2 myfile.c.bz2 (will create myfile.c again)
 A compression program which is compatible with other **zip** programs
 found in MS Windows and other OSes.
 
-username@allot:~$ zip myfile.c (will create myfile.c.zip)
+.. code-block:: python
 
-username@allot:~$ unzip myfile.c.zip (will create myfile.c again)
+        username@allot:~$ zip myfile.c (will create myfile.c.zip)
+        username@allot:~$ unzip myfile.c.zip (will create myfile.c again)
 
 .. _section-27:
 
@@ -543,20 +531,19 @@ The **grep** filter is famous among Linux (and UNIX) users. The most
 common use of **grep** is to filter lines of text containing (or not
 containing) a certain string.
 
-username@allot:~$ grep “word” /folder/file
+.. code-block:: python
+
+        username@allot:~$ grep “word” /folder/file
 
 As with most Linux commands, there are also a large number of useful
 options that will go with each command and **grep** is certainly no
 exception here
 
-username@allot:~$ grep –i “Word” /folder/file (search in a case
-insensitive way)
+.. code-block:: python
 
-username@allot:~$ grep –r “Word” /folder/folder (search recursively down
-any directories too)
-
-username@allot:~$ grep –v “Word” /folder/file (search for everything not
-containing “Word”)
+        username@allot:~$ grep –i “Word” /folder/file (search in a case insensitive way)
+        username@allot:~$ grep –r “Word” /folder/folder (search recursively down any directories too)
+        username@allot:~$ grep –v “Word” /folder/file (search for everything not containing “Word”)
 
 .. _section-28:
 
@@ -565,8 +552,9 @@ containing “Word”)
 
 Counting words, lines, and characters are easy with **wc**.
 
-username@allot:~$ wc myfile.c (show number of words, lines, and
-characters)
+.. code-block:: python
+    
+    username@allot:~$ wc myfile.c (show number of words, lines, and characters)
 
 5 10 100 tennis.txt
 
@@ -582,23 +570,18 @@ Similar to many other operating systems Linux uses a method of access
 rights on files and directories. These can be view by using the ls
 command
 
-username@allot:~$ ls –l (option l is for long listing)
+.. code-block:: python
 
--rwx--x--x 1 hpcuser001 hpcuser001 68 Jan 14 12:15 newfile.sh
+username@allot:~$ ls –l   (option l is for long listing)
 
--rwxr-xr-x 1 hpcuser001 hpcuser001 265 Jan 13 11:45
-script_slurm_hostname.sh
+        -rwx--x--x 1 hpcuser001 hpcuser001   68 Jan 14 12:15 newfile.sh
+        -rwxr-xr-x 1 hpcuser001 hpcuser001  265 Jan 13 11:45 script_slurm_hostname.sh
+        -rwx------ 1 hpcuser001 hpcuser001  235 Jan 13 12:49 script_slurm_jupyterlab.sh
+        -rw--r--r-- 1 hpcuser001 hpcuser001  147 Jan 13 11:50 slurm-778.out
+        -rwx------ 1 hpcuser001 hpcuser001 3415 Jan 13 11:54 slurm-779.out
+        -rwx------ 1 hpcuser001 hpcuser001 2580 Jan 13 12:51 slurm-787.out
+        drwx------ 2 hpcuser001 hpcuser001    2 Jan 14 12:12 workdirectory1
 
--rwx------ 1 hpcuser001 hpcuser001 235 Jan 13 12:49
-script_slurm_jupyterlab.sh
-
--rw--r--r-- 1 hpcuser001 hpcuser001 147 Jan 13 11:50 slurm-778.out
-
--rwx------ 1 hpcuser001 hpcuser001 3415 Jan 13 11:54 slurm-779.out
-
--rwx------ 1 hpcuser001 hpcuser001 2580 Jan 13 12:51 slurm-787.out
-
-drwx------ 2 hpcuser001 hpcuser001 2 Jan 14 12:12 workdirectory1
 
 Each file and directory has access rights that are associated with each
 one. When we look at the 10 symbol string above on the left-hand side
@@ -645,46 +628,38 @@ Using the example above would mean:
 This command allows the user to change file (and directory) permissions.
 
 - u User
-
 - g Group
-
 - o Other
-
 - a All
-
 - r Read
-
 - w Write (and erase)
-
 - x Execution (and access directory
-
 - + Add permission
-
 - - Remove permission
 
-username@allot:~$ chmod go-rwx myfile.c (remove read, write and execute
-permissions removed for group and other)
+.. code-block:: python
 
-username@allot:~$ chmod u+x myapp.pl (make the program myapp.pl
-executable to the user (i.e. the owner of the file))
+        username@allot:~$ chmod go-rwx myfile.c (remove read, write and execute permissions removed for group and other)
+        username@allot:~$ chmod u+x myapp.pl (make the program myapp.pl executable to the user (i.e. the owner of the file))
 
 **Text editing**
 
 In order to edit files on linux terminal, programs such as vim, emacs,
 nano can be used.
 
-username@allot:~$ nano myfile1.c (opens a new file in the nano text
-editor)
+.. code-block:: python
+
+        username@allot:~$ nano myfile1.c (opens a new file in the nano text editor)
 
 **Environment variables**
 
 The following variables are automatically available after you log in:
 
-$USER your account name
+.. code-block:: python
 
-$HOME your home directory
-
-$PWD your current directory
+        $USER your account name
+        $HOME your home directory
+        $PWD your current directory
 
 You can use these variables on the command line or in shell scripts by
 typing $USER, $HOME, etc. For instance: ‘echo $USER’. A complete listing
@@ -693,7 +668,9 @@ of the defined variables and their meanings can be obtained by typing
 
 You can define (and redefine) your own variables by typing:
 
-export VARIABLE=VALUE
+.. code-block:: python
+
+        export VARIABLE=VALUE
 
 **Aliases**
 
@@ -703,7 +680,9 @@ your ~/.bashrc file. For example, if you normally prefer a long listing
 of the contents of a directory with the command ‘ls -laF \| more’, you
 can put following line in your ~/.bashrc file:
 
-alias ll='ls -laF \| more'
+.. code-block:: python
+
+        alias ll='ls -laF \| more'
 
 You must run ‘source ~/.bashrc’ to update your environment and to make
 the alias effective, or log out and in :-). From then on, the command
@@ -712,9 +691,11 @@ abbreviation is not already an existing command, otherwise you may get
 unexpected (and unwanted) behavior. You can check the existence and
 location of a program, script, or alias by typing:
 
-which [command]
+.. code-block:: python
 
-whereis [command]
+        which [command]
+        whereis [command]
+
 
 **~/bin**
 
@@ -724,10 +705,10 @@ that you use in many different directories, you can create a directory
 already exist, you can do the following. Suppose your favorite little
 program is called ‘myscript’ and is in your home ($HOME) directory:
 
+.. code-block:: python
+
 mkdir -p $HOME/bin
-
 cp myscript $HOME/bin
-
 export PATH=$PATH:$HOME/bin
 
 PATH is a colon-separated list of directories that are searched in the
@@ -744,6 +725,7 @@ Make sure that the names of the programs/scripts are not already
 existing commands, otherwise you may get unexpected (and unwanted)
 behaviour. You can check the contents of the PATH variable by typing:
 
-printenv PATH
+.. code-block:: python
 
-echo $PATH
+        printenv PATH
+        echo $PATH
