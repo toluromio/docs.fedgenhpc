@@ -61,18 +61,22 @@ listed below;
 From the local computer, open a terminal window and run the following
 command
 
-- |  Local Computer to Allot
-  | **[user@laptop ~]$** scp /path/to/local/file
-    username@allot.hpc.fedgen.net:/path/to/remote/directory
+**Local Computer to Allot**
+
+.. code-block:: python
+
+  [user@laptop ~]$** scp /path/to/local/file username@allot.hpc.fedgen.net:/path/to/remote/directory
 
 Replace /path/to/local/file with the path to the file on your local
 machine, username with your username on the cluster,
 and /path/to/remote/directory with the path to the remote directory
 where you want to store the file.
 
-- |  Allot to local Computer
-  | **[user@laptop ~]$** scp
-    username@allot.hpc.fedgen.net:/file/to/copy/filename .
+**Allot to local Computer**
+
+.. code-block:: python
+
+  | **[user@laptop ~]$** scp username@allot.hpc.fedgen.net:/file/to/copy/filename .
 
 There will be a prompt for a authentication.
 
