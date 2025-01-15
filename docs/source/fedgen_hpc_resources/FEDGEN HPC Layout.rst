@@ -6,7 +6,7 @@ node, the compute, accelerator nodes, the management nodes and the storage nodes
 workflow, users primarily access FEDGEN HPC by connecting to the login
 node, where they compile and test code before submitting jobs to
 the `SLURM
-queue <job_scheduling/SLURM Workload ManagerMAIN.rst>`__
+queue <../job_scheduling/SLURM Workload ManagerMAIN.rst>`__
 which automatically assigns a compute node(s) to the submitted job. This
 HPC layout is in the diagram below.
 
