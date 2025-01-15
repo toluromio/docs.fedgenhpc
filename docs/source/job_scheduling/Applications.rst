@@ -42,19 +42,13 @@ The main options for the module command are:
 
 .. code-block:: python
 
-      module avail **\|** av list available software (modules)
-
-module load **\|** add [module] set up the environment to use the
-software
-
-.. code-block:: python
-
-      module list list currently loaded software
-      module purge clears the environment
-      module spider list all possible modules
-      module show show the commands **in** the module file
-      module help get help
-      
+      module  avail | av            list available software (modules)
+      module  load | add [module]   set up the environment to use the software
+      module  list                  list currently loaded software
+      module  purge                 clears the environment
+      module  spider                list all possible modules
+      module  show                  show the commands in the module file
+      module  help                  get help
 
 **Available modules**
 
@@ -150,16 +144,15 @@ modules;
 
 .. code-block:: python
 
-      OpenMPI\ **/**\ 2.1\ **.**\ 1\ **-**\ GCC\ **-**\ 6.4\ **.**\ 0\ **-**\ 2.28
-      OpenMPI\ **/**\ 2.1\ **.**\ 1\ **-**\ iccifort\ **-**\ 2017.4\ **.**\ 196\ **-**\ GCC\ **-**\ 6.4\ **.**\ 0\ **-**\ 2.28
-      OpenMPI\ **/**\ 3.1\ **.**\ 1\ **-**\ GCC\ **-**\ 7.3\ **.**\ 0\ **-**\ 2.30
+      OpenMPI/2.1.1-GCC-6.4.0-2.28
+      OpenMPI/2.1.1-iccifort-2017.4.196-GCC-6.4.0-2.28
+      OpenMPI/3.1.1-GCC-7.3.0-2.30
 
 then with the command
 
 .. code-block:: python
 
-   module load
-   OpenMPI\ **/**\ 2.1\ **.**\ 1\ **-**\ GCC\ **-**\ 6.4\ **.**\ 0\ **-**\ 2.28
+      module load OpenMPI/2.1.1-GCC-6.4.0-2.28
 
 you will enable OpenMPI version 2.1.1 compiled with GCC version 6.4.0.
 The naming convention for the available modules is always of the
@@ -175,7 +168,9 @@ equivalent to module load example/1.2.3.
 Modules need not be loaded one by one; the two module load commands can
 be combined as follows:
 
-module load example/1.2.3 secondexample/4.5.6-intel-2023a
+.. code-block:: python
+
+      module load example/1.2.3 secondexample/4.5.6-intel-2023a
 
 This will load the two modules as well as their dependencies (unless
 there are conflicts between both modules).
@@ -186,29 +181,19 @@ Obviously, you need to be able to keep track of the modules that are
 currently loaded. Assuming you have run the module load commands stated
 above, you will get the following:
 
-$ module list
+.. code-block:: python
 
-Currently Loaded Modules:
+      $ module list
+      Currently Loaded Modules:
+        1) env/vsc/<cluster>              (S)   7) binutils/2.40-GCCcore-12.3.0            13) iimpi/2023a
+        2) env/slurm/<cluster>            (S)   8) intel-compilers/2023.1.0                14) imkl-FFTW/2023.1.0-iimpi-2023a
+        3) env/software/<cluster>         (S)   9) numactl/2.0.16-GCCcore-12.3.0           15) intel/2023a
+        4) cluster/<cluster>              (S)  10) UCX/1.14.1-GCCcore-12.3.0               16) secondexample/4.5.6-intel-2023a
+        5) GCCcore/12.3.0                      11) impi/2021.9.0-intel-compilers-2023.1.0  17) example/1.2.3
+        6) zlib/1.2.13-GCCcore-12.3.0          12) imkl/2023.1.0
 
-1) env/vsc/<cluster> (S) 7) binutils/2.40-GCCcore-12.3.0 13) iimpi/2023a
-
-2) env/slurm/<cluster> (S) 8) intel-compilers/2023.1.0 14)
-imkl-FFTW/2023.1.0-iimpi-2023a
-
-3) env/software/<cluster> (S) 9) numactl/2.0.16-GCCcore-12.3.0 15)
-intel/2023a
-
-4) cluster/<cluster> (S) 10) UCX/1.14.1-GCCcore-12.3.0 16)
-secondexample/4.5.6-intel-2023a
-
-5) GCCcore/12.3.0 11) impi/2021.9.0-intel-compilers-2023.1.0 17)
-example/1.2.3
-
-6) zlib/1.2.13-GCCcore-12.3.0 12) imkl/2023.1.0
-
-Where:
-
-S: Module is Sticky, requires --force to unload or purge
+     Where:
+      S:  Module is Sticky, requires --force to unload or purge
 
 You can also just use the ml command without arguments to list loaded
 modules.
@@ -231,30 +216,22 @@ However, the dependencies of the package are NOT automatically unloaded;
 you will have to unload the packages one by one. When the example module
 is unloaded, only the following modules remain:
 
-$ module unload example
+.. code-block:: python
 
-$ module list
+      $ module unload example
+   
+      $ module list
 
-Currently Loaded Modules:
-
-1) env/vsc/<cluster> (S) 7) binutils/2.40-GCCcore-12.3.0 13) iimpi/2023a
-
-2) env/slurm/<cluster> (S) 8) intel-compilers/2023.1.0 14)
-imkl-FFTW/2023.1.0-iimpi-2023a
-
-3) env/software/<cluster> (S) 9) numactl/2.0.16-GCCcore-12.3.0 15)
-intel/2023a
-
-4) cluster/<cluster> (S) 10) UCX/1.14.1-GCCcore-12.3.0 16)
-secondexample/4.5.6-intel-2023a
-
-5) GCCcore/12.3.0 11) impi/2021.9.0-intel-compilers-2023.1.0
-
-6) zlib/1.2.13-GCCcore-12.3.0 12) imkl/2023.1.0
-
-Where:
-
-S: Module is Sticky, requires --force to unload or purge
+      Currently Loaded Modules:
+        1) env/vsc/<cluster>              (S)   7) binutils/2.40-GCCcore-12.3.0            13) iimpi/2023a
+        2) env/slurm/<cluster>            (S)   8) intel-compilers/2023.1.0                14) imkl-FFTW/2023.1.0-iimpi-2023a
+        3) env/software/<cluster>         (S)   9) numactl/2.0.16-GCCcore-12.3.0           15) intel/2023a
+        4) cluster/<cluster>              (S)  10) UCX/1.14.1-GCCcore-12.3.0               16) secondexample/4.5.6-intel-2023a
+        5) GCCcore/12.3.0                      11) impi/2021.9.0-intel-compilers-2023.1.0
+        6) zlib/1.2.13-GCCcore-12.3.0          12) imkl/2023.1.0
+      
+        Where:
+         S:  Module is Sticky, requires --force to unload or purge
 
 To unload the example module, you can also use ml -example.
 
@@ -269,9 +246,12 @@ loaded will *not* result in an error.
 In order to unload all modules at once, and hence be sure to start in a
 clean state, you can use:
 
-module purge
+.. code-block:: python
 
-Using explicit version numbers
+      module purge
+
+
+**Using explicit version numbers**
 
 Once a module has been installed on the cluster, the executables or
 libraries it comprises are never modified. This policy ensures that the
@@ -283,11 +263,15 @@ Consider the following example: the user decides to use
 the example module and at that point in time, just a single version
 1.2.3 is installed on the cluster. The user loads the module using:
 
-module load example
+.. code-block:: python
+
+      module load example
 
 rather than
 
-module load example/1.2.3
+.. code-block:: python
+
+      module load example/1.2.3
 
 Everything works fine, up to the point where a new version of example is
 installed, 4.5.6. From then on, the user's load command will load the
@@ -296,21 +280,25 @@ unexpected problems.
 
 Consider the following example modules:
 
-$ module avail example/
+.. code-block:: python
 
-example/1.2.3
-
-example/4.5.6
+      $ module avail example/
+      example/1.2.3
+      example/4.5.6
 
 Let's now generate a version conflict with the example module, and see
 what happens.
 
-$ module load example/1.2.3 example/4.5.6
+.. code-block:: python
+
+      $ module load example/1.2.3 example/4.5.6
 
 Lmod has detected the following error: A different version of the
 'example' module is already loaded (see output of 'ml').
 
-$ module swap example/4.5.6
+.. code-block:: python
+
+      $ module swap example/4.5.6
 
 Note: A module swap command combines the appropriate module
 unload and module load commands.
@@ -319,34 +307,24 @@ unload and module load commands.
 
 With the module spider command, you can search for modules:
 
-$ module spider example
+.. code-block:: python
 
---------------------------------------------------------------------------------
-
-example:
-
---------------------------------------------------------------------------------
-
-Description:
-
-This is just an example
-
-Versions:
-
-example/1.2.3
-
-example/4.5.6
-
---------------------------------------------------------------------------------
-
-For detailed information about a specific "example" module (including
-how to load the modules) use the module's full name.
-
-For example:
-
-module spider example/1.2.3
-
---------------------------------------------------------------------------------
+ $ module spider example
+      --------------------------------------------------------------------------------
+        example:
+      --------------------------------------------------------------------------------
+          Description: 
+              This is just an example
+      
+          Versions: 
+              example/1.2.3 
+              example/4.5.6
+      --------------------------------------------------------------------------------
+        For detailed information about a specific "example" module (including how to load the modules) use the module's full name. 
+        For example:
+      
+          module spider example/1.2.3
+      --------------------------------------------------------------------------------
 
 **Save and load collections of modules**
 
@@ -358,22 +336,30 @@ In each module command shown below, you can replace module with ml.
 
 First, load all modules you want to include in the collections:
 
-module load example/1.2.3 secondexample/4.5.6-intel-2023a
+.. code-block:: python
+      
+      module load example/1.2.3 secondexample/4.5.6-intel-2023a
 
 Now store it in a collection using module save. In this example, the
 collection is named my-collection.
 
-module save my-collection
+.. code-block:: python
+
+      module save my-collection
 
 Later, for example in a jobscript or a new session, you can load all
 these modules with module restore:
 
-module restore my-collection
+.. code-block:: python
+
+      module restore my-collection
 
 You can get a list of all your saved collections with the module
 savelist command:
 
-$ module savelist
+.. code-block:: python
+      
+      $ module savelist
 
 Named collection list (For LMOD_SYSTEM_NAME =
 "<OS>-<CPU-ARCHITECTURE>"):
@@ -383,71 +369,48 @@ Named collection list (For LMOD_SYSTEM_NAME =
 To get a list of all modules a collection will load, you can use
 the module describe command:
 
-$ module describe my-collection
+.. code-block:: python
 
-Currently Loaded Modules:
-
-1) env/vsc/<cluster> (S) 7) binutils/2.40-GCCcore-12.3.0 13) iimpi/2023a
-
-2) env/slurm/<cluster> (S) 8) intel-compilers/2023.1.0 14)
-imkl-FFTW/2023.1.0-iimpi-2023a
-
-3) env/software/<cluster> (S) 9) numactl/2.0.16-GCCcore-12.3.0 15)
-intel/2023a
-
-4) cluster/<cluster> (S) 10) UCX/1.14.1-GCCcore-12.3.0 16)
-secondexample/4.5.6-intel-2023a
-
-5) GCCcore/12.3.0 11) impi/2021.9.0-intel-compilers-2023.1.0 17)
-example/1.2.3
-
-6) zlib/1.2.13-GCCcore-12.3.0 12) imkl/2023.1.0
+      $ module describe my-collection
+      Currently Loaded Modules:
+        1) env/vsc/<cluster>              (S)   7) binutils/2.40-GCCcore-12.3.0            13) iimpi/2023a
+        2) env/slurm/<cluster>            (S)   8) intel-compilers/2023.1.0                14) imkl-FFTW/2023.1.0-iimpi-2023a
+        3) env/software/<cluster>         (S)   9) numactl/2.0.16-GCCcore-12.3.0           15) intel/2023a
+        4) cluster/<cluster>              (S)  10) UCX/1.14.1-GCCcore-12.3.0               16) secondexample/4.5.6-intel-2023a
+        5) GCCcore/12.3.0                      11) impi/2021.9.0-intel-compilers-2023.1.0  17) example/1.2.3
+        6) zlib/1.2.13-GCCcore-12.3.0          12) imkl/2023.1.0
 
 To remove a collection, remove the corresponding file in $HOME/.lmod.d/:
 
-rm $HOME/.lmod.d/my-collection
+.. code-block:: python
+
+      rm $HOME/.lmod.d/my-collection
 
 **Getting module details**
 
 To see how a module would change the environment, you can use the module
 show command:
 
-$ module show Python-bundle-PyPI/2024.06-GCCcore-13.3.0
+.. code-block:: python
 
-help([[
+      $ module show Python-bundle-PyPI/2024.06-GCCcore-13.3.0
+      help([[
+      Description
+      ===========
+      Bundle of Python packages from PyPI
+      ...
+      Included extensions
+      ===================
+      alabaster-0.7.16, appdirs-1.4.4, asn1crypto-1.5.1, atomicwrites-1.4.1,
+      ...
+      wcwidth-0.2.13, webencodings-0.5.1, xlrd-2.0.1, zipfile36-0.1.3, zipp-3.19.2
+      ]])
+      ...
+      load("GCCcore/13.3.0")
+      load("Python/3.12.3-GCCcore-13.3.0")
+      load("cryptography/42.0.8-GCCcore-13.3.0")
+      load("virtualenv/20.26.2-GCCcore-13.3.0")
 
-Description
-
-===========
-
-Bundle of Python packages from PyPI
-
-...
-
-Included extensions
-
-===================
-
-alabaster-0.7.16, appdirs-1.4.4, asn1crypto-1.5.1, atomicwrites-1.4.1,
-
-...
-
-wcwidth-0.2.13, webencodings-0.5.1, xlrd-2.0.1, zipfile36-0.1.3,
-zipp-3.19.2
-
-]])
-
-...
-
-load("GCCcore/13.3.0")
-
-load("Python/3.12.3-GCCcore-13.3.0")
-
-load("cryptography/42.0.8-GCCcore-13.3.0")
-
-load("virtualenv/20.26.2-GCCcore-13.3.0")
-
-...
 
 Here you can see that
 the Python-bundle-PyPI/2024.06-GCCcore-13.3.0 comes with a lot of
