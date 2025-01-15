@@ -102,9 +102,9 @@ would not be available.
 
 **Note**
 
-You can actually specify precisely what information you would
-like sinfo to output by using its --format argument. For more details,
-have a look at the command manpage with man sinfo.
+    You can actually specify precisely what information you would
+    like sinfo to output by using its --format argument. For more details,
+    have a look at the command manpage with man sinfo.
 
 **Gathering job information**
 
@@ -134,6 +134,7 @@ available in sufficient amounts, while job 12348 is waiting for job
 12346, whose priority is higher, to run.
 
 SLURM Parameter
+=====================
 
 `SLURM <https://slurm.schedmd.com/>`__ supports a multitude of different
 parameters. This enables you to effectively tailor your script to your
@@ -206,10 +207,7 @@ ones.
 |                      | nodes even if you asked for less.             |
 +----------------------+-----------------------------------------------+
 
-Accounting parameters
-
-See
-also `partitions <https://scihpc.ir/docs/jobs/slurm/#partitions-queues>`__.
+**Accounting parameters**
 
 +-----------------------+----------------------------------------------+
 | **Parameter**         | **Function**                                 |
@@ -224,7 +222,7 @@ also `partitions <https://scihpc.ir/docs/jobs/slurm/#partitions-queues>`__.
 |                       | be *low*, *normal* or *high*                 |
 +-----------------------+----------------------------------------------+
 
-Advanced Job Control parameters
+**Advanced Job Control parameters**
 
 +--------------------+-------------------------------------------------+
 | **Parameter**      | **Function**                                    |
