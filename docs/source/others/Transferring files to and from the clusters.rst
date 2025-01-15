@@ -171,8 +171,10 @@ the *online man pages*.
   make mistakes with rsync and accidentally transfer files to the wrong
   location, sync in the wrong direction or otherwise accidentally
   overwrite files.
-| [user@laptop ~]$ rsync -anv
-  user_name@allot.hpc.fedgen.net:/share/group_name/user_name/myfiles/ .
+
+.. code-block:: python
+
+      [user@laptop ~]$ rsync -anv user_name@allot.hpc.fedgen.net:/share/group_name/user_name/myfiles/ .
 
 To transfer a single file from your local computer to a cluster
 using rsync, run the following command:
@@ -208,52 +210,56 @@ copy only the content of the folder, not the folder itself.
 
 .. _section-2:
 
+
 **rsync Behaviour with Trailing Slashes**
+=============================================
 
 Be cautious when specifying paths with or without trailing slashes.
 Ensure that you understand how rsync interprets these slashes to prevent
 unintended outcomes.
 
-**With Trailing Slash on Source Directory**:
+   **With Trailing Slash on Source Directory**:
+   
+   .. code-block:: python
+         rsync -av /source/directory/ /destination/directory
+   
+   When you use a trailing slash on the source directory it tells rsync to
+   copy the **contents** of the source directory into the destination
+   directory.
+   
+   **Without Trailing Slash on Source Directory**:
+   
+   .. code-block:: python
+   
+         rsync -av /source/directory /destination/directory
+   
+   When you don’t use a trailing slash on the source directory it
+   tells rsync to copy the **source directory itself** and its contents
+   into the destination directory.
+   
+   **Trailing Slash on Destination Directory**:
+   
+   .. code-block:: python
+   
+         rsync -av /source/directory/ /destination/directory/
+   
+   When you use a trailing slash on the destination directory it
+   tells rsync to copy the **source directory itself** and its contents
+   into the destination directory.
+   
+   **Without Trailing Slash on Destination Directory**:
+   
+   .. code-block:: python
+   
+         rsync -av /source/directory/ /destination/directory
+   
+   When you don’t use a trailing slash on the destination directory it
+   tells rsync to copy the **contents** of the source directory into the
+   destination directory.
 
-.. code-block:: python
-      rsync -av /source/directory/ /destination/directory
-
-When you use a trailing slash on the source directory it tells rsync to
-copy the **contents** of the source directory into the destination
-directory.
-
-**Without Trailing Slash on Source Directory**:
-
-.. code-block:: python
-
-      rsync -av /source/directory /destination/directory
-
-When you don’t use a trailing slash on the source directory it
-tells rsync to copy the **source directory itself** and its contents
-into the destination directory.
-
-**Trailing Slash on Destination Directory**:
-
-.. code-block:: python
-
-      rsync -av /source/directory/ /destination/directory/
-
-When you use a trailing slash on the destination directory it
-tells rsync to copy the **source directory itself** and its contents
-into the destination directory.
-
-**Without Trailing Slash on Destination Directory**:
-
-.. code-block:: python
-
-      rsync -av /source/directory/ /destination/directory
-
-When you don’t use a trailing slash on the destination directory it
-tells rsync to copy the **contents** of the source directory into the
-destination directory.
 
 **Using WinSCP on Windows**
+=================================
 
 Download and Install the WinSCP.
 
@@ -285,7 +291,9 @@ location to another.
 
 |image2|
 
+
 **Cyberduck on MacOS**
+=========================
 
 Download and install the Cyberduck
 
