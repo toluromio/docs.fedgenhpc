@@ -144,7 +144,7 @@ Use man sftp for a complete list of SFTP commands.
 **Using rsync to synchronize Files to from the Cluster.**
 =======================================================
 
- rsync utility provides advanced features for file transfer and is
+rsync utility provides advanced features for file transfer and is
 typically faster compared to both scp and sftp. It is an efficient
 utility for transferring and synchronizing files between storage
 locations by transferring only the differences between the source files
@@ -166,11 +166,11 @@ the *online man pages*.
 
 **Caution**
 
-| Before using rsync, it is highly recommended to use the -n
-  (--dry-run) option to test which changes are to be made. It is easy to
-  make mistakes with rsync and accidentally transfer files to the wrong
-  location, sync in the wrong direction or otherwise accidentally
-  overwrite files.
+     Before using rsync, it is highly recommended to use the -n
+     (--dry-run) option to test which changes are to be made. It is easy to
+     make mistakes with rsync and accidentally transfer files to the wrong
+     location, sync in the wrong direction or otherwise accidentally
+     overwrite files.
 
 .. code-block:: python
 
