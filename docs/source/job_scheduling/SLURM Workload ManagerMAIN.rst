@@ -45,11 +45,13 @@ short jobs can be scheduled, or partitions dedicated to visualization
 with nodes equipped with specific graphic cards.
 
 .. code-block::
+
 # sinfo
 PARTITION AVAIL TIMELIMIT NODES STATE NODELIST
 batch up infinite 2 alloc giga[08-09]
 batch up infinite 6 idle node[10-16]
 debug\* up 30:00 8 idle node[01-07]
+
 
 In the above example, we see two partitions, named *batch* and *debug*.
 The latter is the default partition as it is marked with an asterisk.
@@ -76,6 +78,7 @@ node[03,05-07] 4 debug\* idle 32 2:8:2 3384 38536 16 Intel (null)
 node03 1 debug\* down 32 2:8:2 3394 38536 16 Intel "Disk replacement"
 node[08-09] 2 batch allocated 32 2:8:2 246 82306 16 AMD (null)
 node[10-16] 7 batch idle 32 2:8:2 246 82306 16 AMD (null)
+
 
 With the -l argument, more information about the nodes is provided,
 among which the number of “CPUs” (CPUS), which is the number of
