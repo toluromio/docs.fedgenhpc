@@ -6,10 +6,10 @@ compute units (CPUs) at the same time, can be created.
 
 **Warning**
 
-The type of job that can be created depends on the capabilities of the
-software being used. Parallel computing requires specific programming
-techniques, which, if not used, lead to simply the same computation
-being performed multiple times, with no actual benefit.
+    The type of job that can be created depends on the capabilities of the
+    software being used. Parallel computing requires specific programming
+    techniques, which, if not used, lead to simply the same computation
+    being performed multiple times, with no actual benefit.
 
 If the resource request fit with the capabilities of the program, then
 Slurm will be able to allocate every parallel sequence of computing
