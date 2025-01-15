@@ -1,4 +1,5 @@
 **About FEDerated GENeral “Omics” (FEDGEN)**
+--------------------------------------------------
 
 The goal of the **FEDerated GENeral “Omics” (FEDGEN)** research project
 is to develop ground-breaking research artefacts on federated cloud
