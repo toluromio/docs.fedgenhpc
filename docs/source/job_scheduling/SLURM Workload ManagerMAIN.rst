@@ -68,7 +68,7 @@ maximum allowed time.
 The command sinfo can output the information in a node-oriented fashion,
 with the argument -N.
 
-.. code-block:: ruby
+.. code-block:: python
 
     # sinfo -N -l
     NODELIST NODES PARTITION STATE CPUS S:C:T MEMORY TMP_DISK WEIGHT
@@ -112,15 +112,14 @@ The squeue command shows the list of jobs which are currently running
 (they are in the *RUNNING* **state**, noted as ‘R’) or waiting for
 resources (noted as ‘PD’, short for *PENDING*).
 
-# squeue
+.. code-block:: python
+    
+    # squeue
 
-JOBID PARTITION NAME USER ST TIME NODES NODELIST(REASON)
-
-12345 debug job1 dave R 0:21 4 node[09-12]
-
-12346 debug job2 dave PD 0:00 8 (Resources)
-
-12348 debug job3 ed PD 0:00 4 (Priority)
+    JOBID PARTITION NAME USER ST TIME NODES NODELIST(REASON)
+    12345 debug job1 dave R 0:21 4 node[09-12]
+    12346 debug job2 dave PD 0:00 8 (Resources)
+    12348 debug job3 ed PD 0:00 4 (Priority)
 
 The above output shows that one job is running, whose name is *job1* and
 whose **jobid** is 12345. The jobid is a unique identifier that is used
