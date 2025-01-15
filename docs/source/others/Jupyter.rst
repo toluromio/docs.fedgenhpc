@@ -11,16 +11,13 @@ allocation For heavy computations. Follow the steps below to activate
 Jupyterlab:
 
 - Create your Jobscript (you.can also run interactively)
-
 - Include Load Conda Module
-
 - Include Activate Jupyterlab Conda Environment
-
 - Execute JobScript
-
 - Connect your browser to Jupyterlab
 
 **Running JupyterLab (BatchScript)**
+======================================
 
 Connect to cluster using preferred ssh client and create a bash script
 using text editor.
@@ -62,6 +59,7 @@ The slurm output file will provide details about the IP Address and port
 no to connect to.
 
 **Standard Batch Script**
+===============================
 
 .. code-block:: python
 
@@ -155,6 +153,7 @@ Enter the Token to Access the Interface
 |image3|
 
 **Run JupyterLab Interactively**
+====================================
 
 .. |image1| image:: media/Jupyter_Lab3021.png
 
