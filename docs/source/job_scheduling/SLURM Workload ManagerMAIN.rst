@@ -44,7 +44,7 @@ examples include partitions dedicated to debugging where only small and
 short jobs can be scheduled, or partitions dedicated to visualization
 with nodes equipped with specific graphic cards.
 
-.. code-block::
+.. code-block:: python
 # sinfo
 
 PARTITION AVAIL TIMELIMIT NODES STATE NODELIST
@@ -68,7 +68,7 @@ maximum allowed time.
 The command sinfo can output the information in a node-oriented fashion,
 with the argument -N.
 
-.. code-block::
+.. code-block:: ruby
 
 # sinfo -N -l
 NODELIST NODES PARTITION STATE CPUS S:C:T MEMORY TMP_DISK WEIGHT
