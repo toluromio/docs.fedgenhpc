@@ -17,13 +17,11 @@ commands have pretty good man pages to explain their use. Type man
 followed by a command (for which you want help) and start reading. Press
 q to quit the man page. sample below:
 
-username@allot:~$ man whoami (shows manual page for the command whoami)
+.. code-block:: python
 
-username@allot:~$ man syslog.config (shows the manual page for a
-configuration file)
-
-username@allot:~$ man syslogd (show the manual for a daemon (background
-program))
+    username@allot:~$ man whoami (shows manual page for the command whoami)
+    username@allot:~$ man syslog.config (shows the manual page for a configuration file)
+    username@allot:~$ man syslogd (show the manual for a daemon (background program))
 
 **Working with directories**
 =======================
@@ -44,9 +42,10 @@ completion in the bash shell.
 The pwd (Print Working Directory) command basically displays the current
 directory you are in. This would appear as:
 
-username@allot:~$ pwd
+.. code-block:: python
 
-/home/username
+    username@allot:~$ pwd
+    /home/username
 
 .. _section-2:
 
@@ -56,41 +55,35 @@ username@allot:~$ pwd
 On the command line cd (or change directory) changes your current
 directory to the one specified:
 
-username@allot:~$ cd /var
-
-username@allot:~$ pwd
-
-/var
-
-username@allot:~$ cd /home/user
-
-username@allot:~$ pwd
-
-/home/user
+.. code-block:: python
+    username@allot:~$ cd /var
+    username@allot:~$ pwd
+    /var
+    username@allot:~$ cd /home/user
+    username@allot:~$ pwd
+    /home/user
 
 There is also a shortcut back to your home directory by typing the
 character ~ (tilda) which has the same effect as typing (for example)
 /home/user.
 
-username@allot:~$ cd ~
+.. code-block:: python
 
-username@allot:~$ pwd
-
-/home/user
+    username@allot:~$ cd ~
+    username@allot:~$ pwd
+    /home/user
 
 The filesystem is usually organized as hierarchies, To go to the
 directory above (higher hierarchy or parent directory), we use the
 characters ..
 
-username@allot:~$ pwd
+.. code-block:: python
 
-/home/user
-
-username@allot:~$ cd ..
-
-username@allot:~$ pwd
-
-/home
+    username@allot:~$ pwd
+    /home/user
+    username@allot:~$ cd ..
+    username@allot:~$ pwd
+    /home
 
 There is also the character. which means the current directory. This is
 not useful for the cd command but is very useful for copying files to
@@ -110,27 +103,23 @@ beginning of the file-system hierarchy
 
 Absolute path:
 
-username@allot:~$ pwd
+.. code-block:: python
 
-/home/user
-
-user@allot:~$ cd /var
-
-user@allot:~$ pwd
-
-/var
+    username@allot:~$ pwd
+    /home/user
+    user@allot:~$ cd /var
+    user@allot:~$ pwd
+    /var
 
 Relative path
 
-username@allot:~$ pwd
+.. code-block:: python
 
-/home/user
-
-username@allot:~$ cd myfiles
-
-username@allot:~$ pwd
-
-/home/user/myfiles
+    username@allot:~$ pwd
+    /home/user
+    username@allot:~$ cd myfiles
+    username@allot:~$ pwd
+    /home/user/myfiles
 
 The command line will help you in typing a path without errors. If you
 type a partial command such as:
@@ -141,7 +130,9 @@ Pressing the **TAB** key on your keyboard will fill in the rest of the
 directory name (or filename/program) depending on the uniqueness, or
 presence.
 
-username@allot:~$ cd /home/user/myfiles
+.. code-block:: python
+
+    username@allot:~$ cd /home/user/myfiles
 
 .. _section-3:
 
@@ -150,18 +141,19 @@ username@allot:~$ cd /home/user/myfiles
 
 This command lists the contents of a directory:
 
-username@allot:~$ ls
+.. code-block:: python
 
-myfile1.txt myfile2.txt workdirectory1
+    username@allot:~$ ls
+    myfile1.txt myfile2.txt workdirectory1
 
 **ls** has a number of useful different options to format the output
 listing.
 
-username@allot:~$ ls –l (show a long listing with more information)
+.. code-block:: python
 
-username@allot:~$ ls –a (show all files including those that are hidden)
-
-username@allot:~$ ls –la (combines both of the options above)
+    username@allot:~$ ls –l (show a long listing with more information)
+    username@allot:~$ ls –a (show all files including those that are hidden)
+    username@allot:~$ ls –la (combines both of the options above)
 
 .. _section-4:
 
@@ -171,13 +163,12 @@ username@allot:~$ ls –la (combines both of the options above)
 This commands creates a directory (folder) in the current (or specified)
 directory:
 
-username@allot:~$ mkdir workdirectory1
+.. code-block:: python
 
-username@allot:~$ cd workdirectory1
-
-username@allot:~$ pwd
-
-/home/user/workdirectory1
+    username@allot:~$ mkdir workdirectory1
+    username@allot:~$ cd workdirectory1
+    username@allot:~$ pwd
+    /home/user/workdirectory1
 
 .. _section-5:
 
@@ -187,7 +178,9 @@ username@allot:~$ pwd
 This command removes the specified directory, note the directory must be
 empty and must not be the directory you are currently in:
 
-username@allot:~$ rmdir workdirectory1
+.. code-block:: python
+
+    username@allot:~$ rmdir workdirectory1
 
 .. _section-6:
 
@@ -220,13 +213,12 @@ This command determines the file type. Unlike Windows, Linux does not
 determine the file type from the extension but from examining the file
 header/contents itself.
 
-username@allot:~$ file mypicture.png
+.. code-block:: python
 
-pic33.png: PNG image data, 3840 x 1200, 8-bit/color RGBA, non-interlaced
-
-username@allot:~$ file parallel.c
-
-parallel.c: ASCII C program text
+    username@allot:~$ file mypicture.png
+    pic33.png: PNG image data, 3840 x 1200, 8-bit/color RGBA, non-interlaced
+    username@allot:~$ file parallel.c
+    parallel.c: ASCII C program text
 
 .. _section-9:
 
@@ -235,11 +227,11 @@ parallel.c: ASCII C program text
 
 This creates an empty file, which can be useful for various uses.
 
-username@allot:~$ touch newfile.c
+.. code-block:: python
 
-username@allot:~$ ls
-
-newfile.c
+    username@allot:~$ touch newfile.c
+    username@allot:~$ ls
+    newfile.c
 
 **rm**
 =======================
@@ -247,27 +239,20 @@ newfile.c
 Remove a file, as always be very careful with this command and without a
 backup, this file will be lost forever.
 
-username@allot:~$ ls
+.. code-block:: python
+    username@allot:~$ ls
+    newfile.c oldfile.c
+    username@allot:~$ rm oldfile.c
+    username@allot:~$ ls
+    newfile.c
 
-newfile.c oldfile.c
+.. code-block:: python
+    username@allot:~$ rm –i oldfile.c (this will prompt to answer yest/no before deletion occurs)
+    username@allot:~$ rm –r mydirectory (works recursively down the specified directory to remove specified directory but not removing any non-empty directories)
 
-username@allot:~$ rm oldfile.c
+.. code-block:: python
 
-username@allot:~$ ls
-
-newfile.c
-
-username@allot:~$ rm –i oldfile.c (this will prompt to answer yest/no
-before deletion occurs)
-
-username@allot:~$ rm –r mydirectory (works recursively down the
-specified directory to remove specified directory but not removing any
-non-empty directories)
-
-username@allot:~$ rm –rf mydirectory (works recursively down the
-specified directory to remove non-empty directories with the –f option
-which means force. This is a very powerful option which must be used
-with extreme care!)
+    username@allot:~$ rm –rf mydirectory (works recursively down the specified directory to remove non-empty directories with the –f option which means force. This is a very powerful option which must be used with extreme care!)
 
 As with many Linux commands there are a few options with can be used
 with **rm** (these can be view by typing **man rm**).
@@ -281,17 +266,12 @@ Copy files or directories from a source to a destination:
 
 Command syntax is ‘cp SOURCE DESTINATION’
 
-username@allot:~$ cp workfile.c mybackup.c (copies workfile.c to
-mybackup.c)
+.. code-block:: python
 
-username@allot:~$ cp workfile.c mydirectory1 (copies workfile.c to
-mydirectory1)
-
-username@allot:~$ cp \*c backupdirectory/ (copies all \*.c files to
-backupdirectory)
-
-username@allot:~$ cp –r mydirectory1 mydirectory2 (copies one directory
-to another, note the option –r for recursive copying)
+    username@allot:~$ cp workfile.c mybackup.c (copies workfile.c to mybackup.c)
+    username@allot:~$ cp workfile.c mydirectory1 (copies workfile.c to mydirectory1)
+    username@allot:~$ cp \*c backupdirectory/ (copies all \*.c files to backupdirectory)
+    username@allot:~$ cp –r mydirectory1 mydirectory2 (copies one directory to another, note the option –r for recursive copying)
 
 As with many Linux commands there are a few options with can be used
 with **cp** (these can be view by typing **man cp**).
@@ -304,12 +284,11 @@ with **cp** (these can be view by typing **man cp**).
 Move files from a source to a destination. A versatile command that can
 rename a file too:
 
-username@allot:~$ mv file1.c testfile.c (rename file1.c to testfile.c)
+.. code-block:: python
 
-username@allot:~$ mv directory1 directory2 (rename directory)
-
-username@allot:~$ mv file1.c /home/user/myrepo (mv file1.c to
-/home/user/myrepo/file1.c)
+    username@allot:~$ mv file1.c testfile.c (rename file1.c to testfile.c)
+    username@allot:~$ mv directory1 directory2 (rename directory)
+    username@allot:~$ mv file1.c /home/user/myrepo (mv file1.c to /home/user/myrepo/file1.c)
 
 **rename**
 =======================
@@ -317,17 +296,13 @@ username@allot:~$ mv file1.c /home/user/myrepo (mv file1.c to
 Although preferably to use the **mv** command, this command does exist
 to rename files
 
-username@allot:~$ touch file1.c file2.c file3.c
-
-username@allot:~$ ls
-
-file1.c file2.c file3.c
-
-username@allot:~$ rename .c .backup \*.c
-
-username@allot:~$ ls
-
-file1.backup file2.backup file3.backup
+.. code-block:: python
+    username@allot:~$ touch file1.c file2.c file3.c
+    username@allot:~$ ls
+    file1.c file2.c file3.c
+    username@allot:~$ rename .c .backup \*.c
+    username@allot:~$ ls
+    file1.backup file2.backup file3.backup
 
 .. _section-12:
 
@@ -345,27 +320,12 @@ are **head**, **tail**, **cat**, **tac**, **more** and **less**.
 
 By default, the head command will show the first ten lines of a file.
 
-username@allot:~$ head /etc/passwd
+.. code-block:: python
 
-root:x:0:0:root:/root:/bin/bash
-
-daemon:x:1:1:daemon:/usr/sbin:/bin/sh
-
-bin:x:2:2:bin:/bin:/bin/sh
-
-sys:x:3:3:sys:/dev:/bin/sh
-
-sync:x:4:65534:sync:/bin:/bin/sync
-
-games:x:5:60:games:/usr/games:/bin/sh
-
-man:x:6:12:man:/var/cache/man:/bin/sh
-
-lp:x:7:7:lp:/var/spool/lpd:/bin/sh
-
-mail:x:8:8:mail:/var/mail:/bin/sh
-
-news:x:9:9:news:/var/spool/news:/bin/sh
+    username@allot:~$ head /etc/passwd
+    root:x:0:0:root:/root:/bin/bash
+    daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+    
 
 .. _section-14:
 
@@ -375,23 +335,17 @@ news:x:9:9:news:/var/spool/news:/bin/sh
 Similar to **head** but this time it will show the last 10 lines of the
 file by default.
 
-username@allot:~$ tail /etc/services
+.. code-block:: python
 
-vboxd 20012/udp
-
-binkp 24554/tcp # binkp fidonet protocol
-
-asp 27374/tcp # Address Search Protocol
-
-asp 27374/udp
-
-csync2 30865/tcp # cluster synchronization tool
-
-dircproxy 57000/tcp # Detachable IRC Proxy
-
-tfido 60177/tcp # fidonet EMSI over telnet
-
-fido 60179/tcp # fidonet EMSI over TCP
+    username@allot:~$ tail /etc/services
+    vboxd 20012/udp
+    binkp 24554/tcp 		# binkp fidonet protocol
+    asp 27374/tcp 		# Address Search Protocol
+    asp 27374/udp
+    csync2 30865/tcp 		# cluster synchronization tool
+    dircproxy 57000/tcp 	# Detachable IRC Proxy
+    tfido 60177/tcp 		# fidonet EMSI over telnet
+    fido 60179/tcp 		# fidonet EMSI over TCP
 
 .. _section-15:
 
