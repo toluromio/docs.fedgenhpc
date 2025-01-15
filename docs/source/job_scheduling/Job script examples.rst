@@ -205,125 +205,96 @@ time, each using 4 tasks, thus totalling to 20 tasks. Once they finish,
 we wish to do a post-processing step and then resubmit another set of 5
 jobs with 4 tasks each:
 
-*#!/bin/bash*
+.. code-block:: python
 
-*#SBATCH --job-name=example*
+    #!/bin/bash
+    
+    #SBATCH --job-name=example
+    #SBATCH --ntasks=20
+    #SBATCH --time=0-00:05:00
+    #SBATCH --mem-per-cpu=500MB
+    
+    cd ${SLURM_SUBMIT_DIR}
+    
+    # first set of parallel runs
+    mpirun -n 4 ./my-binary &
+    mpirun -n 4 ./my-binary &
+    mpirun -n 4 ./my-binary &
+    mpirun -n 4 ./my-binary &
+    mpirun -n 4 ./my-binary &
+    
+    wait
+    
+    # here a post-processing step
+    # ...
+    
+    # another set of parallel runs
+    mpirun -n 4 ./my-binary &
+    mpirun -n 4 ./my-binary &
+    mpirun -n 4 ./my-binary &
+    mpirun -n 4 ./my-binary &
+    mpirun -n 4 ./my-binary &
+    
+    wait
+    
+    exit 0
 
-*#SBATCH --ntasks=20*
-
-*#SBATCH --time=0-00:05:00*
-
-*#SBATCH --mem-per-cpu=500MB*
-
-cd *${*\ SLURM_SUBMIT_DIR\ *}*
-
-*# first set of parallel runs*
-
-mpirun -n 4 ./my-binary &
-
-mpirun -n 4 ./my-binary &
-
-mpirun -n 4 ./my-binary &
-
-mpirun -n 4 ./my-binary &
-
-mpirun -n 4 ./my-binary &
-
-wait
-
-*# here a post-processing step*
-
-*# ...*
-
-*# another set of parallel runs*
-
-mpirun -n 4 ./my-binary &
-
-mpirun -n 4 ./my-binary &
-
-mpirun -n 4 ./my-binary &
-
-mpirun -n 4 ./my-binary &
-
-mpirun -n 4 ./my-binary &
-
-wait
-
-exit 0
 
 The wait commands are important here - the run script will only continue
 once all commands started with & have completed.
 
+
 **Example on how to allocate entire memory on one node**
 
-*#!/bin/bash -l*
+.. code-block:: python
 
-*###################################################*
-
-*# Example for a job that consumes a lot of memory #*
-
-*###################################################*
-
-*#SBATCH --job-name=example*
-
-*# we ask for 1 node*
-
-*#SBATCH --nodes=1*
-
-*# run for five minutes*
-
-*# d-hh:mm:ss*
-
-*#SBATCH --time=0-00:05:00*
-
-*# total memory for this job*
-
-*# this is a hard limit*
-
-*# note that if you ask for more than one CPU has, your account gets*
-
-*# charged for the other (idle) CPUs as well*
-
-*#SBATCH --mem=31000MB*
-
-*# turn on all mail notification*
-
-*#SBATCH --mail-type=ALL*
-
-*# you may not place bash commands before the last SBATCH directive*
-
-*# define and create a unique scratch directory*
-
-SCRATCH_DIRECTORY=/fedgenscratch/work/*${*\ USER\ *}*/example/*${*\ SLURM_JOBID\ *}*
-
-mkdir -p *${*\ SCRATCH_DIRECTORY\ *}*
-
-cd *${*\ SCRATCH_DIRECTORY\ *}*
-
-*# we copy everything we need to the scratch directory*
-
-*# ${SLURM_SUBMIT_DIR} points to the path where this script was
-submitted from*
-
-cp *${*\ SLURM_SUBMIT_DIR\ *}*/my_binary.x *${*\ SCRATCH_DIRECTORY\ *}*
-
-*# we execute the job and time it*
-
-time ./my_binary.x > my_output
-
-*# after the job is done we copy our output back to $SLURM_SUBMIT_DIR*
-
-cp *${*\ SCRATCH_DIRECTORY\ *}*/my_output *${*\ SLURM_SUBMIT_DIR\ *}*
-
-*# we step out of the scratch directory and remove it*
-
-cd *${*\ SLURM_SUBMIT_DIR\ *}*
-
-rm -rf *${*\ SCRATCH_DIRECTORY\ *}*
-
-*# happy end*
-
-exit 0
+    #!/bin/bash -l
+    
+    ###################################################
+    # Example for a job that consumes a lot of memory #
+    ###################################################
+    
+    #SBATCH --job-name=example
+    
+    # we ask for 1 node
+    #SBATCH --nodes=1
+    
+    # run for five minutes
+    #              d-hh:mm:ss
+    #SBATCH --time=0-00:05:00
+    
+    # total memory for this job
+    # this is a hard limit
+    # note that if you ask for more than one CPU has, your account gets
+    # charged for the other (idle) CPUs as well
+    #SBATCH --mem=31000MB
+    
+    # turn on all mail notification
+    #SBATCH --mail-type=ALL
+    
+    # you may not place bash commands before the last SBATCH directive
+    
+    # define and create a unique scratch directory
+    SCRATCH_DIRECTORY=/fedgenscratch/work/${USER}/example/${SLURM_JOBID}
+    mkdir -p ${SCRATCH_DIRECTORY}
+    cd ${SCRATCH_DIRECTORY}
+    
+    # we copy everything we need to the scratch directory
+    # ${SLURM_SUBMIT_DIR} points to the path where this script was submitted from
+    cp ${SLURM_SUBMIT_DIR}/my_binary.x ${SCRATCH_DIRECTORY}
+    
+    # we execute the job and time it
+    time ./my_binary.x > my_output
+    
+    # after the job is done we copy our output back to $SLURM_SUBMIT_DIR
+    cp ${SCRATCH_DIRECTORY}/my_output ${SLURM_SUBMIT_DIR}
+    
+    # we step out of the scratch directory and remove it
+    cd ${SLURM_SUBMIT_DIR}
+    rm -rf ${SCRATCH_DIRECTORY}
+    
+    # happy end
+    exit 0
 
 **How to recover files before a job times out**
 
@@ -332,316 +303,247 @@ for restart in case a job times out. In this example we ask Slurm to
 send a signal to our script 120 seconds before it times out to give us a
 chance to perform clean-up actions.
 
-*#!/bin/bash -l*
+.. code-block:: python
 
-*# job name*
+    #!/bin/bash -l
+    
+    # job name
+    #SBATCH --job-name=example
+    
+    # replace this by your account
+    #SBATCH --account=...
+    
+    # one core only
+    #SBATCH --ntasks=1
+    
+    # we give this job 4 minutes
+    #SBATCH --time=0-00:04:00
+    
+    # asks SLURM to send the USR1 signal 120 seconds before end of the time limit
+    #SBATCH --signal=B:USR1@120
+    
+    # define the handler function
+    # note that this is not executed here, but rather
+    # when the associated signal is sent
+    your_cleanup_function()
+    {
+        echo "function your_cleanup_function called at $(date)"
+        # do whatever cleanup you want here
+    }
+    
+    # call your_cleanup_function once we receive USR1 signal
+    trap 'your_cleanup_function' USR1
+    
+    echo "starting calculation at $(date)"
+    
+    # the calculation "computes" (in this case sleeps) for 1000 seconds
+    # but we asked slurm only for 240 seconds so it will not finish
+    # the "&" after the compute step and "wait" are important
+    sleep 1000 &
+    wait
 
-*#SBATCH --job-name=example*
-
-*# replace this by your account*
-
-*#SBATCH --account=...*
-
-*# one core only*
-
-*#SBATCH --ntasks=1*
-
-*# we give this job 4 minutes*
-
-*#SBATCH --time=0-00:04:00*
-
-*# asks SLURM to send the USR1 signal 120 seconds before end of the time
-limit*
-
-*#SBATCH --signal=B:USR1@120*
-
-*# define the handler function*
-
-*# note that this is not executed here, but rather*
-
-*# when the associated signal is sent*
-
-your_cleanup_function()
-
-{
-
-echo "function your_cleanup_function called at **$(**\ date\ **)**"
-
-*# do whatever cleanup you want here*
-
-}
-
-*# call your_cleanup_function once we receive USR1 signal*
-
-trap 'your_cleanup_function' USR1
-
-echo "starting calculation at **$(**\ date\ **)**"
-
-*# the calculation "computes" (in this case sleeps) for 1000 seconds*
-
-*# but we asked slurm only for 240 seconds so it will not finish*
-
-*# the "&" after the compute step and "wait" are important*
-
-sleep 1000 &
-
-wait
 
 **OpenMP and MPI**
 
 You can download the examples given here to a file (e.g. smpijob.sh) and
 start it with:
 
-$ sbatch mpijob.sh
+.. code-block:: python
+
+    $ sbatch mpijob.sh
+
 
 **Example for an OpenMP job**
 
-*#!/bin/bash -l*
+.. code-block:: python
 
-*#############################*
+    #!/bin/bash -l
+    
+    #############################
+    # example for an OpenMP job #
+    #############################
+    
+    #SBATCH --job-name=example
+    
+    # we ask for 1 task with 20 cores
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=20
+    
+    # exclusive makes all memory available
+    #SBATCH --exclusive
+    
+    # run for five minutes
+    #              d-hh:mm:ss
+    #SBATCH --time=0-00:05:00
+    
+    # turn on all mail notification
+    #SBATCH --mail-type=ALL
+    
+    # you may not place bash commands before the last SBATCH directive
+    
+    # define and create a unique scratch directory
+    SCRATCH_DIRECTORY=/fedgenscratch/work/${USER}/example/${SLURM_JOBID}
+    mkdir -p ${SCRATCH_DIRECTORY}
+    cd ${SCRATCH_DIRECTORY}
+    
+    # we copy everything we need to the scratch directory
+    # ${SLURM_SUBMIT_DIR} points to the path where this script was submitted from
+    cp ${SLURM_SUBMIT_DIR}/my_binary.x ${SCRATCH_DIRECTORY}
+    
+    # we set OMP_NUM_THREADS to the number of available cores
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+    
+    # we execute the job and time it
+    time ./my_binary.x > my_output
+    
+    # after the job is done we copy our output back to $SLURM_SUBMIT_DIR
+    cp ${SCRATCH_DIRECTORY}/my_output ${SLURM_SUBMIT_DIR}
+    
+    # we step out of the scratch directory and remove it
+    cd ${SLURM_SUBMIT_DIR}
+    rm -rf ${SCRATCH_DIRECTORY}
+    
+    # happy end
+    exit 0
 
-*# example for an OpenMP job #*
 
-*#############################*
-
-*#SBATCH --job-name=example*
-
-*# we ask for 1 task with 20 cores*
-
-*#SBATCH --nodes=1*
-
-*#SBATCH --ntasks-per-node=1*
-
-*#SBATCH --cpus-per-task=20*
-
-*# exclusive makes all memory available*
-
-*#SBATCH --exclusive*
-
-*# run for five minutes*
-
-*# d-hh:mm:ss*
-
-*#SBATCH --time=0-00:05:00*
-
-*# turn on all mail notification*
-
-*#SBATCH --mail-type=ALL*
-
-*# you may not place bash commands before the last SBATCH directive*
-
-*# define and create a unique scratch directory*
-
-SCRATCH_DIRECTORY=/fedgenscratch/work/*${*\ USER\ *}*/example/*${*\ SLURM_JOBID\ *}*
-
-mkdir -p *${*\ SCRATCH_DIRECTORY\ *}*
-
-cd *${*\ SCRATCH_DIRECTORY\ *}*
-
-*# we copy everything we need to the scratch directory*
-
-*# ${SLURM_SUBMIT_DIR} points to the path where this script was
-submitted from*
-
-cp *${*\ SLURM_SUBMIT_DIR\ *}*/my_binary.x *${*\ SCRATCH_DIRECTORY\ *}*
-
-*# we set OMP_NUM_THREADS to the number of available cores*
-
-export OMP_NUM_THREADS=\ *${*\ SLURM_CPUS_PER_TASK\ *}*
-
-*# we execute the job and time it*
-
-time ./my_binary.x > my_output
-
-*# after the job is done we copy our output back to $SLURM_SUBMIT_DIR*
-
-cp *${*\ SCRATCH_DIRECTORY\ *}*/my_output *${*\ SLURM_SUBMIT_DIR\ *}*
-
-*# we step out of the scratch directory and remove it*
-
-cd *${*\ SLURM_SUBMIT_DIR\ *}*
-
-rm -rf *${*\ SCRATCH_DIRECTORY\ *}*
-
-*# happy end*
-
-exit 0
 
 **Example for a MPI job**
 
-*#!/bin/bash -l*
+.. code-block:: python
 
-*##########################*
+    #!/bin/bash -l
+    
+    ##########################
+    # example for an MPI job #
+    ##########################
+    
+    #SBATCH --job-name=example
+    
+    # 80 MPI tasks in total
+    # FEDGEN HPC has 16 or 20 cores/node and therefore we take
+    # a number that is divisible by both
+    #SBATCH --ntasks=80
+    
+    # run for five minutes
+    #              d-hh:mm:ss
+    #SBATCH --time=0-00:05:00
+    
+    # 500MB memory per core
+    # this is a hard limit
+    #SBATCH --mem-per-cpu=500MB
+    
+    # turn on all mail notification
+    #SBATCH --mail-type=ALL
+    
+    # you may not place bash commands before the last SBATCH directive
+    
+    # define and create a unique scratch directory
+    SCRATCH_DIRECTORY=/fedgenscratch/work/${USER}/example/${SLURM_JOBID}
+    mkdir -p ${SCRATCH_DIRECTORY}
+    cd ${SCRATCH_DIRECTORY}
+    
+    # we copy everything we need to the scratch directory
+    # ${SLURM_SUBMIT_DIR} points to the path where this script was submitted from
+    cp ${SLURM_SUBMIT_DIR}/my_binary.x ${SCRATCH_DIRECTORY}
+    
+    # we execute the job and time it
+    time mpirun -np $SLURM_NTASKS ./my_binary.x > my_output
+    
+    # after the job is done we copy our output back to $SLURM_SUBMIT_DIR
+    cp ${SCRATCH_DIRECTORY}/my_output ${SLURM_SUBMIT_DIR}
+    
+    # we step out of the scratch directory and remove it
+    cd ${SLURM_SUBMIT_DIR}
+    rm -rf ${SCRATCH_DIRECTORY}
+    
+    # happy end
+    exit 0
 
-*# example for an MPI job #*
-
-*##########################*
-
-*#SBATCH --job-name=example*
-
-*# 80 MPI tasks in total*
-
-*# FEDGEN HPC has 16 or 20 cores/node and therefore we take*
-
-*# a number that is divisible by both*
-
-*#SBATCH --ntasks=80*
-
-*# run for five minutes*
-
-*# d-hh:mm:ss*
-
-*#SBATCH --time=0-00:05:00*
-
-*# 500MB memory per core*
-
-*# this is a hard limit*
-
-*#SBATCH --mem-per-cpu=500MB*
-
-*# turn on all mail notification*
-
-*#SBATCH --mail-type=ALL*
-
-*# you may not place bash commands before the last SBATCH directive*
-
-*# define and create a unique scratch directory*
-
-SCRATCH_DIRECTORY=/fedgenscratch/work/*${*\ USER\ *}*/example/*${*\ SLURM_JOBID\ *}*
-
-mkdir -p *${*\ SCRATCH_DIRECTORY\ *}*
-
-cd *${*\ SCRATCH_DIRECTORY\ *}*
-
-*# we copy everything we need to the scratch directory*
-
-*# ${SLURM_SUBMIT_DIR} points to the path where this script was
-submitted from*
-
-cp *${*\ SLURM_SUBMIT_DIR\ *}*/my_binary.x *${*\ SCRATCH_DIRECTORY\ *}*
-
-*# we execute the job and time it*
-
-time mpirun -np $SLURM_NTASKS ./my_binary.x > my_output
-
-*# after the job is done we copy our output back to $SLURM_SUBMIT_DIR*
-
-cp *${*\ SCRATCH_DIRECTORY\ *}*/my_output *${*\ SLURM_SUBMIT_DIR\ *}*
-
-*# we step out of the scratch directory and remove it*
-
-cd *${*\ SLURM_SUBMIT_DIR\ *}*
-
-rm -rf *${*\ SCRATCH_DIRECTORY\ *}*
-
-*# happy end*
-
-exit 0
 
 **Example for a hybrid MPI/OpenMP job**
 
-*#!/bin/bash -l*
+.. code-block:: python
 
-*#######################################*
 
-*# example for a hybrid MPI OpenMP job #*
-
-*#######################################*
-
-*#SBATCH --job-name=example*
-
-*# we ask for 4 MPI tasks with 10 cores each*
-
-*#SBATCH --nodes=2*
-
-*#SBATCH --ntasks-per-node=2*
-
-*#SBATCH --cpus-per-task=10*
-
-*# run for five minutes*
-
-*# d-hh:mm:ss*
-
-*#SBATCH --time=0-00:05:00*
-
-*# 500MB memory per core*
-
-*# this is a hard limit*
-
-*#SBATCH --mem-per-cpu=500MB*
-
-*# turn on all mail notification*
-
-*#SBATCH --mail-type=ALL*
-
-*# you may not place bash commands before the last SBATCH directive*
-
-*# define and create a unique scratch directory*
-
-SCRATCH_DIRECTORY=/fedgenscratch/work/*${*\ USER\ *}*/example/*${*\ SLURM_JOBID\ *}*
-
-mkdir -p *${*\ SCRATCH_DIRECTORY\ *}*
-
-cd *${*\ SCRATCH_DIRECTORY\ *}*
-
-*# we copy everything we need to the scratch directory*
-
-*# ${SLURM_SUBMIT_DIR} points to the path where this script was
-submitted from*
-
-cp *${*\ SLURM_SUBMIT_DIR\ *}*/my_binary.x *${*\ SCRATCH_DIRECTORY\ *}*
-
-*# we set OMP_NUM_THREADS to the number cpu cores per MPI task*
-
-export OMP_NUM_THREADS=\ *${*\ SLURM_CPUS_PER_TASK\ *}*
-
-*# we execute the job and time it*
-
-time mpirun -np $SLURM_NTASKS ./my_binary.x > my_output
-
-*# after the job is done we copy our output back to $SLURM_SUBMIT_DIR*
-
-cp *${*\ SCRATCH_DIRECTORY\ *}*/my_output *${*\ SLURM_SUBMIT_DIR\ *}*
-
-*# we step out of the scratch directory and remove it*
-
-cd *${*\ SLURM_SUBMIT_DIR\ *}*
-
-rm -rf *${*\ SCRATCH_DIRECTORY\ *}*
-
-*# happy end*
-
-exit 0
+    #!/bin/bash -l
+    
+    #######################################
+    # example for a hybrid MPI OpenMP job #
+    #######################################
+    
+    #SBATCH --job-name=example
+    
+    # we ask for 4 MPI tasks with 10 cores each
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=2
+    #SBATCH --cpus-per-task=10
+    
+    # run for five minutes
+    #              d-hh:mm:ss
+    #SBATCH --time=0-00:05:00
+    
+    # 500MB memory per core
+    # this is a hard limit
+    #SBATCH --mem-per-cpu=500MB
+    
+    # turn on all mail notification
+    #SBATCH --mail-type=ALL
+    
+    # you may not place bash commands before the last SBATCH directive
+    
+    # define and create a unique scratch directory
+    SCRATCH_DIRECTORY=/fedgenscratch/work/${USER}/example/${SLURM_JOBID}
+    mkdir -p ${SCRATCH_DIRECTORY}
+    cd ${SCRATCH_DIRECTORY}
+    
+    # we copy everything we need to the scratch directory
+    # ${SLURM_SUBMIT_DIR} points to the path where this script was submitted from
+    cp ${SLURM_SUBMIT_DIR}/my_binary.x ${SCRATCH_DIRECTORY}
+    
+    # we set OMP_NUM_THREADS to the number cpu cores per MPI task
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+    
+    # we execute the job and time it
+    time mpirun -np $SLURM_NTASKS ./my_binary.x > my_output
+    
+    # after the job is done we copy our output back to $SLURM_SUBMIT_DIR
+    cp ${SCRATCH_DIRECTORY}/my_output ${SLURM_SUBMIT_DIR}
+    
+    # we step out of the scratch directory and remove it
+    cd ${SLURM_SUBMIT_DIR}
+    rm -rf ${SCRATCH_DIRECTORY}
+    
+    # happy end
+    exit 0
 
 If you want to start more than one MPI rank per node you can
 use --ntasks-per-node in combination with --nodes:
 
-*#SBATCH --nodes=4 --ntasks-per-node=2 --cpus-per-task=8*
+.. code-block:: python
+    *#SBATCH --nodes=4 --ntasks-per-node=2 --cpus-per-task=8*
 
 This will start 2 MPI tasks each on 4 nodes, where each task can use up
 to 8 threads
 
+
 **Message passing example (MPI)**
 
-#!/bin/bash
+.. code-block:: python
 
-#
+    #!/bin/bash
+    #
+    #SBATCH --job-name=test_mpi
+    #SBATCH --output=res_mpi.txt
+    #
+    #SBATCH --ntasks=4
+    #SBATCH --time=10:00
+    #SBATCH --mem-per-cpu=100
+    
+    module load OpenMPI
+    srun hello.mpi
 
-#SBATCH --job-name=test_mpi
-
-#SBATCH --output=res_mpi.txt
-
-#
-
-#SBATCH --ntasks=4
-
-#SBATCH --time=10:00
-
-#SBATCH --mem-per-cpu=100
-
-module load OpenMPI
-
-srun hello.mpi
 
 Request four cores on the cluster for 10 minutes, using 100 MB of RAM
 per core. Assuming hello.mpi was compiled with MPI support, srun will
@@ -652,43 +554,41 @@ program from
 Wikipedia <https://en.wikipedia.org/wiki/Message_Passing_Interface#Example_program>`__ (name
 it for instance wiki_mpi_example.c), and compiling it with
 
-module load OpenMPI
+.. code-block:: python
 
-mpicc wiki_mpi_example.c -o hello.mpi
+    module load OpenMPI
+    mpicc wiki_mpi_example.c -o hello.mpi
+
 
 The res_mpi.txt file should contain something like
 
-We have 4 processors
+.. code-block:: python
 
-Hello 1! Processor 1 reporting for duty
 
-Hello 2! Processor 2 reporting for duty
+    We have 4 processors
+    Hello 1! Processor 1 reporting for duty
+    Hello 2! Processor 2 reporting for duty
+    Hello 3! Processor 3 reporting for duty
 
-Hello 3! Processor 3 reporting for duty
 
 **Shared memory example (OpenMP)**
 
-#!/bin/bash
+.. code-block:: python
 
-#
+    #!/bin/bash
+    #
+    #SBATCH --job-name=test_omp
+    #SBATCH --output=res_omp.txt
+    #
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=4
+    #SBATCH --time=10:00
+    #SBATCH --mem-per-cpu=100
+    
+    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+    srun ./hello.omp
 
-#SBATCH --job-name=test_omp
 
-#SBATCH --output=res_omp.txt
-
-#
-
-#SBATCH --ntasks=1
-
-#SBATCH --cpus-per-task=4
-
-#SBATCH --time=10:00
-
-#SBATCH --mem-per-cpu=100
-
-export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-
-srun ./hello.omp
 
 The job will be run in an allocation where four cores have been reserved
 on the same compute node.
@@ -697,19 +597,19 @@ You can try it by using the `hello world program from
 Wikipedia <https://en.wikipedia.org/wiki/Openmp#C>`__ (name it for
 instance wiki_omp_example.c) and compiling it with
 
-gcc -fopenmp wiki_omp_example.c -o hello.omp
+.. code-block:: python
+
+    gcc -fopenmp wiki_omp_example.c -o hello.omp
 
 The res_omp.txt file should contain something like
 
-Hello World from thread 0
+.. code-block:: python
 
-Hello World from thread 3
-
-Hello World from thread 1
-
-Hello World from thread 2
-
-There are 4 threads
+    Hello World from thread 0
+    Hello World from thread 3
+    Hello World from thread 1
+    Hello World from thread 2
+    There are 4 threads
 
 **Embarrassingly parallel workload example (job array)**
 
@@ -724,27 +624,21 @@ differing only in the initial value of some high-level parameter for
 each run. An example could be the optimisation of an integer-valued
 parameter through range scanning in a **job array**:
 
-#!/bin/bash
+.. code-block:: python
 
-#
+    #!/bin/bash
+    #
+    #SBATCH --job-name=test_emb_arr
+    #SBATCH --output=res_emb_arr.txt
+    #
+    #SBATCH --ntasks=1
+    #SBATCH --time=10:00
+    #SBATCH --mem-per-cpu=100
+    #
+    #SBATCH --array=1-8
+    
+    srun ./my_program.exe $SLURM_ARRAY_TASK_ID
 
-#SBATCH --job-name=test_emb_arr
-
-#SBATCH --output=res_emb_arr.txt
-
-#
-
-#SBATCH --ntasks=1
-
-#SBATCH --time=10:00
-
-#SBATCH --mem-per-cpu=100
-
-#
-
-#SBATCH --array=1-8
-
-srun ./my_program.exe $SLURM_ARRAY_TASK_ID
 
 In that configuration, the command my_program.exe will be run eight
 times, creating eight distinct jobs, each time with a different argument
@@ -758,29 +652,22 @@ read, based upon the value set in the $SLURM\_\* environment variable.
 For instance, assuming there are exactly eight files in /path/to/data we
 can create the following script:
 
-#!/bin/bash
+.. code-block:: python
 
-#
-
-#SBATCH --job-name=test_emb_arr
-
-#SBATCH --output=res_emb_arr.txt
-
-#
-
-#SBATCH --ntasks=1
-
-#SBATCH --time=10:00
-
-#SBATCH --mem-per-cpu=100
-
-#
-
-#SBATCH --array=0-7
-
-FILES=(/path/to/data/\*)
-
-srun ./my_program.exe ${FILES[$SLURM_ARRAY_TASK_ID]}
+    #!/bin/bash
+    #
+    #SBATCH --job-name=test_emb_arr
+    #SBATCH --output=res_emb_arr.txt
+    #
+    #SBATCH --ntasks=1
+    #SBATCH --time=10:00
+    #SBATCH --mem-per-cpu=100
+    #
+    #SBATCH --array=0-7
+    
+    FILES=(/path/to/data/*)
+    
+    srun ./my_program.exe ${FILES[$SLURM_ARRAY_TASK_ID]}
 
 In this case, eight jobs will be submitted, each with a different
 filename given as an argument to my_program.exe defined in the
@@ -793,18 +680,20 @@ Note that the same recipe can be used with a numerical argument that is
 not simply an integer sequence, by defining a Bash
 array ARGS[] containing the desired values:
 
-ARGS=(0.05 0.25 0.5 1 2 5 100)
-
-srun ./my_program.exe ${ARGS[$SLURM_ARRAY_TASK_ID]}
+.. code-block:: python
+    
+    ARGS=(0.05 0.25 0.5 1 2 5 100)
+    
+    srun ./my_program.exe ${ARGS[$SLURM_ARRAY_TASK_ID]}
 
 Here again, the Slurm job array numbering must start at 0 to make sure
 all items in the ARGS[] Bash array are processed.
 
 **Warning**
 
-If the running time of your program is small, say ten minutes or less,
-creating a job array will incur a lot of overhead and you should
-consider *packing* your jobs.
+  If the running time of your program is small, say ten minutes or less,
+  creating a job array will incur a lot of overhead and you should
+  consider *packing* your jobs.
 
 **Packed jobs example**
 
@@ -820,78 +709,68 @@ control that at any point in time only 8 instances are effectively
 running, each being allocated one CPU. You can at this point decide to
 allocate several CPUs or tasks by adapting the corresponding parameters.
 
-#! /bin/bash
+.. code-block:: python
 
-#
-
-#SBATCH --ntasks=8
-
-for i in {1..1000}
-
-do
-
-srun -N1 -n1 -c1 --exact ./myprog $i &
-
-done
-
-wait
+    #! /bin/bash
+    #
+    #SBATCH --ntasks=8
+    for i in {1..1000}
+    do
+       srun -N1 -n1 -c1 --exact ./myprog $i &
+    done
+    wait
 
 The for-loop can be replaced with GNU parallel if installed on your
 system:
 
-parallel -P $SLURM_NTASKS srun -N1 -c1 -n1 --exact ./myprog :::
-{1..1000}
+.. code-block:: python
+
+    parallel -P $SLURM_NTASKS srun -N1 -c1 -n1 --exact ./myprog :::
+    {1..1000}
 
 Similarly, many files can be processed with one job submission script.
 The following script will run myprog for every file in /path/to/data,
 but maximum 8 at a time, and using one CPU per task.
 
-#! /bin/bash
+.. code-block:: python
 
-#
-
-#SBATCH --ntasks=8
-
-for file in /path/to/data/\*
-
-do
-
-srun -N1 -n1 -c1 --exact ./myprog $file &
-
-done
-
-wait
+    #! /bin/bash
+    #
+    #SBATCH --ntasks=8
+    for file in /path/to/data/*
+    do
+       srun -N1 -n1 -c1 --exact ./myprog $file &
+    done
+    wait
 
 Here again the for-loop can be replaced with another command, xargs:
+
+.. code-block:: python
 
 find /path/to/data -print0 \| xargs -0 -n1 -P $SLURM_NTASKS srun -n1
 --exclusive ./myprog
 
 **Master/worker program example**
 
-#!/bin/bash
+.. code-block:: python
 
-#
-
-#SBATCH --job-name=test_ms
-
-#SBATCH --output=res_ms.txt
-
-#
-
-#SBATCH --ntasks=4
-
-#SBATCH --time=10:00
-
-#SBATCH --mem-per-cpu=100
-
-srun --multi-prog multi.conf
+    #!/bin/bash
+    #
+    #SBATCH --job-name=test_ms
+    #SBATCH --output=res_ms.txt
+    #
+    #SBATCH --ntasks=4
+    #SBATCH --time=10:00
+    #SBATCH --mem-per-cpu=100
+    
+    srun --multi-prog multi.conf
 
 With file multi.conf being, for example, as follows
 
-0 echo I am the Master
+.. code-block:: python
 
-1-3 echo I am worker %t
+    0 echo I am the Master
+    1-3 echo I am worker %t
 
 The above instructs Slurm to create four tasks (or processes), one
 running echo 'I am the Master', and the other 3
@@ -902,52 +781,39 @@ program (the workers) to perform.
 
 Upon completion of the above job, file res_ms.txt will contain
 
-I am worker 2
+.. code-block:: python
 
-I am worker 3
-
-I am worker 1
-
-I am the Master
+    I am worker 2
+    I am worker 3
+    I am worker 1
+    I am the Master
 
 though not necessarily in the same order.
+
 
 **Hybrid jobs**
 
 You can mix multi-processing (MPI) and multi-threading (OpenMP) in the
 same job, simply like this:
 
-#! /bin/bash
+.. code-block:: python
 
-#
-
-#SBATCH --ntasks=8
-
-#SBATCH --cpus-per-task=4
-
-module load OpenMPI
-
-export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-
-srun ./myprog
-
-or even a job array of hybrid jobs:
-
-#! /bin/bash
-
-#
-
-#SBATCH --array=1-10
-
-#SBATCH --ntasks=8
-
-#SBATCH --cpus-per-task=4
-
-module load OpenMPI
-
-export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-
-srun ./myprog $SLURM_ARRAY_TASK_ID
+    #! /bin/bash
+    #
+    #SBATCH --ntasks=8
+    #SBATCH --cpus-per-task=4
+    module load OpenMPI
+    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+    srun ./myprog
+    or even a job array of hybrid jobs:
+    #! /bin/bash
+    #
+    #SBATCH --array=1-10
+    #SBATCH --ntasks=8
+    #SBATCH --cpus-per-task=4
+    module load OpenMPI
+    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+    srun ./myprog $SLURM_ARRAY_TASK_ID
 
 **GPU jobs**
 
@@ -957,29 +823,27 @@ Scheduling <https://slurm.schedmd.com/gres.html>`__ parameter in your
 job script. Please note that GPUs are only available in a specific
 partition whose name depends on the cluster.
 
-#SBATCH --partition=PostP
+.. code-block:: python
 
-#SBATCH --gres=gpu:1
+    #SBATCH --partition=PostP
+    #SBATCH --gres=gpu:1
 
 A sample job file requesting a node with a GPU could look like this:
 
-#!/bin/bash
+.. code-block:: python
 
-#SBATCH --job-name=example
+    #!/bin/bash
+    #SBATCH --job-name=example
+    #SBATCH --ntasks=1
+    #SBATCH --time=1:00:00
+    #SBATCH --mem-per-cpu=1000
+    #SBATCH --partition=gpu
+    #SBATCH --gres=gpu:1
+    
+    module load CUDA
+    
+    srun ./my_cuda_program
 
-#SBATCH --ntasks=1
-
-#SBATCH --time=1:00:00
-
-#SBATCH --mem-per-cpu=1000
-
-#SBATCH --partition=gpu
-
-#SBATCH --gres=gpu:1
-
-module load CUDA
-
-srun ./my_cuda_program
 
 **Settings for OpenMP and MPI jobs**
 
@@ -1100,4 +964,4 @@ when the runtime for your job starts tailing off. When you start to see
 less than 30% improvement in runtime when doubling the cpu-counts you
 should probably not go any further. Recommendations to a few of the most
 used applications can be found in `Application
-guides <https://hpc-uit.readthedocs.io/en/latest/applications/sw_guides.html#sw-guides>`__.
+guides <Applications.rat>`__.
