@@ -23,6 +23,7 @@ incurs significant overhead to be considered undesirable for
 high-performance computing.
 
 **Single-node parallelism**
+=================================
 
 In the Linux operating system, running a program will initiate
 a **process**, that is a running copy of the program in the main memory.
@@ -46,12 +47,13 @@ lot for parallelism.
 
 **Note**
 
-Even if the software you write is purely sequential and does not use
-OpenMP for instance, if it links to optimized scientific libraries (as
-is the case for interpreted languages like Python, R or Julia, they will
-use OpenMP behind the scenes so you should request at least 4 or 8 CPUs.
+    Even if the software you write is purely sequential and does not use
+    OpenMP for instance, if it links to optimized scientific libraries (as
+    is the case for interpreted languages like Python, R or Julia, they will
+    use OpenMP behind the scenes so you should request at least 4 or 8 CPUs.
 
 **Multi-node parallelism**
+===========================
 
 **Multi-node parallelism assumes distributed memory programming with
 either**
@@ -82,14 +84,15 @@ there can be as many workers instances as needed.
 
 **Important**
 
-The above taxonomy must be take with a grain of salt. Some Master/Worker
-programs use the network rather than the disk for communication, or
-use inter-process *communication*. In that later case, they can only do
-single-node parallelism. As for Message Passing, it can be done all in a
-single node. Also shared memory programming can be done on multiple
-nodes if specific libraries are used.
+    The above taxonomy must be take with a grain of salt. Some Master/Worker
+    programs use the network rather than the disk for communication, or
+    use inter-process *communication*. In that later case, they can only do
+    single-node parallelism. As for Message Passing, it can be done all in a
+    single node. Also shared memory programming can be done on multiple
+    nodes if specific libraries are used.
 
 **Running MPI jobs**
+===========================
 
 There are two available MPI implementations on FEDGEN HPC:
 
