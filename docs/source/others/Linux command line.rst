@@ -555,8 +555,7 @@ Counting words, lines, and characters are easy with **wc**.
 .. code-block:: python
     
     username@allot:~$ wc myfile.c (show number of words, lines, and characters)
-
-5 10 100 tennis.txt
+    5 10 100 tennis.txt
 
 .. _section-29:
 
