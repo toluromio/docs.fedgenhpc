@@ -24,7 +24,7 @@ Just open the terminal app and type your SSH command. The default
 terminal app doesn't offer many bells and whistles but it gets the job
 done.
 
-For Robust Terminal experience, Alternative include
+For Robust Terminal experience, Alternatives include
 `Termius <https://termius.com/>`__ and `iTerm2 <https://iterm2.com/>`__
 
 Connect to the login node from the terminal:
@@ -33,7 +33,7 @@ Type the following on the command-line
 
 .. codeblock:
 
-ssh username@allot.hpc.fedgen.net
+      ssh username@allot.hpc.fedgen.net
 
 First time login users will be prompted to change their password.
 Passwords must adhere to standard complexity requirements.
@@ -88,14 +88,10 @@ from `https://www.hivesystems.io <https://www.hivesystems.io/>`__
 common passwords from 2015 to 2019.
 
 .. |FedgenDC1-Welcome| image:: media/Working_With_An_SSH_Client1337.png
-   :width: 9.9375in
-   :height: 2.88542in
+
 .. |Authenticity| image:: media/Working_With_An_SSH_Client1447.png
-   :width: 8.34375in
-   :height: 2.27083in
+
 .. |image1| image:: media/Working_With_An_SSH_Client2145.png
-   :width: 9.78611in
-   :height: 9.78611in
+
 .. |image2| image:: media/Working_With_An_SSH_Client2628.png
-   :width: 7.85in
-   :height: 3.225in
+
