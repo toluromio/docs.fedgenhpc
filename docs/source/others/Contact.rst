@@ -2,7 +2,7 @@
 -----------------
 
 If you need help, please write us an email
-to `hpcsupport@f <mailto:support%40metacenter.no>`__\ edgen.net, and our
+to `<mailto:hpcsupport@fedgen.net>`_, and our
 local team of experts will try to assist you as soon as possible.
 
 You can also request new software (either an update or entirely new
