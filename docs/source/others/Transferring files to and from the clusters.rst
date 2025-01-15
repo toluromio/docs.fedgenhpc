@@ -67,7 +67,7 @@ command
 
 .. code-block:: python
 
-  [user@laptop ~]$** scp /path/to/local/file username@allot.hpc.fedgen.net:/path/to/remote/directory
+  [user@laptop ~]$ scp /path/to/local/file username@allot.hpc.fedgen.net:/path/to/remote/directory
 
 Replace /path/to/local/file with the path to the file on your local
 machine, username with your username on the cluster,
@@ -78,7 +78,7 @@ where you want to store the file.
 
 .. code-block:: python
 
-     [user@laptop ~]$** scp username@allot.hpc.fedgen.net:/file/to/copy/filename .
+     [user@laptop ~]$ scp username@allot.hpc.fedgen.net:/file/to/copy/filename .
 
 There will be a prompt for a authentication.
 
@@ -289,8 +289,8 @@ location to another.
 
 Download and install the Cyberduck
 
-Access the cluster via hpctransfer1 server by entering your
-FEDGEN_UserID and SSO Password
+Access the cluster via allot server by entering your
+FEDGEN_UserID
 
 You can open the local folder in Finder and this Transfer Window side by
 side and then drag one file (or folder) from one location to another
@@ -317,10 +317,10 @@ our credentials in the **General** tab:
 
 **Caution**
 
-By default Filezilla will save profiles in plaintext on your machine.
-You must ensure you use a master password to encrypt these credentials
-by changing the settings `as shown in these
-instructions <https://filezillapro.com/docs/v3/advanced/master-password/>`__.
+   By default Filezilla will save profiles in plaintext on your machine.
+   You must ensure you use a master password to encrypt these credentials
+   by changing the settings `as shown in these
+   instructions <https://filezillapro.com/docs/v3/advanced/master-password/>`__.
 
 You can create a new site by selecting *file* from top menu bar
 then *site manager* which will open a dialog similar to:
@@ -339,13 +339,13 @@ The syntax for these commands is as below:
 
 **Downloading with wget**
 
-..code-block:: python
+.. code-block:: python
 
       wget https://software.github.io/program/files/myprogram.tar.gz
 
 **Downloading with curl**
 
-..code-block:: python
+.. code-block:: python
 
       curl -O https://software.github.io/program/files/myprogram.tar.gz
 
