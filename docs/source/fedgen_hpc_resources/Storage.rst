@@ -12,21 +12,15 @@ systems <http://en.wikipedia.org/wiki/File_system>`__ that can be used
 to store files. These disk spaces have different properties and each of
 them is designed to best fit different usage intents. They are listed in
 the table below.
-
-+-----------+------+----------------+------------------+-------------+
-| **Disk    | *    | **Environment  | **Lifetime**     | **F         |
-| space**   | *Sco | variables**    |                  | ilesystem** |
-|           | pe** |                |                  |             |
-+===========+======+================+==================+=============+
-| f         | clu  | $FEDGENHOME or | cluster or       | NFS         |
-| edgenhome | ster | $HOME          | account lifetime |             |
-+-----------+------+----------------+------------------+-------------+
-| fedg      | clu  | $FEDGENSCRATCH | 1 month          | NFS         |
-| enscratch | ster |                |                  |             |
-+-----------+------+----------------+------------------+-------------+
-| fe        | node | $FEDGENLOCAL   | job lifetime     | NFS         |
-| dgenlocal |      |                |                  |             |
-+-----------+------+----------------+------------------+-------------+
++---------------+---------+-----------------------+-----------------------------+------------+
+| Disk space    | Scope   | Environment variables | Lifetime                    | Filesystem |
++---------------+---------+-----------------------+-----------------------------+------------+
+| fedgenhome    | cluster | $FEDGENHOME or $HOME  | cluster or account lifetime | NFS        |
++---------------+---------+-----------------------+-----------------------------+------------+
+| fedgenscratch | cluster | $FEDGENSCRATCH        | 1 month                     | NFS        |
++---------------+---------+-----------------------+-----------------------------+------------+
+| fedgenlocal   | node    | $FEDGENLOCAL          | job lifetime                | NFS        |
++---------------+---------+-----------------------+-----------------------------+------------+
 
 The ‘Scope’ column indicates from where the disk space is accessible. A
 scope of ‘cluster’ means all compute nodes and frontend in the cluster
