@@ -55,29 +55,22 @@ It is often best to use it in all cases.
 
 For instance, the following script, hypothetically named submit.sh,
 
-#!/bin/bash
 
-#
+.. code-block:: python
 
-#SBATCH --job-name=test
-
-#SBATCH --output=res.txt
-
-#SBATCH --partition=debug
-
-#
-
-#SBATCH --time=10:00
-
-#SBATCH --ntasks=1
-
-#SBATCH --cpus-per-task=1
-
-#SBATCH --mem-per-cpu=100
-
-srun hostname
-
-srun sleep 60
+    #!/bin/bash
+    #
+    #SBATCH --job-name=test
+    #SBATCH --output=res.txt
+    #SBATCH --partition=debug
+    #
+    #SBATCH --time=10:00
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=1
+    #SBATCH --mem-per-cpu=100
+    
+    srun hostname
+    srun sleep 60
 
 describes a job made of 2+1 steps (the submission script itself plus two
 explicit steps created by calling srun twice), each step consisting of
@@ -101,21 +94,25 @@ success, responds with the *jobid* attributed to the job. (The dollar
 sign below is the `shell
 prompt <https://en.wikipedia.org/wiki/Unix_shell#Bourne_shell>`__)
 
-$ sbatch submit.sh
+.. code-block:: python
+  
+    $ sbatch submit.sh
 
 sbatch: Submitted batch job 12321
 
 **Warning**
 
-Make sure to submit the job with sbatch and not bash; also do not
-execute it directly. This would ignore all resource request and your job
-would run with minimal resources, or could possible run on the frontend
-rather than on a compute node.
+  Make sure to submit the job with sbatch and not bash; also do not
+  execute it directly. This would ignore all resource request and your job
+  would run with minimal resources, or could possible run on the frontend
+  rather than on a compute node.
 
 The job then enters the queue in the *PENDING* state. You can verify
 this with
 
-$ squeue --me
+.. code-block:: python
+
+    $ squeue --me
 
 Once resources become available and the job has highest priority,
 an **allocation** is created for it and it goes to the RUNNING state. If
@@ -209,13 +206,13 @@ for each job can be found at the end of the *sbatch man page*.
 
 There are a few popular types of jobs you could submit:
 
-- `interactive <https://hyak.uw.edu/docs/compute/scheduling-jobs/#interactive-jobs>`__ where
+- `interactive <#interactive-jobs>`__ where
   you and test out your workflows live,
 
-- `batch <https://hyak.uw.edu/docs/compute/scheduling-jobs/#batch-jobs>`__ which
+- `batch <batch-jobs>`__ which
   are unattended (you get an email when completed), and
 
-- `recurring <https://hyak.uw.edu/docs/compute/scheduling-jobs/#null>`__ or
+- `recurring <#null>`__ or
   "CRON-like" processes that happen on a regular basis.
 
 **Interactive jobs**
@@ -228,7 +225,9 @@ If you need simply to have an interactive Bash session on a compute
 node, with the same environment set as the batch jobs, run the following
 command:
 
-srun --pty bash -l
+.. code-block:: python
+
+    srun --pty bash -l
 
 Doing that, you are submitting a 1-CPU, default memory, default duration
 job that will return a Bash prompt when it starts.
@@ -243,7 +242,9 @@ can use srun the same way you would in a submission script.
 
 You can run an interactive job like this:
 
-$ srun --nodes=1 --ntasks-per-node=1 --time=01:00:00 --pty bash -i
+.. code-block:: python
+
+    $ srun --nodes=1 --ntasks-per-node=1 --time=01:00:00 --pty bash -i
 
 Here we ask for a single core on one interactive node for one hour with
 the default amount of memory. The command prompt will appear as soon as
@@ -251,9 +252,10 @@ the job starts.
 
 This is how it looks once the interactive job starts:
 
-srun: job 12345 queued **and** waiting **for** resources
+.. code-block:: python
 
-srun: job 12345 has been allocated resources
+    srun: job 12345 queued **and** waiting **for** resources
+    srun: job 12345 has been allocated resources
 
 Exit the bash shell to end the job. If you exceed the time or memory
 limits the job will also abort.
@@ -265,11 +267,13 @@ node with other users, so play nice.
 Some users have experienced problems with the command, then it has
 helped to specify the cpu account:
 
-$ srun --account=<NAME_OF_MY_ACCOUNT> --nodes=1 --ntasks-per-node=1
---time=01:00:00 --pty bash -i
+.. code-block:: python
+
+    $ srun --account=<NAME_OF_MY_ACCOUNT> --nodes=1 --ntasks-per-node=1
+    --time=01:00:00 --pty bash -i
 
 **Interactive Jobs (Single
-Node)\ **\ `# <https://hyak.uw.edu/docs/compute/scheduling-jobs/#interactive-jobs-single-node>`__
+Node)\ **\ `# <#interactive-jobs-single-node>`__
 
 Resources for interactive jobs are attained either using salloc. To
 request a compute node from the Checkpoint all partition (ckpt-all)
@@ -277,9 +281,10 @@ interactively consider the example below.
 
 *# Below replace the word account with an account name you belong to*
 
-*# Use hyakalloc to see your accounts and partitions*
+*# Use allot to see your accounts and partitions*
 
-salloc -A account -p ckpt-all -N 1 -c 4 --mem=10G --time=2:30:00
+.. code-block:: python
+    salloc -A account -p ckpt-all -N 1 -c 4 --mem=10G --time=2:30:00
 
 In this case you are requesting a slice of the standard compute node
 class that your group mylab contributed to the cluster. You are asking
@@ -296,33 +301,25 @@ names of the remainder of your allocated nodes use scontrol show
 hostnames. The srun command can be used to execute a command on all of
 the allocated nodes as shown in the example session below.
 
-[netID@klone1 ~]$ salloc -N 2 -p compute -A stf --time=5 --mem=5G
+.. code-block:: python
 
-salloc: Pending job allocation 2620960
+    [user@allot ~]$ salloc -N 2 -p compute -A stf --time=5 --mem=5G
+    salloc: Pending job allocation 2620960
+    salloc: job 2620960 queued and waiting for resources
+    salloc: job 2620960 has been allocated resources
+    salloc: Granted job allocation 2620960
+    salloc: Waiting for resource configuration
+    salloc: Nodes n[3148-3149] are ready for job
+    
+    [user@allot ~]$ srun hostname
+    n3148
+    n3149
+    
+    [user@allot ~]$ scontrol show hostnames
+    n3148
+    n3149
 
-salloc: job 2620960 queued and waiting for resources
 
-salloc: job 2620960 has been allocated resources
-
-salloc: Granted job allocation 2620960
-
-salloc: Waiting for resource configuration
-
-salloc: Nodes n[3148-3149] are ready for job
-
-[netID@n3148 ~]$ srun hostname
-
-n3148
-
-n3149
-
-[netID@n3148 ~]$ scontrol show hostnames
-
-n3148
-
-n3149
-
-Copy
 
 **Interactive Node Partitions**
 
@@ -331,10 +328,11 @@ If your group has an interactive node, use the option -p
 interactive node you can run hyakalloc and it will appear if you have
 one.
 
-salloc -p <partition_name>-int -A <group_name> --time=<time>
---mem=<size>G
+.. code-block:: python
 
-Copy
+    salloc -p <partition_name>-int -A <group_name> --time=<time> --mem=<size>G
+
+
 
 **note**
 
@@ -356,13 +354,16 @@ session with srun and then do all the work in it. In case of a
 disconnect you simply reconnect to the login node and attach to the tmux
 session again by typing:
 
-tmux attach
+.. code-block:: python
+
+    tmux attach
 
 or in case you have multiple sessions running:
 
-tmux list-session
+.. code-block:: python
 
-tmux attach -t SESSION_NUMBER
+  tmux list-session
+  tmux attach -t SESSION_NUMBER
 
 As long as the tmux session is not closed or terminated (e.g. by a
 server restart) your session should continue. One problem with our
@@ -371,7 +372,9 @@ you get connected to. So if you start a tmux session on stallo-1 and
 next time you get randomly connected to stallo-2 you first have to
 connect to stallo-1 again by:
 
-ssh login-1
+.. code-block:: python
+
+    ssh login-1
 
 To log out a tmux session without closing it you have to press CTRL-B
 (that the Ctrl key and simultaneously “b”, which is the standard tmux
@@ -388,53 +391,39 @@ almost the same as a normal bash session.
 Below is a slurm script template. Submit a batch job from the login node
 by calling sbatch <script_name>.slurm.
 
-**$cat script.slurm**
+.. code-block:: python
 
-#!/bin/bash
 
-#SBATCH --partition=debug # partition name. Eg. Debug, bio, bigmem
+    $cat script.slurm
 
-#SBATCH --job-name=demosample # job name
+    #!/bin/bash
+    
+    #SBATCH --partition=debug      # partition name. Eg. Debug, bio, bigmem
+    #SBATCH --job-name=demosample        # job name
+    #SBATCH --nodes=2               # number of nodes allocated for this job
+    #SBATCH --ntasks=2              # total number of tasks / mpi processes
+    #SBATCH --cpus-per-task=8       # number OpenMP Threads per process
+    #SBATCH --time=08:00:00         # total run time limit ([[D]D-]HH:MM:SS)
+    ##SBATCH --gres=gpu:tesla:2      # number of GPUs
+    ##The above line and this  will be ignored by Slurm
+    # Get email notification when job begins, finishes or fails
+    #SBATCH --mail-type=ALL         # type of notification: BEGIN, END, FAIL, ALL
+    #SBATCH --mail-user=your@mail   # e-mail address
+    SBATCH --chdir=<working directory>
+    #SBATCH --export=all
+    #SBATCH --output=<file> # where STDOUT goes
+    #SBATCH --error=<file> # where STDERR goes
+    
+    
+    # Modules to use (optional).
+    #<e.g., module load singularity>
+    
+    # Run the application.
+    #<my_programs>
+    echo [`date '+%Y-%m-%d %H:%M:%S'`] Running $AE_ARCH
+    srun  hostname
+    sleep  60 
 
-#SBATCH --nodes=2 # number of nodes allocated for this job
-
-#SBATCH --ntasks=2 # total number of tasks / mpi processes
-
-#SBATCH --cpus-per-task=8 # number OpenMP Threads per process
-
-#SBATCH --time=08:00:00 # total run time limit ([[D]D-]HH:MM:SS)
-
-##SBATCH --gres=gpu:tesla:2 # number of GPUs
-
-##The above line and this will be ignored by Slurm
-
-# Get email notification when job begins, finishes or fails
-
-#SBATCH --mail-type=ALL # type of notification: BEGIN, END, FAIL, ALL
-
-#SBATCH --mail-user=your@mail # e-mail address
-
-*SBATCH --chdir=<working directory>*
-
-*#SBATCH --export=all*
-
-*#SBATCH --output=<file> # where STDOUT goes*
-
-*#SBATCH --error=<file> # where STDERR goes*
-
-*# Modules to use (optional).*
-
-#<e.g., module load singularity>
-
-# Run the application.
-
-#<my_programs>
-
-echo [\`date '+%Y-%m-%d %H:%M:%S'\`] Running $AE_ARCH
-
-srun hostname
-
-sleep 60
 
 More Job Examples here
 
@@ -450,23 +439,31 @@ documentation for a complete list.
 
 Job number:
 
-SLURM_JOBID
+.. code-block:: python
+
+    SLURM_JOBID
 
 SLURM_ARRAY_TASK_ID *# relevant when you are using job arrays*
 
 List of nodes used in a job:
 
-SLURM_NODELIST
+.. code-block:: python
+
+    SLURM_NODELIST
 
 Scratch directory:
 
-SCRATCH *# defaults to
-/global/work/${USER}/${SLURM_JOBID}.stallo-adm.uit.no*
+.. code-block:: python
+
+  SCRATCH *# defaults to
+  /global/work/${USER}/${SLURM_JOBID}.allot.hpc.fedgen.net*
 
 We recommend to **not** use $SCRATCH but to construct a variable
 yourself and use that in your script, e.g.:
 
-SCRATCH_DIRECTORY=/global/work/${USER}/my-example/${SLURM_JOBID}
+.. code-block:: python
+
+  SCRATCH_DIRECTORY=/global/work/${USER}/my-example/${SLURM_JOBID}
 
 The reason for this is that if you forget to sbatch your job script,
 then $SCRATCH may suddenly be undefined and you risk erasing your entire
@@ -475,14 +472,19 @@ then $SCRATCH may suddenly be undefined and you risk erasing your entire
 Submit directory (this is the directory where you have sbatched your
 job):
 
-SUBMITDIR
+.. code-block:: python
 
-SLURM_SUBMIT_DIR
+  SUBMITDIR
+  SLURM_SUBMIT_DIR
 
 Default number of threads:
 
-OMP_NUM_THREADS=1
+.. code-block:: python
+
+    OMP_NUM_THREADS=1
 
 Task count:
 
-SLURM_NTASKS
+.. code-block:: python
+  
+    SLURM_NTASKS
