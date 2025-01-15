@@ -31,9 +31,9 @@ Connect to the login node from your terminal:
 
 Type the following on the command-line
 
-.. codeblock::
+..codeblock::
 
-      ssh username@allot.hpc.fedgen.net
+      $ssh username@allot.hpc.fedgen.net
 
 First time login users will be prompted to change their password.
 Passwords must adhere to standard complexity requirements.
