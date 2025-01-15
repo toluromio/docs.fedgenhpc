@@ -32,6 +32,7 @@ Check out our `website <http://www.fedgen.net>`_ for further information.
 WELCOME
 -------
 .. toctree::
+   :caption: Welcome
 
    welcome/About FEDGEN
    FEDGEN HPC Overview
@@ -43,7 +44,8 @@ WELCOME
 FEDGEN HPC RESOURCES
 --------------------
 .. toctree::
-   
+   :caption: Welcome FEDGEN HPC RESOURCES
+
    fedgen_hpc_resources/FEDGEN HPC Layout
    fedgen_hpc_resources/Cluster resources
    fedgen_hpc_resources/GPU resources
@@ -54,6 +56,7 @@ GETTING STARTED
 --------------------
 .. toctree::
    :maxdepth: 1
+   :caption: Getting Started
 
    access/Obtaining a FEDGEN HPC account
    access/Connect to the Cluster
@@ -68,7 +71,8 @@ GETTING STARTED
 JOB SCHEDULING
 --------------------
 .. toctree::
-   
+   :caption: Scheduling Jobs
+
    job_scheduling/Resource Manager
    job_scheduling/SLURM Workload ManagerMAIN
    job_scheduling/Scheduling Jobs
@@ -81,7 +85,8 @@ JOB SCHEDULING
 APPLICATIONS
 --------------------
 .. toctree::
-   
+   :caption: Applications
+
    others/Jupyter
    job_scheduling/Applications
 
