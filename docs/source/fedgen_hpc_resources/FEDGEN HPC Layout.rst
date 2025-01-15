@@ -46,8 +46,4 @@ reporting applications, etc. ;
 
 
 .. |FEDGEN HPC Flow| image:: media/FEDGEN_HPC_Layout489.png
-   :width: 5.89167in
-   :height: 3.69167in
-.. |image1| image:: media/image2.jpeg
-   :width: 2.86458in
-   :height: 2.58333in
+
