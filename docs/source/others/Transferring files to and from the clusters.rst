@@ -84,17 +84,18 @@ containing all of the files you want to transfer (and nothing else).
 For example, to transfer a directory from your local machine to the
 cluster
 
-**[user@laptop ~]$** scp -r /path/to/local/directory1
-username@.allot.hpc.fedgen.net:/path/to/remote/directory
+.. code-block:: python
+
+      **[user@laptop ~]$** scp -r /path/to/local/directory username@.allot.hpc.fedgen.net:/path/to/remote/directory
 
 Or you can use the wild card * to transfer multiple files
 
 For example to transfer multiple files or directories from a cluster to
 your local machine, use this command:
 
-**[user@laptop ~]$** scp
-username@allot.hpc.fedgen.net:/path/to/remote/directory1/\*
-/path/to/local/directory2
+.. code-block:: python
+
+   **[user@laptop ~]$** scp username@allot.hpc.fedgen.net:/path/to/remote/directory1/ /path/to/local/directory2
 
 This will copy all the files under directory1 on the cluster to your
 laptop under directory2. Note that the directory1 itself will not
@@ -149,8 +150,9 @@ files as well as creating synced backup folders.
 To update the files in the local computer with those that have been
 modified on Allot,
 
-[user@laptop ~]$ rsync -av
-user_name@allot.hpc.fedgen.net:/share/group_name/user_name/myfiles/ .
+.. code-block:: python
+
+      [user@laptop ~]$ rsync -av user_name@allot.hpc.fedgen.net:/share/group_name/user_name/myfiles/ .
 
 To see the many additional options and use cases, type man rsync or see
 the *online man pages*.
@@ -168,8 +170,9 @@ the *online man pages*.
 To transfer a single file from your local computer to a cluster
 using rsync, run the following command:
 
-[user@laptop ~]$ rsync -avz /path/to/local/file
-username@allot.hpc.fedgen.net:/path/to/remote/directory
+.. code-block:: python
+
+      [user@laptop ~]$ rsync -avz /path/to/local/file username@allot.hpc.fedgen.net:/path/to/remote/directory
 
 Replace /path/to/local/file with the path to the file on your local
 machine, username with your username on the cluster,
@@ -179,15 +182,16 @@ where you want to store the file.
 To transfer multiple files or directories from your local machine to the
 cluster, use the following command:
 
-**[user@laptop ~]$** rsync -avz /path/to/local/directory1
-/path/to/local/file2
-username@allot.hpc.fedgen.net:/path/to/remote/directory
+.. code-block:: python
+
+      **[user@laptop ~]$** rsync -avz /path/to/local/directory1 /path/to/local/file2 username@allot.hpc.fedgen.net:/path/to/remote/directory
 
 To transfer multiple files or directories from a cluster to your local
 machine, use this command:
 
-rsync -avz username@allot.hpc.fedgen.net:/path/to/remote/directory1
-/path/to/local/directory
+.. code-block:: python
+
+      rsync -avz username@allot.hpc.fedgen.net:/path/to/remote/directory1 /path/to/local/directory
 
 A trailing slash on the target directory is optional, and has no effect,
 but it can be important in other commands.
@@ -205,7 +209,8 @@ unintended outcomes.
 
 **With Trailing Slash on Source Directory**:
 
-rsync -av /source/directory/ /destination/directory
+.. code-block:: python
+      rsync -av /source/directory/ /destination/directory
 
 When you use a trailing slash on the source directory it tells rsync to
 copy the **contents** of the source directory into the destination
@@ -213,7 +218,9 @@ directory.
 
 **Without Trailing Slash on Source Directory**:
 
-rsync -av /source/directory /destination/directory
+.. code-block:: python
+
+      rsync -av /source/directory /destination/directory
 
 When you don’t use a trailing slash on the source directory it
 tells rsync to copy the **source directory itself** and its contents
@@ -221,7 +228,9 @@ into the destination directory.
 
 **Trailing Slash on Destination Directory**:
 
-rsync -av /source/directory/ /destination/directory/
+.. code-block:: python
+
+      rsync -av /source/directory/ /destination/directory/
 
 When you use a trailing slash on the destination directory it
 tells rsync to copy the **source directory itself** and its contents
@@ -229,7 +238,9 @@ into the destination directory.
 
 **Without Trailing Slash on Destination Directory**:
 
-rsync -av /source/directory/ /destination/directory
+.. code-block:: python
+
+      rsync -av /source/directory/ /destination/directory
 
 When you don’t use a trailing slash on the destination directory it
 tells rsync to copy the **contents** of the source directory into the
@@ -285,7 +296,7 @@ side and then drag one file (or folder) from one location to another
 
 .. _section-3:
 
-**Using Filezilla\ **\ ` <https://docs.hpc.shef.ac.uk/en/latest/hpc/transferring-files.html#using-filezilla>`__
+**Using Filezilla**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FileZilla is a cross-platform client available for Windows, MacOS and
@@ -315,7 +326,7 @@ then *site manager* which will open a dialog similar to:
 
 .. _section-4:
 
-**Using wget / curl\ **\ ` <https://docs.hpc.shef.ac.uk/en/latest/hpc/transferring-files.html#using-wget-curl>`__
+**Using wget / curl**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 One of the most efficient ways to download files to the clusters is to
@@ -323,17 +334,17 @@ use either the curl or wget commands to download directly.
 
 The syntax for these commands is as below:
 
-**Downloading with wget\ **\ ` <https://docs.hpc.shef.ac.uk/en/latest/hpc/transferring-files.html#downloading-with-wget>`__
+**Downloading with wget**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 wget https://software.github.io/program/files/myprogram.tar.gz
 
-**Downloading with curl\ **\ ` <https://docs.hpc.shef.ac.uk/en/latest/hpc/transferring-files.html#downloading-with-curl>`__
+**Downloading with curl**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 curl -O https://software.github.io/program/files/myprogram.tar.gz
 
-**Using Git\ **\ ` <https://docs.hpc.shef.ac.uk/en/latest/hpc/transferring-files.html#using-git>`__
+**Using Git**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Git software and same named command can be used to download or
@@ -344,7 +355,9 @@ simply cloning the repository you desire.
 
 For example, cloning the source of the make software:
 
-**[user@allot]$** git clone https://git.savannah.gnu.org/git/make.git
+.. code-block:: python
+
+      **[user@allot]$** git clone https://git.savannah.gnu.org/git/make.git
 
 Git is installed on the clusters and can be used on any node and
 all `commands <https://blog.testproject.io/2021/03/22/git-commands-every-sdet-should-know/>`__ such
