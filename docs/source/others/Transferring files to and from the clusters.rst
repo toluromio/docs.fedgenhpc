@@ -13,7 +13,7 @@ of tools.
 4. Git
 
 **Transferring files using SCP**
---------------------------------
+======================================
 
 Secure copy protocol (SCP) is a protocol for securely transferring
 computer files between a local computer and a remote computer or between
