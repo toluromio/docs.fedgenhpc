@@ -57,5 +57,5 @@ To begin using the cluster, you need to be aware of the following;
 See the following section for details on using ssh to access the
 cluster.
 
-    - `Working With An SSH Client <Working%20With%20An%20SSH%20Client.rst>`__
-    - `Introduction to MobaXterm <Introduction%20to%20MobaXterm.rst>`__
+    - `Working With An SSH Client <Working%20With%20An%20SSH%20Client>`__
+    - `Introduction to MobaXterm <Introduction%20to%20MobaXterm>`__
