@@ -83,4 +83,4 @@ Communications as well as a **10Gbps** to storage node
   from storage node
 
 For more details
-see `Storage <Storage>`__ section.
+see `Storage <Storage.rst>`__ section.
