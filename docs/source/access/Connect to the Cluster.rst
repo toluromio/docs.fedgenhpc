@@ -57,5 +57,5 @@ To begin using the cluster, you need to be aware of the following;
 See the following section for details on using ssh to access the
 cluster.
 
-    - `Working With An SSH Client <Working%20With%20An%20SSH%20Client>`__
-    - `Introduction to MobaXterm <Introduction%20to%20MobaXterm>`__
+    - `Working With An SSH Client <https://fedgenhpc.readthedocs.io/en/latest/access/Working%20With%20An%20SSH%20Client.html>`__
+    - `Introduction to MobaXterm <https://fedgenhpc.readthedocs.io/en/latest/access/Introduction%20to%20MobaXterm.html>`__
