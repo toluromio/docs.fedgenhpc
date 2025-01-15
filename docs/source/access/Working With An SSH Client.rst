@@ -31,7 +31,7 @@ Connect to the login node from your terminal:
 
 Type the following on the command-line
 
-..code-block::
+..code-block:: python
 
       $ssh username@allot.hpc.fedgen.net
 
