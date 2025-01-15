@@ -2,7 +2,7 @@ Cluster Resources
 ----------------------
 
 FEDGEN Datacenter HPC resources includes Compute, GPUs and Storage
-Resources which is being increased on an annual basis. The FEDGEN HPC
+Resources which are being increased on an annual basis. The FEDGEN HPC
 cluster has very similar hardware with specific processors in variety of
 configuration in memory capacity or number of CPUs. All the nodes share
 resources over networks for storage and cluster communication
