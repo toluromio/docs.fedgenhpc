@@ -33,6 +33,7 @@ WELCOME
 -------
 .. toctree::
 
+   welcome/About FEDGEN
    FEDGEN HPC Overview
    Dashboard
    others/Contact
