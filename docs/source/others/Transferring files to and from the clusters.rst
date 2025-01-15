@@ -265,17 +265,14 @@ Download and Install the WinSCP.
 
 Double click on the executable to open the GUI below
 
-Click "New"
+Click "New" and fill the relevant details as stated below;
 
-Enter the informahostname information: and the login information: the
-FEDGEN_UserID and the SSO password
-
-**File Protocol:**\ SCP
-**Host**: allot.hpc.fedgen.net
-**User**: FEDGEN_UserID
-**Password**: Your cluster password (leave blank and fill this
-interactively if on a shared machine.)
-**Port**: 22
+   **File Protocol:**\ SCP
+   **Host**: allot.hpc.fedgen.net
+   **User**: FEDGEN_UserID
+   **Password**: Your cluster password (leave blank and fill this
+   interactively if on a shared machine.)
+   **Port**: 22
 
 |image1|
 
