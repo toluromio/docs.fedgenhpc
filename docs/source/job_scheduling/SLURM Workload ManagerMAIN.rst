@@ -47,6 +47,7 @@ with nodes equipped with specific graphic cards.
 .. code-block::
 
 # sinfo
+
 PARTITION AVAIL TIMELIMIT NODES STATE NODELIST
 batch up infinite 2 alloc giga[08-09]
 batch up infinite 6 idle node[10-16]
