@@ -36,25 +36,27 @@ listed below;
 
 **Windows machines**
 
-   1. WinSCP - Opens Source GUI Secure File Transfer Protocol (sFTP) Clinet
+   1. `WinSCP <https://winscp.net/eng/index.php>`__ -
+      Opens Source GUI Secure Secured Copy Protocol (SCP) and Secured File Transfer Protocol (sFTP) Clinet
    
-   2. `MobaXterm <https://sites.google.com/a/case.edu/hpcc/hpc-cluster/hpc-visual-access/mobaxterm?authuser=0>`__ -
+   2. `MobaXterm <https://mobaxterm.mobatek.net/>`__ -
       It has visual enabled SSH, SFTP, RDP sessions under a single hood to
       enable easy file transfer and remote desktop
 
-   3. FileZilla - Open Source GNU/GPL FTP Clinet
+   3. `FileZilla <https://filezilla-project.org/>`__ - Open Source GNU/GPL FTP Clinet
 
 **Mac machines**
 
-   1. Cyberduck
+   1. `Cyberduck <https://mobaxterm.mobatek.net>`__ -
    
-   2. FileZilla
+   2. `FileZilla <https://filezilla-project.org>`__ -
 
 **For Linux:**
 
-   1. Cyberduck
+   1. `Cyberduck <https://cyberduck.io/>`__ -
    
-   2. FileZilla
+   2. `FileZilla <https://filezilla-project.org>`__ -
+
 
 **Use Command-line SCP to transfer single files (Windows/Linux/MacOS)**
 
@@ -76,7 +78,7 @@ where you want to store the file.
 
 .. code-block:: python
 
-  | **[user@laptop ~]$** scp username@allot.hpc.fedgen.net:/file/to/copy/filename .
+     [user@laptop ~]$** scp username@allot.hpc.fedgen.net:/file/to/copy/filename .
 
 There will be a prompt for a authentication.
 
@@ -90,7 +92,7 @@ cluster
 
 .. code-block:: python
 
-      **[user@laptop ~]$** scp -r /path/to/local/directory username@.allot.hpc.fedgen.net:/path/to/remote/directory
+      [user@laptop ~]$ scp -r /path/to/local/directory username@.allot.hpc.fedgen.net:/path/to/remote/directory
 
 Or you can use the wild card * to transfer multiple files
 
@@ -99,7 +101,7 @@ your local machine, use this command:
 
 .. code-block:: python
 
-   **[user@laptop ~]$** scp username@allot.hpc.fedgen.net:/path/to/remote/directory1/ /path/to/local/directory2
+   [user@laptop ~]$ scp username@allot.hpc.fedgen.net:/path/to/remote/directory1/ /path/to/local/directory2
 
 This will copy all the files under directory1 on the cluster to your
 laptop under directory2. Note that the directory1 itself will not
