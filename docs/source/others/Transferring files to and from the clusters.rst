@@ -102,7 +102,7 @@ laptop under directory2. Note that the directory1 itself will not
 transfer, only the content.
 
 **Transferring files using SFTP:**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=======================================
 
 **To transfer multiple files without needing to re-authenticate, or to
 be able to navigate through the remote file system, use SFTP.**
@@ -135,7 +135,7 @@ Use man sftp for a complete list of SFTP commands.
 
 .. _section-1:
 
-**Use rsync to synchronize Files to the Cluster.**
+**Using rsync to synchronize Files to from the Cluster.**
 =======================================================
 
  rsync utility provides advanced features for file transfer and is
