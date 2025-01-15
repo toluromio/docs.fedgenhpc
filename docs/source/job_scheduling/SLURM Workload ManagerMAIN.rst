@@ -141,7 +141,7 @@ need when using FEDGEN HPC .
 
 The following parameters can be used as command line parameters
 with sbatch and srun or in job script, see `job script
-examples <Job%20sript%20examples.rst>`__. To use these
+examples <Job%20script%20examples.rst>`__. To use these
 parameters in a job script, start a newline with #SBTACH directive
 followed by the parameter. Replace <....> with the value you want,
 e.g. --job-name=test-job. The following tables shows the commonly used
