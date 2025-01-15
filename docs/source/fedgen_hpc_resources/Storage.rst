@@ -12,6 +12,7 @@ systems <http://en.wikipedia.org/wiki/File_system>`__ that can be used
 to store files. These disk spaces have different properties and each of
 them is designed to best fit different usage intents. They are listed in
 the table below.
+
 +---------------+---------+-----------------------+-----------------------------+------------+
 | Disk space    | Scope   | Environment variables | Lifetime                    | Filesystem |
 +---------------+---------+-----------------------+-----------------------------+------------+
