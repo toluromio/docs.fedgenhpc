@@ -3,9 +3,9 @@
 
 **Danger**
 
-There is no backup of the data stored on the cluster. Any removed file
-is lost for ever. It is the user’s responsibility to keep a copy of the
-contents of their home in a safe place.
+  There is no backup of the data stored on the cluster. Any removed file
+  is lost for ever. It is the user’s responsibility to keep a copy of the
+  contents of their home in a safe place.
 
 FEDGEN HPC cluster is equipped with `file
 systems <http://en.wikipedia.org/wiki/File_system>`__ that can be used
@@ -30,6 +30,7 @@ storage space that is local to a particular node and not accessible
 beyond that node.
 
 **FEDGENHOME (User Home)**
+===========================
 
 This is the file system for user home directories. Upon login on the
 login node, you will be end up in your *home directory*. It is a 4TB
@@ -44,6 +45,7 @@ Do not use this area for your main working activities; use fedgenscratch
 directory instead (see next section).
 
 **FEDGENSCRATCH (Work Area)**
+==============================
 
 The FEDGENSCRATCH is a high-performance shared disk space common to all
 compute nodes and to the front-end of the cluster. Its full path can be
@@ -69,6 +71,7 @@ The data in the FEDGENSCRATCH directory can be removed at any time
 specialy during maintenance periods.
 
 **FEDGENLOCAL**
+====================
 
 The FEDGENLOCAL file system is the temporary disk space available on all
 compute nodes and is only visible from within the compute node it
@@ -81,26 +84,27 @@ the end of the job script.
 
 **Note**
 
-Files stored in the fedgenlocal directory on each node are removed
-immediately after the job terminates. You will not be able to access
-files in the scratch directory after your job has completed. Furthermore
-files in fedgenlocal directory are not accessible from any other nodes
-(compute node and login nodes). Therefore, all files you want to save
-must be copied from the fedgenlocal directory to your home as part of
-your job.
-
-Using the fedgenlocal directory when running a batch job is often more
-efficient If your jobs performs a lot of disk I/O to files that does not
-need to be shared between nodes.
+  Files stored in the fedgenlocal directory on each node are removed
+  immediately after the job terminates. You will not be able to access
+  files in the scratch directory after your job has completed. Furthermore
+  files in fedgenlocal directory are not accessible from any other nodes
+  (compute node and login nodes). Therefore, all files you want to save
+  must be copied from the fedgenlocal directory to your home as part of
+  your job.
+  
+  Using the fedgenlocal directory when running a batch job is often more
+  efficient If your jobs performs a lot of disk I/O to files that does not
+  need to be shared between nodes.
 
 **Warning**
 
-There is not quota limit on the local scratch. The user has to be
-careful not to fill the space otherwise the job will probably crash.
+  There is no quota limit on the local scratch. The user has to be
+  careful not to fill the space otherwise the job will probably crash.
 
-The scratch size depends of the node type.
+  The scratch size depends of the node type.
 
 **Final remarks**
+====================
 
 As fedgenscratch is not meant to store data in the long term, you should
 expect them to be cleaned automatically after some time. You are
