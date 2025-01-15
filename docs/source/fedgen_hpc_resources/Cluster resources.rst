@@ -13,7 +13,7 @@ FEDGEN HPC Uses SLURM Resource and Queue Manager Software to manage
 Cluster Resources. Jobs submitted to SLURM job queue can run on any
 possible nodes dependent on job or cluster constraints. Users only have
 to specify `resource
-requirements <job_scheduling/Scheduling Jobs>`__ and
+requirements <job_scheduling/Scheduling Jobs.rst>`__ and
 SLURM scheduler will assign the job to an appropriate node or set of
 nodes.
 
