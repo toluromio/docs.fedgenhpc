@@ -267,11 +267,11 @@ Double click on the executable to open the GUI below
 
 Click "New" and fill the relevant details as stated below;
 
-   **File Protocol:**\ SCP
-   **Host**: allot.hpc.fedgen.net
-   **User**: FEDGEN_UserID
-   **Password**: Your cluster password (you can leave blank to  fill this interactively if on a shared machine.)
-   **Port**: 22
+-   **File Protocol:**\ SCP
+-   **Host**: allot.hpc.fedgen.net
+-   **User**: FEDGEN_UserID
+-   **Password**: Your cluster password (you can leave blank to  fill this interactively if on a shared machine.)
+-   **Port**: 22
 
 |image1|
 
