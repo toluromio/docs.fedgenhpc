@@ -2,7 +2,7 @@
 -----------------
 
 If you need help, please write us an email
-to `<mailto:hpcsupport@fedgen.net>`_, and our
+to `hpcsupport@fedgen.net <mailto:hpcsupport@fedgen.net>`_, and our
 local team of experts will try to assist you as soon as possible.
 
 You can also request new software (either an update or entirely new
