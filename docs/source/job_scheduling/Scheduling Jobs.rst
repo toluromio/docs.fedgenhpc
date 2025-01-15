@@ -2,6 +2,7 @@
 -------------------------
 
 **Anatomy of a job**
+======================
 
 Jobs are made of one or multiple **sequential steps**, each consisting
 in one or multiple **parallel tasks** that will be dispatched to
@@ -19,11 +20,8 @@ For the scheduling process to work properly, you will need to describe
 your job before you submit it:
 
 - what are the steps (i.e. which program must be run and how) ;
-
 - how many tasks there will be ;
-
 - what resource each task needs (CPU, memory, etc.), and
-
 - for how long the job is supposed to run.
 
 All of these, along with potentially aditionnal job parameters
@@ -39,19 +37,19 @@ manpage man sbatch.
 
 **Important**
 
-The #SBATCH directives must appear at the top of the submission file,
-before any other line except for the very first line which should be
-the `shebang <https://en.wikipedia.org/wiki/Shebang_(Unix)>`__ (e.g. #!/bin/bash).
-
-The script itself is a job step. Other job steps are created with
-the srun command, that takes as argument the name and options of the
-program to run.
+    The #SBATCH directives must appear at the top of the submission file,
+    before any other line except for the very first line which should be
+    the `shebang <https://en.wikipedia.org/wiki/Shebang_(Unix)>`__ (e.g. #!/bin/bash).
+    
+    The script itself is a job step. Other job steps are created with
+    the srun command, that takes as argument the name and options of the
+    program to run.
 
 **Note**
 
-If there is only one step, the srun command can be omitted, but it has
-consequences in how signals are handled and how accurate reporting is.
-It is often best to use it in all cases.
+    If there is only one step, the srun command can be omitted, but it has
+    consequences in how signals are handled and how accurate reporting is.
+    It is often best to use it in all cases.
 
 For instance, the following script, hypothetically named submit.sh,
 
@@ -81,12 +79,12 @@ named test, and create an output file named res.txt.
 
 **Important**
 
-It is important to note that as the job will run unattended, it will not
-be attached to a terminal (screen) so everything that the program that
-is run would like to write to the terminal will be redirected by Slurm
-to a file, whose name is specified by the --output parameter. (Note that
-for the same reasons, the program cannot expect input from the user
-through the keyboard to run properly.)
+    It is important to note that as the job will run unattended, it will not
+    be attached to a terminal (screen) so everything that the program that
+    is run would like to write to the terminal will be redirected by Slurm
+    to a file, whose name is specified by the --output parameter. (Note that
+    for the same reasons, the program cannot expect input from the user
+    through the keyboard to run properly.)
 
 Once the submission script is written properly, you need
 to **submit** it to slurm through the sbatch command, which, upon
@@ -97,8 +95,7 @@ prompt <https://en.wikipedia.org/wiki/Unix_shell#Bourne_shell>`__)
 .. code-block:: python
   
     $ sbatch submit.sh
-
-sbatch: Submitted batch job 12321
+    sbatch: Submitted batch job 12321
 
 **Warning**
 
@@ -141,6 +138,7 @@ See `interactive <https://scihpc.ir/docs/jobs/interactive/>`__ section
 for more details.
 
 **Slurm Arguments**
+======================
 
 These are the common and recommended arguments suggested at a minimum to
 get a job in any form.
@@ -192,6 +190,7 @@ get a job in any form.
 +-------+-------+-----------------------------------------------------+
 
 **Slurm Environment Variables**
+================================
 
 When a job scheduled by Slurm begins, it needs to about how it was
 scheduled, what its working directory is, who submitted the job, the
@@ -203,6 +202,7 @@ grep SLURM. A comprehensive list of the environment variables Slurm sets
 for each job can be found at the end of the *sbatch man page*.
 
 **Job Types**
+================
 
 There are a few popular types of jobs you could submit:
 
@@ -216,6 +216,7 @@ There are a few popular types of jobs you could submit:
   "CRON-like" processes that happen on a regular basis.
 
 **Interactive jobs**
+==========================
 
 Slurm jobs are normally batch jobs in the sense that they are run
 unattended. If you want to have a direct view on your job, for tests or
@@ -387,6 +388,7 @@ a short tutorial of tmux. Otherwise working inside of a tmux session is
 almost the same as a normal bash session.
 
 **Defining and submitting A Batch job**
+==========================================
 
 Below is a slurm script template. Submit a batch job from the login node
 by calling sbatch <script_name>.slurm.
@@ -426,9 +428,9 @@ by calling sbatch <script_name>.slurm.
 
 
 More Job Examples here
-
+==========================
 There is also an interactive `Script Generation
-Wizard <https://www.ceci-hpc.be/scriptgen.html>`__ you can use to help
+Wizard <https:///scriptgen.html>`__ you can use to help
 you in submission scripts creation.
 
 **Job related environment variables**
