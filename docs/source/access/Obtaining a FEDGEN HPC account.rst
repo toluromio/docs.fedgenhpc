@@ -18,6 +18,7 @@ Registration <https://fedgen.atlassian.net/servicedesk/customer/user/login?desti
 Page
 
 **Inactivity Notice and Account Deletion Policy**
+====================================================
 
 Accounts that have been inactive for a period of **one year** will be
 flagged for deletion. This is to ensure that we are not storing unused
