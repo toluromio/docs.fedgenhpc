@@ -191,7 +191,7 @@ cluster, use the following command:
 
 .. code-block:: python
 
-      **[user@laptop ~]$** rsync -avz /path/to/local/directory1 /path/to/local/file2 username@allot.hpc.fedgen.net:/path/to/remote/directory
+      [user@laptop ~]$ rsync -avz /path/to/local/directory1 /path/to/local/file2 username@allot.hpc.fedgen.net:/path/to/remote/directory
 
 To transfer multiple files or directories from a cluster to your local
 machine, use this command:
@@ -362,7 +362,7 @@ For example, cloning the source of the make software:
 
 .. code-block:: python
 
-      **[user@allot]$** git clone https://git.savannah.gnu.org/git/make.git
+      [user@allot]$ git clone https://git.savannah.gnu.org/git/make.git
 
 Git is installed on the clusters and can be used on any node and
 all `commands <https://blog.testproject.io/2021/03/22/git-commands-every-sdet-should-know/>`__ such
