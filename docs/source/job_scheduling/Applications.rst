@@ -40,27 +40,30 @@ variables, the module system:
 
 The main options for the module command are:
 
-module avail **\|** av list available software (modules)
+.. code-block:: python
+
+      module avail **\|** av list available software (modules)
 
 module load **\|** add [module] set up the environment to use the
 software
 
-module list list currently loaded software
+.. code-block:: python
 
-module purge clears the environment
-
-module spider list all possible modules
-
-module show show the commands **in** the module file
-
-module help get help
+      module list list currently loaded software
+      module purge clears the environment
+      module spider list all possible modules
+      module show show the commands **in** the module file
+      module help get help
+      
 
 **Available modules**
 
 A large number of software packages are preinstalled on the HPC cluster.
 A list of all currently available software can be obtained by typing:
 
-module available
+.. code-block:: python
+
+      module available
 
 There is also a shorter ml command that does exactly the same as
 the module command. Whenever you see a module command, you can
@@ -68,43 +71,38 @@ replace module with ml..
 
 This will give some output such as:
 
-module avail
+.. code-block:: python
 
---- /apps/gent/RHEL8/zen2-ib/modules/all ---
+      module avail
 
-ABAQUS/2021-hotfix-2132
-
-ABAQUS/2022-hotfix-2214
-
-ABAQUS/2022
-
-ABAQUS/2023
-
-ABAQUS/2024-hotfix-2405 (D)
-
-...
+      --- /apps/gent/RHEL8/zen2-ib/modules/all ---
+      ABAQUS/2021-hotfix-2132
+      ABAQUS/2022-hotfix-2214
+      ABAQUS/2022
+      ABAQUS/2023
+      ABAQUS/2024-hotfix-2405 (D)
+      
+      ...
 
 Or when you want to check whether some specific software, some compiler
 or some application (e.g., MATLAB) is installed on the HPC.
 
-module avail matlab
+.. code-block:: python
 
---- /apps/gent/RHEL8/zen2-ib/modules/all ---
+      module avail matlab
 
-LIBSVM-MATLAB/3.30-GCCcore-11.3.0-MATLAB-2022b-r5
-
-MATLAB/2019b
-
-MATLAB/2021b
-
-MATLAB/2022b-r5 (D)
-
-SPM/12.5_r7771-MATLAB-2021b
+      --- /apps/gent/RHEL8/zen2-ib/modules/all ---
+      LIBSVM-MATLAB/3.30-GCCcore-11.3.0-MATLAB-2022b-r5
+      MATLAB/2019b 
+      MATLAB/2021b
+      MATLAB/2022b-r5 (D)
+      SPM/12.5_r7771-MATLAB-2021b
 
 This gives a full list of software packages that can be loaded.
 
 *The casing of module names is important*: lowercase and uppercase
 letters matter in module names.
+
 
 **Organisation of modules in toolchains**
 
@@ -136,7 +134,9 @@ conflicts.
 To "activate" a software package, you load the corresponding module file
 using the module load command:
 
-module load example
+.. code-block:: python
+
+      module load example
 
 This will load the most recent version of *example*.
 
@@ -148,16 +148,18 @@ lexicographical last after the /).
 Assuming, module available openmpi returns the following OpenMPI
 modules;
 
-OpenMPI\ **/**\ 2.1\ **.**\ 1\ **-**\ GCC\ **-**\ 6.4\ **.**\ 0\ **-**\ 2.28
+.. code-block:: python
 
-OpenMPI\ **/**\ 2.1\ **.**\ 1\ **-**\ iccifort\ **-**\ 2017.4\ **.**\ 196\ **-**\ GCC\ **-**\ 6.4\ **.**\ 0\ **-**\ 2.28
-
-OpenMPI\ **/**\ 3.1\ **.**\ 1\ **-**\ GCC\ **-**\ 7.3\ **.**\ 0\ **-**\ 2.30
+      OpenMPI\ **/**\ 2.1\ **.**\ 1\ **-**\ GCC\ **-**\ 6.4\ **.**\ 0\ **-**\ 2.28
+      OpenMPI\ **/**\ 2.1\ **.**\ 1\ **-**\ iccifort\ **-**\ 2017.4\ **.**\ 196\ **-**\ GCC\ **-**\ 6.4\ **.**\ 0\ **-**\ 2.28
+      OpenMPI\ **/**\ 3.1\ **.**\ 1\ **-**\ GCC\ **-**\ 7.3\ **.**\ 0\ **-**\ 2.30
 
 then with the command
 
-module load
-OpenMPI\ **/**\ 2.1\ **.**\ 1\ **-**\ GCC\ **-**\ 6.4\ **.**\ 0\ **-**\ 2.28
+.. code-block:: python
+
+   module load
+   OpenMPI\ **/**\ 2.1\ **.**\ 1\ **-**\ GCC\ **-**\ 6.4\ **.**\ 0\ **-**\ 2.28
 
 you will enable OpenMPI version 2.1.1 compiled with GCC version 6.4.0.
 The naming convention for the available modules is always of the
