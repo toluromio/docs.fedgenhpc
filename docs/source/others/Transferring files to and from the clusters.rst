@@ -136,6 +136,7 @@ Use man sftp for a complete list of SFTP commands.
 .. _section-1:
 
 **Use rsync to synchronize Files to the Cluster.**
+=======================================================
 
  rsync utility provides advanced features for file transfer and is
 typically faster compared to both scp and sftp. It is an efficient
@@ -258,14 +259,10 @@ Enter the informahostname information: and the login information: the
 FEDGEN_UserID and the SSO password
 
 **File Protocol:**\ SCP
-
 **Host**: allot.hpc.fedgen.net
-
 **User**: FEDGEN_UserID
-
 **Password**: Your cluster password (leave blank and fill this
 interactively if on a shared machine.)
-
 **Port**: 22
 
 |image1|
@@ -297,7 +294,7 @@ side and then drag one file (or folder) from one location to another
 .. _section-3:
 
 **Using Filezilla**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+========================
 
 FileZilla is a cross-platform client available for Windows, MacOS and
 Linux for downloading and uploading files to and from a remote computer.
@@ -327,7 +324,7 @@ then *site manager* which will open a dialog similar to:
 .. _section-4:
 
 **Using wget / curl**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=================================
 
 One of the most efficient ways to download files to the clusters is to
 use either the curl or wget commands to download directly.
@@ -335,17 +332,19 @@ use either the curl or wget commands to download directly.
 The syntax for these commands is as below:
 
 **Downloading with wget**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-wget https://software.github.io/program/files/myprogram.tar.gz
+..code-block:: python
+
+      wget https://software.github.io/program/files/myprogram.tar.gz
 
 **Downloading with curl**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-curl -O https://software.github.io/program/files/myprogram.tar.gz
+..code-block:: python
+
+      curl -O https://software.github.io/program/files/myprogram.tar.gz
 
 **Using Git**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=======================
 
 The Git software and same named command can be used to download or
 synchronise a remote Git repository onto the clusters. This can be
