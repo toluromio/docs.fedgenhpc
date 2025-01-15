@@ -2,11 +2,11 @@ FEDGEN HPC Layout
 --------------------
 
 The FEDGEN HPC comprises of three different kinds of nodes: the login
-node, the compute/GPU nodes, and the storage nodes. In a typical
+node, the compute, accelerator nodes, the management nodes and the storage nodes. In a typical
 workflow, users primarily access FEDGEN HPC by connecting to the login
 node, where they compile and test code before submitting jobs to
 the `SLURM
-queue <https://fedgenhpc.readthedocs.io/en/latest/SLURM_overview/>`__
+queue <job_scheduling/SLURM Workload ManagerMAIN>`__
 which automatically assigns a compute node(s) to the submitted job. This
 HPC layout is in the diagram below.
 
