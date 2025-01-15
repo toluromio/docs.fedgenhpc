@@ -44,6 +44,8 @@ examples include partitions dedicated to debugging where only small and
 short jobs can be scheduled, or partitions dedicated to visualization
 with nodes equipped with specific graphic cards.
 
+.. code-block::
+
 # sinfo
 
 PARTITION AVAIL TIMELIMIT NODES STATE NODELIST
