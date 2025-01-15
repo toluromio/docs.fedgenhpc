@@ -44,8 +44,9 @@ Guide <https://slurm.schedmd.com/quickstart.html>`__ for an overview of
 the architecture, commands and examples.
 
 **Glossary of concepts and terms related to Slurm**
+==================================================
 
-**Nodes**
+  **Nodes**
 
    A node is (commonly) the largest part of the cluster running a single
    operating system image, and hence capable of supporting a shared
