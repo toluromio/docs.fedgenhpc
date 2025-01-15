@@ -2,6 +2,7 @@
 --------------------------
 
 **Basic examples**
+=====================
 
 **General blueprint for a jobscript**
 
@@ -91,6 +92,7 @@ automatically killed by the manager.
 
 
 **Running many sequential jobs in parallel using job arrays**
+==============================================================
 
 In this example we wish to run many similar sequential jobs in parallel
 using job arrays. We take Python as an example but this does not matter
@@ -194,6 +196,7 @@ in your submit directory:
 
 
 **Packaging smaller parallel jobs into one large parallel job**
+=================================================================
 
 There are several ways to package smaller parallel jobs into one large
 parallel job. The preferred way is to use Job Arrays. Browse the web for
@@ -245,6 +248,7 @@ once all commands started with & have completed.
 
 
 **Example on how to allocate entire memory on one node**
+==========================================================
 
 .. code-block:: python
 
@@ -297,6 +301,7 @@ once all commands started with & have completed.
     exit 0
 
 **How to recover files before a job times out**
+==================================================
 
 Possibly you would like to clean up the work directory or recover files
 for restart in case a job times out. In this example we ask Slurm to
@@ -344,6 +349,7 @@ chance to perform clean-up actions.
 
 
 **OpenMP and MPI**
+=======================
 
 You can download the examples given here to a file (e.g. smpijob.sh) and
 start it with:
@@ -529,6 +535,7 @@ to 8 threads
 
 
 **Message passing example (MPI)**
+===================================
 
 .. code-block:: python
 
@@ -696,6 +703,7 @@ all items in the ARGS[] Bash array are processed.
   consider *packing* your jobs.
 
 **Packed jobs example**
+==========================
 
 By default, the srun command in a submission script inherits all
 non-GRES resource allocated in the job, but with the --exact parameter,
@@ -792,6 +800,7 @@ though not necessarily in the same order.
 
 
 **Hybrid jobs**
+======================
 
 You can mix multi-processing (MPI) and multi-threading (OpenMP) in the
 same job, simply like this:
@@ -816,6 +825,7 @@ same job, simply like this:
     srun ./myprog $SLURM_ARRAY_TASK_ID
 
 **GPU jobs**
+=======================
 
 If you want to claim a GPU for your job, you need to specify the
 GRES `Generic Resource
@@ -846,6 +856,7 @@ A sample job file requesting a node with a GPU could look like this:
 
 
 **Settings for OpenMP and MPI jobs**
+======================================
 
 **Single node jobs**
 
@@ -878,6 +889,7 @@ higher number and observe the load of your job. If it stays at
 approximately one there is no need to ask for more than one.
 
 **OpenMP applications**
+==========================
 
 OpenMP (Open Multi-Processing) is a multiprocessing library is often
 used for programs on shared memory systems. Shared memory describes
@@ -900,6 +912,7 @@ so that each process can access all data on that system.
 +-----------------------+----------------------------------------------+
 
 **Multiple node jobs (MPI)**
+==============================
 
 Depending on the frequency and bandwidth demand of your setup, you can
 either just start a number of MPI tasks or request whole nodes. While
@@ -955,6 +968,7 @@ system will automatically allocate 8 cores or less per node.
 +-----------------+----------------------------------------------------+
 
 **Scalability**
+=========================
 
 You should run a few tests to see what is the best fit between
 minimizing runtime and maximizing your allocated cpu-quota. That is you
