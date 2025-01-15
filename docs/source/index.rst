@@ -23,7 +23,7 @@ enable real-time data processing, allowing researchers to gain rapid
 insights into complex “omics” information and accelerate the discovery
 of new treatments and therapies.
 
-Check out our website for further information.
+Check out our `website <http://www.fedgen.net>`_ for further information.
 
 .. note::
 
