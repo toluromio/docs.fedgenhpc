@@ -2,7 +2,7 @@
 --------------------------
 
 Once you have received an email confirming the creation of your
-Fedgen-UserID, you have access to the FEDGEN HPC Cluster.
+**Fedgen-UserID**, you have access to the FEDGEN HPC Cluster.
 
 To begin using the cluster, you need to be aware of the following;
 
@@ -57,6 +57,5 @@ To begin using the cluster, you need to be aware of the following;
 See the following section for details on using ssh to access the
 cluster.
 
-Working With An SSH Client
-
-Introduction to Mobaxterm
+`Working With An SSH Client <Working%20With%20An%20SSH%20Client.rst>`__
+`Introduction to Mobaxterm <Introduction%20to%20Mobaxterm.rst>`__
