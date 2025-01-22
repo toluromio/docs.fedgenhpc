@@ -1,7 +1,7 @@
 **Cluster Storage**
 -----------------------
 
-**Danger**
+..Danger::
 
   There is no backup of the data stored on the cluster. Any removed file
   is lost for ever. It is the user’s responsibility to keep a copy of the
@@ -82,7 +82,7 @@ There you can write/read temporary results during your job, copy the
 results of interest back to the home directory, and then delete it at
 the end of the job script.
 
-**Note**
+..Note::
 
   Files stored in the fedgenlocal directory on each node are removed
   immediately after the job terminates. You will not be able to access
@@ -96,7 +96,7 @@ the end of the job script.
   efficient If your jobs performs a lot of disk I/O to files that does not
   need to be shared between nodes.
 
-**Warning**
+..Warning::
 
   There is no quota limit on the local scratch. The user has to be
   careful not to fill the space otherwise the job will probably crash.
