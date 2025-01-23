@@ -15,7 +15,7 @@ HPC layout is in the diagram below.
 Login Node
 ===========
 The Login node is the only node directly accessible over the internet.
-Users connect to the login from their personal computers/workstation using `CNN <http://cnn.com>`_ before accessing other parts of the FEDGEN HPC Cluster. Users initiate their jobs primarily from the login node.
+Users connect to the login from their personal computers/workstation using `ssh <../access/Working%20With%20An%20SSH%20Client.rst>`_ before accessing other parts of the FEDGEN HPC Cluster. Users initiate their jobs primarily from the login node.
 
 Compute Nodes
 ===============
