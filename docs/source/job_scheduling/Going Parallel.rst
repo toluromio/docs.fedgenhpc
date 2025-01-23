@@ -45,7 +45,7 @@ of each instance, for instance working on a separate subset of the data.
 Optimised linear algebrae of signal processing libraries use OpenMP a
 lot for parallelism.
 
-**Note**
+.. Note::
 
     Even if the software you write is purely sequential and does not use
     OpenMP for instance, if it links to optimized scientific libraries (as
