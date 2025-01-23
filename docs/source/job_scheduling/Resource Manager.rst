@@ -6,7 +6,7 @@ computing is organized by a piece of software called a *resource
 manager* or *job scheduler*. Indeed, users do not run software on those
 cluster like they would do on a workstation, rather, they must submit
 jobs, which are run unattended, by the job scheduler at the time, and on
-the resources, decided by its algorithm.
+the resources decided by its algorithm.
 
 `SLURM <https://slurm.schedmd.com/>`__ (Simple Linux utility Resource
 manager) is the workload manager and job scheduler for FEDGEN HPC
