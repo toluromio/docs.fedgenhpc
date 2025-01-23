@@ -17,6 +17,8 @@ criteria described above; kindly go to the `Account
 Registration <https://fedgen.atlassian.net/servicedesk/customer/user/login?destination=portals>`__
 Page
 
+If you have a Research Team and would like group accounts and group Storage quotas, kindly use the same Registration link above specifying your needs. This should be done by the Head of Department or the Principal Investigator.
+
 **Inactivity Notice and Account Deletion Policy**
 ====================================================
 
