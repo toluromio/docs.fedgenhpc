@@ -14,70 +14,99 @@ same resource unless explicitly forced by the admins, but that is
 generally not the case. Therefore, jobs can only start when all needed
 resources are free and not needed by another higher priority job. Jobs
 are indeed assigned a **priority** when they are submitted, which can
-depend upon multiple factors. More on that later.
+depend upon multiple factors. 
 
-For the scheduling process to work properly, you will need to describe
-your job before you submit it:
+Each job has two parts:
+
+- Resource requests: describe the amount of computing resource (CPUs,
+  memory, expected run time, etc.) that the job will need to
+  successfully run.
+
+- Job steps: describe individual tasks that must be executed into a job.
+  You can execute a job step with the SLURM command srun. A job can has
+  one or more steps, each consisting in one or more tasks each using one
+  or more CPU, GPU, etc.
+
+
+**Job Types**
+================
+
+There are a two popular types of jobs you could submit to the HPC cluster:
+
+- `batch <batch-jobs>`__ which are unattended shell scripts
+- `interactive <#interactive-jobs>`__ where you run and test out your workflows live interactively on the command line,
+
+
+**Starting a SLURM Job**
+===============================
+
+There are two ways of starting jobs with SLURM; either interactively
+with ``srun`` or as a script with ``sbatch`` commands.
+
+
+
+**Scheduling A BATCH Job**
+===============================
+For the scheduling process to work properly, you will need to describe your job before you submit it:
 
 - what are the steps (i.e. which program must be run and how) ;
 - how many tasks there will be ;
 - what resource each task needs (CPU, memory, etc.), and
 - for how long the job is supposed to run.
 
-All of these, along with potentially aditionnal job parameters
-submission options, can be described in a **submission script**.
+All of these, along with potentially aditionnal job parameter submission options, can be described in a **submission script**.
 
 A submission script is a `shell
 script <https://en.wikipedia.org/wiki/Shell_script>`__, e.g.
 a `Bash <https://en.wikipedia.org/wiki/Bash_(Unix_shell)>`__ script,
 whose comments, if they are prefixed with #SBATCH, are understood by
-Slurm as parameters describing resource requests and other submissions
+Slurm as directives describing resource requests and other submissions
 options. You can get the complete list of parameters from the sbatch
 manpage man sbatch.
 
-**Important**
+.. Important::
 
     The #SBATCH directives must appear at the top of the submission file,
     before any other line except for the very first line which should be
-    the `shebang <https://en.wikipedia.org/wiki/Shebang_(Unix)>`__ (e.g. #!/bin/bash).
+    the `shebang <https://en.wikipedia.org/wiki/Shebang_(Unix)>`__ (e.g. ``#!/bin/bash`` ).
     
     The script itself is a job step. Other job steps are created with
-    the srun command, that takes as argument the name and options of the
+    the ``srun`` command, that takes as argument the name and options of the
     program to run.
 
-**Note**
+.. Note::
 
     If there is only one step, the srun command can be omitted, but it has
     consequences in how signals are handled and how accurate reporting is.
     It is often best to use it in all cases.
 
-For instance, the following script, hypothetically named submit.sh,
+For instance, the following batch script, hypothetically named submit.sh,
 
 
 .. code-block:: python
 
     #!/bin/bash
     #
-    #SBATCH --job-name=test
-    #SBATCH --output=res.txt
+    #SBATCH --job-name=testrun
+    #SBATCH --output=result.txt
     #SBATCH --partition=debug
     #
-    #SBATCH --time=10:00
+    #SBATCH --time=5:00
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=100
+    #SBATCH --mem-per-cpu=200
     
     srun hostname
     srun sleep 60
 
 describes a job made of 2+1 steps (the submission script itself plus two
 explicit steps created by calling srun twice), each step consisting of
-only one task that needs one CPU and 100MB of RAM. The first step will
-run the hostname command, and the second one the useless sleep command.
-The job is supposed to run for 10 minutes on the debug partition, be
-named test, and create an output file named res.txt.
+only one task that needs one CPU and 200MB of RAM. The first step will
+run the ``hostname`` command, and the second one the useless ``sleep`` command.
+The job is supposed to run for *5 minutes* on the debug partition, be
+named testrun, and create an output file named *result.txt*.
 
-**Important**
+.. Important::
 
     It is important to note that as the job will run unattended, it will not
     be attached to a terminal (screen) so everything that the program that
@@ -87,7 +116,7 @@ named test, and create an output file named res.txt.
     through the keyboard to run properly.)
 
 Once the submission script is written properly, you need
-to **submit** it to slurm through the sbatch command, which, upon
+to **submit** it to slurm through the ``sbatch`` command, which, upon
 success, responds with the *jobid* attributed to the job. (The dollar
 sign below is the `shell
 prompt <https://en.wikipedia.org/wiki/Unix_shell#Bourne_shell>`__)
@@ -97,7 +126,7 @@ prompt <https://en.wikipedia.org/wiki/Unix_shell#Bourne_shell>`__)
     $ sbatch submit.sh
     sbatch: Submitted batch job 12321
 
-**Warning**
+.. Warning::
 
   Make sure to submit the job with sbatch and not bash; also do not
   execute it directly. This would ignore all resource request and your job
@@ -116,26 +145,7 @@ an **allocation** is created for it and it goes to the RUNNING state. If
 the job completes correctly, it goes to the *COMPLETED* state,
 otherwise, it is set to the *FAILED* state.
 
-Each job has two parts:
 
-- Resource requests: describe the amount of computing resource (CPUs,
-  memory, expected run time, etc.) that the job will need to
-  successfully run.
-
-- Job steps: describe individual tasks that must be executed into a job.
-  You can execute a job step with the SLURM command srun. A job can has
-  one or more steps, each consisting in one or more tasks each using one
-  or more CPU, GPU, etc.
-
-There are two ways of starting jobs with SLURM; either interactively
-with srun or as a script with sbatch commands.
-
-Interactive jobs are a good way to test your setup before you put it
-into a script or to work with interactive applications like python. You
-immediately see the results and can check if all parts behave as you
-expect.
-See `interactive <https://scihpc.ir/docs/jobs/interactive/>`__ section
-for more details.
 
 **Slurm Arguments**
 ======================
@@ -189,6 +199,7 @@ get a job in any form.
 |       |       | and minutes.                                        |
 +-------+-------+-----------------------------------------------------+
 
+
 **Slurm Environment Variables**
 ================================
 
@@ -201,19 +212,7 @@ like mpirun. To view a node's Slurm environment variables, use export \|
 grep SLURM. A comprehensive list of the environment variables Slurm sets
 for each job can be found at the end of the *sbatch man page*.
 
-**Job Types**
-================
 
-There are a few popular types of jobs you could submit:
-
-- `interactive <#interactive-jobs>`__ where
-  you and test out your workflows live,
-
-- `batch <batch-jobs>`__ which
-  are unattended (you get an email when completed), and
-
-- `recurring <#null>`__ or
-  "CRON-like" processes that happen on a regular basis.
 
 **Interactive jobs**
 ==========================
@@ -238,6 +237,7 @@ the `salloc <https://slurm.schedmd.com/salloc.html>`__ command.
 The salloc command accepts the same parameters as sbatch as far as
 resource requirement are concerned. Once the allocation is granted, you
 can use srun the same way you would in a submission script.
+
 
 **Starting an interactive job**
 
@@ -273,8 +273,8 @@ helped to specify the cpu account:
     $ srun --account=<NAME_OF_MY_ACCOUNT> --nodes=1 --ntasks-per-node=1
     --time=01:00:00 --pty bash -i
 
-**Interactive Jobs (Single
-Node)\ **\ `# <#interactive-jobs-single-node>`__
+
+**Interactive Jobs (Single Node)\ **\ `# <#interactive-jobs-single-node>`__
 
 Resources for interactive jobs are attained either using salloc. To
 request a compute node from the Checkpoint all partition (ckpt-all)
