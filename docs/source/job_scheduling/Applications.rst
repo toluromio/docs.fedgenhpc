@@ -3,6 +3,7 @@
 
 Applications on FEDGEN HPC Cluster are made available through **Miniconda**
 and **Easybuild** package managers. The Miniconda package manager provides access to a few set of applications made available through conda environments. The Miniconda package manager was provided For quick application access but Easybuild provides full access to cluster applications.  
+
 .. Note::
    Software packages have to be activated or deactivated through ‘Modules’ before program execution.
    Miniconda (conda) is activated through modules
@@ -167,8 +168,8 @@ After doing this, when you run e.g. mpicc or mpirun without specifying
 the full path, you will be running that specific version of OpenMPI
 compilers or launch script.
 
-The ml command is a shorthand for module load: ml example/1.2.3 is
-equivalent to module load example/1.2.3.
+The ``ml`` command is a shorthand for module load: ``ml example/1.2.3`` is
+equivalent to ``module load example/1.2.3``.
 
 Modules need not be loaded one by one; the two module load commands can
 be combined as follows:
@@ -200,7 +201,7 @@ above, you will get the following:
      Where:
       S:  Module is Sticky, requires --force to unload or purge
 
-You can also just use the ml command without arguments to list loaded
+You can also just use the ``ml`` command without arguments to list loaded
 modules.
 
 It is important to note at this point that other modules
@@ -215,7 +216,7 @@ whenever things go wrong: they may have something to do with it!
 
 **module unload**
 
-To unload a module, one can use the module unload command. It works
+To unload a module, one can use the ``module unload`` command. It works
 consistently with the load command, and reverses the latter's effect.
 However, the dependencies of the package are NOT automatically unloaded;
 you will have to unload the packages one by one. When the example module
@@ -238,7 +239,7 @@ is unloaded, only the following modules remain:
         Where:
          S:  Module is Sticky, requires --force to unload or purge
 
-To unload the example module, you can also use ml -example.
+To unload the example module, you can also use ``ml -example``.
 
 Notice that the version was not specified: there can only be one version
 of a module loaded at a time, so unloading modules by name is not
@@ -348,7 +349,7 @@ First, load all modules you want to include in the collections:
       module load example/1.2.3 secondexample/4.5.6-intel-2023a
 
 Now store it in a collection using module save. In this example, the
-collection is named my-collection.
+collection is named *my-collection*.
 
 .. code-block:: python
 
@@ -396,8 +397,7 @@ To remove a collection, remove the corresponding file in $HOME/.lmod.d/:
 **Getting module details**
 ======================================
 
-To see how a module would change the environment, you can use the module
-show command:
+To see how a module would change the environment, you can use the ``module show`` command:
 
 .. code-block:: python
 
@@ -421,7 +421,7 @@ show command:
 
 
 Here you can see that
-the Python-bundle-PyPI/2024.06-GCCcore-13.3.0 comes with a lot of
+the `Python-bundle-PyPI/2024.06-GCCcore-13.3.0` comes with a lot of
 extensions: alabaster, appdirs, ... These are Python packages which can
 be used in your Python scripts.
 
