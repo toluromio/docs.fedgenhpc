@@ -82,7 +82,7 @@ specific case of *multiple program multiple data*) where one program
 (worker) is designed to perform the work. Only one master is run, but
 there can be as many workers instances as needed.
 
-**Important**
+.. Important::
 
     The above taxonomy must be take with a grain of salt. Some Master/Worker
     programs use the network rather than the disk for communication, or
