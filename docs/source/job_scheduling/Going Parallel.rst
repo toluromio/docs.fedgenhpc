@@ -4,7 +4,7 @@
 There are several ways a **parallel job**, one that leverages multiple
 compute units (CPUs) at the same time, can be created.
 
-**Warning**
+.. Warning::
 
     The type of job that can be created depends on the capabilities of the
     software being used. Parallel computing requires specific programming
