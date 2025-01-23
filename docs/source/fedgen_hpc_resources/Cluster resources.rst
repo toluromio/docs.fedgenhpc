@@ -44,11 +44,13 @@ FEDGEN HPC Cluster currently runs on *Ubuntu 22.04* .
 |              |            | (Cascade Lake)            |       |         |           |                                          |                |            |
 +--------------+------------+---------------------------+-------+---------+-----------+------------------------------------------+----------------+------------+
 
+
 **Networks (Interconnect)**
 =============================
 
 All nodes are connected to a **10Gb Ethernet network** for Cluster
-Communications as well as a **10Gbps** to storage node
+Communications as well as a **2x 10Gbps** Ethernet network for storage access
+
 
 **Storage**
 ===============
