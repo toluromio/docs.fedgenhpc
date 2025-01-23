@@ -24,8 +24,8 @@ Compute Nodes
 Compute nodes perform the actual computations submitted to the cluster.
 They are often organised into groupings called **partitions**.
 A typical compute node has one, two, or four **processor sockets** on the
-motherboard to host a `Central Processing Unit (CPU) <..https://en.wikipedia.org/wiki/Central_processing_unit>`__. Modern Processors are made of
-multiple Physical **cores**, that can be thought of as independent processing units, some of which can possess a feature to further handle two threads (see `multi-threading <..https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)>`__ simultaneously.
+motherboard to host a `Central Processing Unit (CPU) <https://en.wikipedia.org/wiki/Central_processing_unit>`__. Modern Processors are made of
+multiple Physical **cores**, that can be thought of as independent processing units, some of which can possess a feature to further handle two threads (see `multi-threading <https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)>`__) simultaneously.
 
 
 Accelerator Nodes
