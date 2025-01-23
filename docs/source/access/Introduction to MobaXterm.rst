@@ -1,13 +1,12 @@
 Introduction to MobaXterm
 --------------------------
-
 MobaXterm is a comprehensive terminal application with many features
 that provides remote computing tools such as SSH, RDP, X11, SFTP, FTP,
 Telnet, Rlogin etc for programmers, webmasters, IT administrators, and
 other users.
 
-**Setting up MobaXterm on your local computer**
 
+**Setting up MobaXterm on your local computer**
 To install MobaXterm, go to the `MobaXterm
 website <https://mobaxterm.mobatek.net/>`__ and selected 'Download' at
 the top of the page
@@ -31,8 +30,8 @@ run the program
 
 |image3|
 
-**Setting up and SSH connection session to FEDGEN HPC CLUSTER**
 
+**Setting up and SSH connection session to FEDGEN HPC CLUSTER**
 MobaXterm allows to define a 'SSH Session' to simplify the process of
 connecting to a remote server. First, start MobaXterm, then click on the
 "Session" button in the upper left.
@@ -52,8 +51,8 @@ line in the 'User sessions' column named something like
 Click this and you will be prompted to enter the password for your
 username, after which you will be logged into Allot login node.
 
-**Copying files to and from the cluster**
 
+**Copying files to and from the cluster**
 After you connect to the cluster successfully, you will see on the left
 sidebar on the *Sftp* tab a file browser on the cluster you are
 connected to.
