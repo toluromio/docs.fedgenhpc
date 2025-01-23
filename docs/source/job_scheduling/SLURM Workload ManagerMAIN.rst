@@ -228,8 +228,8 @@ ones.
 | **Parameter**      | **Function**                                                                 |
 +====================+==============================================================================+
 | --array=<indexes>  | Submit a collection of similar jobs,                                         |
-|                    | e.g. --array=1-10. (sbatch command only). See                                |
-|                    | official `SLURM documentation <https://slurm.schedmd.com/job_array.html>`_.  |                            |
+|                    | e.g. --array=1-10. (sbatch command only). See  official                      |
+|                    |  `SLURM documentation <https://slurm.schedmd.com/job_array.html>`_.          |                            
 |                    |                                                                              |
 +--------------------+------------------------------------------------------------------------------+
 | --depend           | Wait with the start of the job until specified                               |
