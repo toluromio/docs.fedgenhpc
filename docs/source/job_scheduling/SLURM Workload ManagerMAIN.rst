@@ -224,16 +224,15 @@ ones.
 
 **Advanced Job Control parameters**
 
-+--------------------+-------------------------------------------------+
-| **Parameter**      | **Function**                                    |
-+====================+=================================================+
-| --array=<indexes>  | Submit a collection of similar jobs,            |
-|                    | e.g. --array=1-10. (sbatch command only). See   |
-|                    | official `SLURM                                 |
-|                    | documentation                                   |
-|                    |  <https://slurm.schedmd.com/job_array.html>`__. |
-+--------------------+-------------------------------------------------+
-| --depend           | Wait with the start of the job until specified  |
-| ency=<state:jobid> | dependencies have been satisfied.               |
-|                    | E.g. --dependency=afterok:123456                |
-+--------------------+-------------------------------------------------+
++--------------------+------------------------------------------------------------------------------+
+| **Parameter**      | **Function**                                                                 |
++====================+==============================================================================+
+| --array=<indexes>  | Submit a collection of similar jobs,                                         |
+|                    | e.g. --array=1-10. (sbatch command only). See                                |
+|                    | official `SLURM documentation <https://slurm.schedmd.com/job_array.html>`_.  |                            |
+|                    |                                                                              |
++--------------------+------------------------------------------------------------------------------+
+| --depend           | Wait with the start of the job until specified                               |
+| ency=<state:jobid> | dependencies have been satisfied.                                            |
+|                    | E.g. --dependency=afterok:123456                                             |
++--------------------+------------------------------------------------------------------------------+
