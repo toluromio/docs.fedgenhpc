@@ -23,32 +23,29 @@ the table below.
 | fedgenlocal   | node    | $FEDGENLOCAL          | job lifetime                | NFS        |
 +---------------+---------+-----------------------+-----------------------------+------------+
 
-The ‘Scope’ column indicates from where the disk space is accessible. A
-scope of ‘cluster’ means all compute nodes and frontend in the cluster
-share the same filesystem. By contrast, a scope of ‘node’ refers to
-storage space that is local to a particular node and not accessible
-beyond that node.
+The ‘Scope’ column indicates the point where a storage space can be accessed. A
+scope of ‘cluster’ means all compute nodes, gpu nodes and login node in the cluster
+have access to that storage space. By contrast, a scope of ‘node’ refers to
+storage space that is available ONLY on that particular node.
 
 **FEDGENHOME (User Home)**
 ===========================
-
 This is the file system for user home directories. Upon login on the
 login node, you will be end up in your *home directory*. It is a 4TB
-global file system, which is accessible from both the login nodes and
+cluster-level storage space, which is accessible from both the login nodes and
 all the compute nodes of the cluster. Its full path can be shown
-with echo $FEDGENHOME and you can return there with a simple cd command.
+with echo **$FEDGENHOME** or **$HOME** `environment variable <https://en.wikipedia.org/wiki/Environment_variable>`_.
 
 The fedgenhome filesystem is dedicated to source code (programs,
 scripts), configuration files, and small datasets (like input files.)
-
-Do not use this area for your main working activities; use fedgenscratch
-directory instead (see next section).
+.. Note::
+  Do not use this area for your main working activities; use fedgenscratch
+  directory instead (see next section).
 
 **FEDGENSCRATCH (Work Area)**
 ==============================
-
 The FEDGENSCRATCH is a high-performance shared disk space common to all
-compute nodes and to the front-end of the cluster. Its full path can be
+compute/gpu nodes and to the login node of the cluster. Its full path can be
 shown with echo $FEDGENSCRATCH. The FEDGENSCRATCH is built using the
 `Network
 filesystem <https://en.wikipedia.org/wiki/Network_File_System>`__ (NFS).
@@ -59,7 +56,7 @@ that, it is customary in the job script to create a subdirectory with
 the job id, where all temporary data will be written, and to clean that
 directory when the job finishes, and after having copied results to
 another location either on the same filesystem if the results are to be
-consumed by a later job, or on another filesystem such as the home or a
+consumed by a later job, or on another filesystem such as the $HOME or a
 remote long-term storage.
 
 To use the FEDGENSCRATCH, you might first need to create a directory by
@@ -67,15 +64,14 @@ yourself. It is then common to name it after your login.
 
 .. Warning::
 
-The data in the FEDGENSCRATCH directory can be removed at any time
+The data in the FEDGENSCRATCH directory is not backed up can be removed at any time
 specialy during maintenance periods.
 
 **FEDGENLOCAL**
 ====================
-
 The FEDGENLOCAL file system is the temporary disk space available on all
 compute nodes and is only visible from within the compute node it
-belongs to. They are available through the $FEDGENLOCAL environment
+belongs to. It is available through the $FEDGENLOCAL environment
 variable. They are built on top of a fast, redundant, RAID-1 system.
 
 There you can write/read temporary results during your job, copy the
@@ -98,14 +94,13 @@ the end of the job script.
 
 .. Warning::
 
-  There is no quota limit on the local scratch. The user has to be
+  There is no quota limit on the fedgenlocal disk space. The user has to be
   careful not to fill the space otherwise the job will probably crash.
 
   The scratch size depends of the node type.
 
 **Final remarks**
 ====================
-
 As fedgenscratch is not meant to store data in the long term, you should
 expect them to be cleaned automatically after some time. You are
 expected to always clean up after your job. This is especially important
