@@ -9,7 +9,7 @@ To begin using the cluster, you need to be aware of the following;
 1.  You need to **log on to the cluster** using an SSH client (Windows
     Powershell, Windows CMD, Putty, MacOS Terminal, Linux Terminal,
     MobaXterm etc) to the login node **( ``allot.hpc.fedgen.net`` )** which will
-    give you command-line access.
+    give you command-line access. e.g. ``srun``, ``mpirun``,
 
 2.  You can connect to the cluster only through the login node over the
     internet or on Covenant University Campus Network.
