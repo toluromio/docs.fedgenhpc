@@ -38,9 +38,9 @@ with echo **$FEDGENHOME** or **$HOME** `environment variable <https://en.wiki
 
 The fedgenhome filesystem is dedicated to source code (programs,
 scripts), configuration files, and small datasets (like input files.)
+
 .. Note::
-  Do not use this area for your main working activities; use fedgenscratch
-  directory instead (see next section).
+  Do not use this area for your main working activities; use fedgenscratch directory instead (see next section).
 
 **FEDGENSCRATCH (Work Area)**
 ==============================
