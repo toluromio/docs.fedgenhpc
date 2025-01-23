@@ -5,7 +5,7 @@ FEDGEN Datacenter HPC resources includes Compute, GPUs and Storage
 Resources which are being increased on an annual basis. The FEDGEN HPC
 cluster has very similar hardware with specific processors in variety of
 configuration in memory capacity or number of CPUs. All the nodes share
-resources over networks for storage and cluster communication
+resources over networks for data storage and cluster communication.
 
 **Resource Manager**
 =====================
@@ -23,15 +23,16 @@ nodes.
 
 FEDGEN HPC Cluster currently runs on *Ubuntu 22.04* .
 
-**Node Info**
-===============
+
+**Node Info (Compute/GPU)**
+============================
 
 +--------------+------------+---------------------------+-------+---------+-----------+------------------------------------------+----------------+------------+
 | Cluster Type | Node Count | Processors (Architecture) | Cores | Memory  | Disk Size | GPUs (Number)                            | Node Name      | Model      |
 +==============+============+===========================+=======+=========+===========+==========================================+================+============+
-| Fedgendc1    | 3          | Intel Xeon 8358           | 80    | 512 GB  | 412 GB    |                                          | giga-[001-003] | SuperMicro |
+| Fedgendc1    | 3          | Intel Xeon Gold 5218R     | 80    | 512 GB  | 900 GB    |                                          | giga-[001-003] | SuperMicro |
 |              |            | Hyperthreading Enabled    |       |         |           |                                          |                |            |
-|              |            | (Cascade Lake)            |       |         |           |                                          |                |            |
+|              |            | (Cascade Lake SP)         |       |         |           |                                          |                |            |
 +--------------+------------+---------------------------+-------+---------+-----------+------------------------------------------+----------------+------------+
 |              | 3          | Intel Xeon 8358           | 24    |  64 GB  | 412 GB    | Nvidia RTX2070                           | terx-[004-006] | SuperMicro |
 |              |            | (Ivy Bridge)              |       |         |           | 4192 MB memory (1)                       |                |            |
@@ -43,23 +44,20 @@ FEDGEN HPC Cluster currently runs on *Ubuntu 22.04* .
 |              |            | (Cascade Lake)            |       |         |           |                                          |                |            |
 +--------------+------------+---------------------------+-------+---------+-----------+------------------------------------------+----------------+------------+
 
-**Networks**
-==================
+**Networks (Interconnect)**
+=============================
 
-All nodes are connected to a 10Gb Ethernet network for Cluster
+All nodes are connected to a **10Gb Ethernet network** for Cluster
 Communications as well as a **10Gbps** to storage node
 
 **Storage**
 ===============
 
-- Local Scratch space ~ 412GB High Speed SSD Drive (Available on each
-  Node)
+- Local Scratch space ~ High Speed SSD Drive in RAID 1 (Available on each Node) Size is dependent on node
 
-- User Home Directory ~ 4TB on network file system (NFS) installed on
-  the head node
+- User Home Directory ~ 4TB on network file system (NFS) available on the login node, the compute nodes and the GPU nodes.
 
-- Shared Scratch space ~ 14 TB network file system (NFS) provisioned
-  from storage node
+- Shared Scratch space ~ 14 TB network file system (NFS) provisioned from storage node
 
 For more details
 see `Storage <Storage.rst>`__ section.
