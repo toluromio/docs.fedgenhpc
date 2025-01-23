@@ -15,15 +15,15 @@ of tools.
 **Transferring files using SCP**
 ======================================
 
-Secure copy protocol (SCP) is a protocol for securely transferring
+`Secure Copy Protocol (SCP) <https://en.wikipedia.org/wiki/Secure_copy_protocol>`_ is a protocol for securely transferring
 computer files between a local computer and a remote computer or between
 two remote hosts. It is based on the Secure Shell (SSH) protocol and the
 acronym typically refers to both the protocol and the command itself.
 
-Secure File Transfer Protocol (SFTP) is also a file transfer protocol.
+`Secure File Transfer Protocol (SFTP) <https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol>`_ is also a file transfer protocol.
 It is based on the FTP protocol with included SSH security components.
 
-**Hint**
+.. Attention::
 
    If you need to move large files (e.g. larger than a gigabyte) from one
    remote machine to the cluster you should SSH in to the computer hosting
