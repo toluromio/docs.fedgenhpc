@@ -14,7 +14,7 @@ To begin using the cluster, you need to be aware of the following;
 2.  You can connect to the cluster only through the login node over the
     internet or on Covenant University Campus Network.
 
-3.  When you login, you will be on your $HOME Directory on the login
+3.  When you login, you will be on your **$HOME** Directory on the login
     node. Do not run any long-lasting programs here. The login node
     shall only be used for job preparation and simple file operations.
 
@@ -25,7 +25,7 @@ To begin using the cluster, you need to be aware of the following;
 5.  To move files from your computer to the cluster or vice versa, you
     may use any tool that works with ssh. On Linux and OSX, these are
     scp, rsync, or similar programs. On Windows, you may use
-    WinSCP. Transferring files to/from FEDGEN HPC Cluster
+    WinSCP. see `Transferring files to/from FEDGEN HPC Cluster <..others/Transferring%20files%20to%20and%20from%20the%20clusters.rst>`_
 
 6.  Optionally, if you wish to use programs with a **graphical user
     interface**, you will need an X-server on your client system and log
