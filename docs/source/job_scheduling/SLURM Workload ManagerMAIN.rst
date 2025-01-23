@@ -50,7 +50,7 @@ with nodes equipped with specific graphic cards.
     PARTITION AVAIL TIMELIMIT NODES STATE NODELIST
     batch up infinite 2 alloc giga[08-09]
     batch up infinite 6 idle node[10-16]
-    debug\* up 30:00 8 idle node[01-07]
+    debug* up 30:00 8 idle node[01-07]
 
 
 In the above example, we see two partitions, named *batch* and *debug*.
@@ -73,9 +73,9 @@ with the argument -N.
     # sinfo -N -l
     NODELIST NODES PARTITION STATE CPUS S:C:T MEMORY TMP_DISK WEIGHT
     AVAIL_FE REASON
-    node[01-02] 2 debug\* idle 32 2:8:2 3448 38536 16 Intel (null)
-    node[03,05-07] 4 debug\* idle 32 2:8:2 3384 38536 16 Intel (null)
-    node03 1 debug\* down 32 2:8:2 3394 38536 16 Intel "Disk replacement"
+    node[01-02] 2 debug* idle 32 2:8:2 3448 38536 16 Intel (null)
+    node[03,05-07] 4 debug* idle 32 2:8:2 3384 38536 16 Intel (null)
+    node03 1 debug* down 32 2:8:2 3394 38536 16 Intel "Disk replacement"
     node[08-09] 2 batch allocated 32 2:8:2 246 82306 16 AMD (null)
     node[10-16] 7 batch idle 32 2:8:2 246 82306 16 AMD (null)
 
@@ -100,11 +100,11 @@ choose one node type to another.
 The last column, (REASON), if not null, describes the reason why a node
 would not be available.
 
-**Note**
-
+.. Note::
     You can actually specify precisely what information you would
     like sinfo to output by using its --format argument. For more details,
     have a look at the command manpage with man sinfo.
+
 
 **Gathering job information**
 
