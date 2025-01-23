@@ -415,7 +415,7 @@ start it with:
 
 
 
-**Example for a MPI job**
+**Example for an MPI job**
 
 .. code-block:: python
 
