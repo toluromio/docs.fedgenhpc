@@ -1,17 +1,18 @@
 **Using Pre-installed Applications**
 ---------------------------------------
 
-Applications on FEDGEN HPC Cluster are made available through Miniconda
-and Easybuild package managers. Software packages have to be activated
-or deactivated through ‘Modules’ before program execution.
+Applications on FEDGEN HPC Cluster are made available through **Miniconda**
+and **Easybuild** package managers. The Miniconda package manager provides access to a few set of applications made available through conda environments. The Miniconda package manager was provided For quick application access but Easybuild provides full access to cluster applications.  
+.. Note::
+   Software packages have to be activated or deactivated through ‘Modules’ before program execution.
+   Miniconda (conda) is activated through modules
 
 **Environment Variables**
 ==============================
 
 The program environment on the HPC is controlled by pre-defined
-settings, which are stored in environment (or shell) variables. All the
-software packages that are installed on the HPC cluster require
-different settings. These packages include compilers, interpreters,
+settings, which are stored in environment (or shell) variables due to different
+software packages requiring different settings. The installed packages on the HPC cluster include compilers, interpreters,
 scientific software as well as other applications and libraries.
 
 **The module command**
@@ -96,8 +97,8 @@ or some application (e.g., MATLAB) is installed on the HPC.
 
 This gives a full list of software packages that can be loaded.
 
-*The casing of module names is important*: lowercase and uppercase
-letters matter in module names.
+.. Important::
+   *The casing of module names is important*: lowercase and uppercase letters matter in module names.
 
 
 **Organisation of modules in toolchains**
