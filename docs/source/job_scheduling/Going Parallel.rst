@@ -96,9 +96,9 @@ there can be as many workers instances as needed.
 
 There are two available MPI implementations on FEDGEN HPC:
 
-- OpenMPI provided by the foss module, e.g. module load foss/2019b
+- OpenMPI provided by the foss module, e.g. ``module load foss/2019b``
 
-- Intel MPI provided by the intel module, e.g. module load intel/2019b
+- Intel MPI provided by the intel module, e.g. ``module load intel/2019b``
 
 There are several ways of launching an MPI application within a SLURM
 allocation, e.g. srun, mpirun, mpiexec and mpiexec.hydra. Unfortunately,
