@@ -30,16 +30,15 @@ Accelerator Nodes
 =================
 These are special purpose compute nodes equipped with Graphics Processing Units (GPU) for computation
 intesive tasks. The GPU usually offloads certain computations off the CPU for tasks not ideal for it.
-ideal 
+
 
 Storage Nodes
 ==============
-Dedicated nodes for cluster Storage shared filesystem across the entire cluster
+Storage nodes are nodes dedicated to cluster data Storage. It is based on shared filesystem that can be accessed on all nodes across the entire cluster
 
 Management Nodes
 ================
-these computers run the management services like Slurm, but also the user directory, the monitoring and
-reporting applications, etc. ;
+HPC Clusters generally require support infrastructure or services which are provided by the management nodes. These nodes run management services like User Directory Services, Domain Name Services, monitoring and reporting applications.
 
 
 .. |FEDGEN HPC Flow| image:: media/FEDGEN_HPC_Layout489.png
