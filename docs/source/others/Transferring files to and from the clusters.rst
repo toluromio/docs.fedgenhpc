@@ -58,6 +58,7 @@ listed below;
    2. `FileZilla <https://filezilla-project.org>`__ -
 
 
+
 **Use Command-line SCP to transfer single files (Windows/Linux/MacOS)**
 
 From the local computer, open a terminal window and run the following
@@ -80,6 +81,7 @@ where you want to store the file.
 
      [user@laptop ~]$ scp username@allot.hpc.fedgen.net:/file/to/copy/filename .
 
+.. Note::
 There will be a prompt for a authentication.
 
 You can transfer multiple files or directories from your local machine
@@ -126,20 +128,20 @@ be able to navigate through the remote file system, use SFTP.**
   | **sftp>**
 
 - |  Navigate to the share directory:
-  | **sftp> **\ cd /path/to/file
+  | **sftp>** \ cd /path/to/file
 
 - | *Local to Allot*
-  | **sftp> **\ put filename
+  | **sftp>** \ put filename
 
 - |  Allot to local
-  | **sftp> **\ get filename
+  | **sftp>** \ get filename
 
 - | * To exit the SFTP session:*
-  | **sftp> **\ quit
+  | **sftp>** \ quit
 
 Use man sftp for a complete list of SFTP commands.
 
-.. _section-1:
+
 
 **Using rsync to synchronize Files to from the Cluster.**
 =======================================================
@@ -164,7 +166,7 @@ modified on Allot,
 To see the many additional options and use cases, type man rsync or see
 the *online man pages*.
 
-**Caution**
+.. Caution::
 
      Before using rsync, it is highly recommended to use the -n
      (--dry-run) option to test which changes are to be made. It is easy to
@@ -208,7 +210,7 @@ but it can be important in other commands.
 Adding a trailing slash on an source directory would make the command
 copy only the content of the folder, not the folder itself.
 
-.. _section-2:
+
 
 
 **rsync Behaviour with Trailing Slashes**
@@ -319,7 +321,7 @@ right hand side.
 To connect to the cluster, we’ll just need make a **new site** and enter
 our credentials in the **General** tab:
 
-**Caution**
+.. Caution::
 
    By default Filezilla will save profiles in plaintext on your machine.
    You must ensure you use a master password to encrypt these credentials
@@ -331,7 +333,7 @@ then *site manager* which will open a dialog similar to:
 
 |IMG_256|
 
-.. _section-4:
+
 
 **Using wget / curl**
 =================================
