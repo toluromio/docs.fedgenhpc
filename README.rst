@@ -1,7 +1,6 @@
 
-
-# FEDerated GENeral “Omics” (FEDGEN) HPC User Documentation
-
+FEDerated GENeral “Omics” (FEDGEN) HPC User Documentation
+----------------------------------------------------------
 
 
 Served via http://hpcdocs.fedgen.net
