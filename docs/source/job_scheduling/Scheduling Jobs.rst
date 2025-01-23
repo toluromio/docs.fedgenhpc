@@ -406,7 +406,7 @@ almost the same as a normal bash session.
 **Job related environment variables**
 
 Here we list some environment variables that are defined when you run a
-job script. These is not a complete list. Please consult the ``SLURM documentation <https://slurm.schedmd.com/sbatch.html#SECTION_INPUT-ENVIRONMENT-VARIABLES>`_ for a complete list.
+job script. These is not a complete list. Please consult the `SLURM documentation <https://slurm.schedmd.com/sbatch.html#SECTION_INPUT-ENVIRONMENT-VARIABLES>`_ for a complete list.
 
 
 +--------------------------+--------------------------------------------------------------------------+
