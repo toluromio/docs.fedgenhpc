@@ -199,18 +199,12 @@ get a job in any form.
 | Ac    | -A or | What lab are you part of? If you run                |
 | count |  --ac | the groups command you can see what groups (usually |
 |       | count | labs) you're a member of, these are associated with |
-|       |       | resource limits on the cluster. See                 |
-|       |       | the `accounts <https://hyak.uw.edu                  |
-|       |       | /docs/compute/scheduling-jobs/#accounts>`__ section |
-|       |       | for additional information.                         |
+|       |       | resource limits on the cluster.                     |
 +-------+-------+-----------------------------------------------------+
 | Part  | -p    | What resource partition are you interested in       |
 | ition |  or - | using? This could be anything you see when you      |
 |       | -part | run sinfo -s as each partition corresponds to a     |
-|       | ition | class of nodes (e.g., high memory, GPU). See        |
-|       |       | the `partitions <https://hyak.uw.edu/d              |
-|       |       | ocs/compute/scheduling-jobs/#partitions>`__ section |
-|       |       | for additional information.                         |
+|       | ition | class of nodes (e.g., high memory, GPU).            |
 +-------+-------+-----------------------------------------------------+
 | Nodes | -N    | How many nodes are these resources spread across?   |
 |       | or -- | In the overwhelming number of cases this is 1 (for  |
