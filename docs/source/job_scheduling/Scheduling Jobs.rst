@@ -33,7 +33,7 @@ Each job has two parts:
 
 There are a two popular types of jobs you could submit to the HPC cluster:
 
-- `batch <batch-jobs>`__ which are unattended shell scripts
+- `batch <#scheduling-a-batch-job>`__ which are unattended shell scripts
 - `interactive <#interactive-jobs>`__ where you run and test out your workflows live interactively on the command line,
 
 
@@ -45,8 +45,8 @@ with ``srun`` or as a script with ``sbatch`` commands.
 
 
 
-**Scheduling A BATCH Job**
-===============================
+**Defining and submitting A Batch job**
+==========================================
 For the scheduling process to work properly, you will need to describe your job before you submit it:
 
 - what are the steps (i.e. which program must be run and how) ;
@@ -80,7 +80,45 @@ manpage man sbatch.
     consequences in how signals are handled and how accurate reporting is.
     It is often best to use it in all cases.
 
-For instance, the following batch script, hypothetically named submit.sh,
+
+Below is a slurm script template to Submit a batch job from the login node by calling sbatch <script_name>.slurm.
+
+.. code-block:: python
+
+
+    $cat script.slurm
+
+    #!/bin/bash
+    
+    #SBATCH --partition=debug      # partition name. Eg. Debug, bio, bigmem
+    #SBATCH --job-name=demosample        # job name
+    #SBATCH --nodes=2               # number of nodes allocated for this job
+    #SBATCH --ntasks=2              # total number of tasks / mpi processes
+    #SBATCH --cpus-per-task=8       # number OpenMP Threads per process
+    #SBATCH --time=08:00:00         # total run time limit ([[D]D-]HH:MM:SS)
+    ##SBATCH --gres=gpu:tesla:2      # number of GPUs
+    ##The above line and this  will be ignored by Slurm
+    # Get email notification when job begins, finishes or fails
+    #SBATCH --mail-type=ALL         # type of notification: BEGIN, END, FAIL, ALL
+    #SBATCH --mail-user=your@mail   # e-mail address
+    SBATCH --chdir=<working directory>
+    #SBATCH --export=all
+    #SBATCH --output=<file> # where STDOUT goes
+    #SBATCH --error=<file> # where STDERR goes
+    
+    
+    # Modules to use (optional).
+    #<e.g., module load singularity>
+    
+    # Run the application.
+    #<my_programs>
+    echo [`date '+%Y-%m-%d %H:%M:%S'`] Running $AE_ARCH
+    srun  hostname
+    sleep  60 
+
+
+
+For instance, the following batch script, hypothetically named submit.slurm,
 
 
 .. code-block:: python
@@ -97,7 +135,7 @@ For instance, the following batch script, hypothetically named submit.sh,
     #SBATCH --mem-per-cpu=200
     
     srun hostname
-    srun sleep 60
+    srun sleep 30
 
 describes a job made of 2+1 steps (the submission script itself plus two
 explicit steps created by calling srun twice), each step consisting of
@@ -105,6 +143,7 @@ only one task that needs one CPU and 200MB of RAM. The first step will
 run the ``hostname`` command, and the second one the useless ``sleep`` command.
 The job is supposed to run for *5 minutes* on the debug partition, be
 named testrun, and create an output file named *result.txt*.
+
 
 .. Important::
 
@@ -123,28 +162,26 @@ prompt <https://en.wikipedia.org/wiki/Unix_shell#Bourne_shell>`__)
 
 .. code-block:: python
   
-    $ sbatch submit.sh
+    $ sbatch submit.slurm
     sbatch: Submitted batch job 12321
 
 .. Warning::
 
   Make sure to submit the job with sbatch and not bash; also do not
   execute it directly. This would ignore all resource request and your job
-  would run with minimal resources, or could possible run on the frontend
+  would run with minimal resources, or could possible run on the login node
   rather than on a compute node.
 
-The job then enters the queue in the *PENDING* state. You can verify
-this with
+The job then enters the Job queue in the *PENDING* state which be verified with;
 
 .. code-block:: python
 
     $ squeue --me
 
 Once resources become available and the job has highest priority,
-an **allocation** is created for it and it goes to the RUNNING state. If
+an **allocation** is created for it and switches to the RUNNING state. If
 the job completes correctly, it goes to the *COMPLETED* state,
 otherwise, it is set to the *FAILED* state.
-
 
 
 **Slurm Arguments**
@@ -274,79 +311,62 @@ helped to specify the cpu account:
     --time=01:00:00 --pty bash -i
 
 
-**Interactive Jobs (Single Node)\ **\ `# <#interactive-jobs-single-node>`__
+**Interactive Jobs (Single Node)**
 
-Resources for interactive jobs are attained either using salloc. To
-request a compute node from the Checkpoint all partition (ckpt-all)
+Resources for interactive jobs are attained either using ``salloc``. To
+request a compute node from the **bio partition** (biol)
 interactively consider the example below.
 
 *# Below replace the word account with an account name you belong to*
 
-*# Use allot to see your accounts and partitions*
+*# Use sinfo to see your accounts and partitions*
 
 .. code-block:: python
-    salloc -A account -p ckpt-all -N 1 -c 4 --mem=10G --time=2:30:00
+    salloc -A account -p bio -N 1 -c 4 --mem=12G --time=2:45:00
 
-In this case you are requesting a slice of the standard compute node
-class that your group mylab contributed to the cluster. You are asking
-for 4 compute cores with 10GB of memory for 2 hours and 30 minutes
-spread across 1 node (single machine). The salloc command will
+You are asking slurm for 4 compute cores with 12GB of memory for 2 hours and 45 minutes
+spread across 1 node (single machine). The ``salloc`` command will
 automatically create an interactive shell session on an allocated node.
+
 
 **Interactive Jobs (Multi Node)**
 
 Building upon the previous section, if -N or --nodes is >1 when
-running salloc you are automatically placed into a shell of one of the
+running ``salloc`` you are automatically placed into a shell of one of the
 allocated nodes. This shell is NOT part of a Slurm task. To view the
-names of the remainder of your allocated nodes use scontrol show
-hostnames. The srun command can be used to execute a command on all of
+names of the remainder of your allocated nodes use ``scontrol show
+hostnames``. The ``srun`` command can be used to execute a command on all of
 the allocated nodes as shown in the example session below.
 
 .. code-block:: python
 
-    [user@allot ~]$ salloc -N 2 -p compute -A stf --time=5 --mem=5G
+    [user@allot ~]$ salloc -N 2 -p full -A stf --time=5 --mem=5G
     salloc: Pending job allocation 2620960
     salloc: job 2620960 queued and waiting for resources
     salloc: job 2620960 has been allocated resources
     salloc: Granted job allocation 2620960
     salloc: Waiting for resource configuration
-    salloc: Nodes n[3148-3149] are ready for job
+    salloc: Nodes giga[002-003] are ready for job
     
     [user@allot ~]$ srun hostname
-    n3148
-    n3149
+    giga002
+    giga003
     
-    [user@allot ~]$ scontrol show hostnames
-    n3148
-    n3149
 
 
-
-**Interactive Node Partitions**
-
-If your group has an interactive node, use the option -p
-<partition_name>-int like below. If you are unsure if your group has an
-interactive node you can run hyakalloc and it will appear if you have
-one.
-
-.. code-block:: python
-
-    salloc -p <partition_name>-int -A <group_name> --time=<time> --mem=<size>G
-
-
-
-**note**
+.. note::
 
 - If you are not allocated a session with the specified --mem value, try
   smaller memory values
 
 For more details, read the *salloc man page*.
 
+
 **Keeping interactive jobs alive**
 
 Interactive jobs die when you disconnect from the login node either by
 choice or by internet connection problems. To keep a job alive you can
-use a terminal multiplexer like tmux.
+use a terminal multiplexer like tmux or screen.
 
 tmux allows you to run processes as usual in your standard bash shell
 
@@ -367,15 +387,7 @@ or in case you have multiple sessions running:
   tmux attach -t SESSION_NUMBER
 
 As long as the tmux session is not closed or terminated (e.g. by a
-server restart) your session should continue. One problem with our
-systems is that the tmux session is bound to the particular login server
-you get connected to. So if you start a tmux session on stallo-1 and
-next time you get randomly connected to stallo-2 you first have to
-connect to stallo-1 again by:
-
-.. code-block:: python
-
-    ssh login-1
+server restart) your session should continue. 
 
 To log out a tmux session without closing it you have to press CTRL-B
 (that the Ctrl key and simultaneously “b”, which is the standard tmux
@@ -387,51 +399,9 @@ page <https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/>`__ for
 a short tutorial of tmux. Otherwise working inside of a tmux session is
 almost the same as a normal bash session.
 
-**Defining and submitting A Batch job**
-==========================================
-
-Below is a slurm script template. Submit a batch job from the login node
-by calling sbatch <script_name>.slurm.
-
-.. code-block:: python
 
 
-    $cat script.slurm
 
-    #!/bin/bash
-    
-    #SBATCH --partition=debug      # partition name. Eg. Debug, bio, bigmem
-    #SBATCH --job-name=demosample        # job name
-    #SBATCH --nodes=2               # number of nodes allocated for this job
-    #SBATCH --ntasks=2              # total number of tasks / mpi processes
-    #SBATCH --cpus-per-task=8       # number OpenMP Threads per process
-    #SBATCH --time=08:00:00         # total run time limit ([[D]D-]HH:MM:SS)
-    ##SBATCH --gres=gpu:tesla:2      # number of GPUs
-    ##The above line and this  will be ignored by Slurm
-    # Get email notification when job begins, finishes or fails
-    #SBATCH --mail-type=ALL         # type of notification: BEGIN, END, FAIL, ALL
-    #SBATCH --mail-user=your@mail   # e-mail address
-    SBATCH --chdir=<working directory>
-    #SBATCH --export=all
-    #SBATCH --output=<file> # where STDOUT goes
-    #SBATCH --error=<file> # where STDERR goes
-    
-    
-    # Modules to use (optional).
-    #<e.g., module load singularity>
-    
-    # Run the application.
-    #<my_programs>
-    echo [`date '+%Y-%m-%d %H:%M:%S'`] Running $AE_ARCH
-    srun  hostname
-    sleep  60 
-
-
-More Job Examples here
-==========================
-There is also an interactive `Script Generation
-Wizard <https:///scriptgen.html>`__ you can use to help
-you in submission scripts creation.
 
 **Job related environment variables**
 
@@ -457,19 +427,10 @@ Scratch directory:
 
 .. code-block:: python
 
-  SCRATCH *# defaults to
-  /global/work/${USER}/${SLURM_JOBID}.allot.hpc.fedgen.net*
+  FEDGENSCRATCH *# defaults to
+  /fedgenscratch/${USER}/${SLURM_JOBID}.allot.hpc.fedgen.net*
 
-We recommend to **not** use $SCRATCH but to construct a variable
-yourself and use that in your script, e.g.:
 
-.. code-block:: python
-
-  SCRATCH_DIRECTORY=/global/work/${USER}/my-example/${SLURM_JOBID}
-
-The reason for this is that if you forget to sbatch your job script,
-then $SCRATCH may suddenly be undefined and you risk erasing your entire
-/global/work/${USER}.
 
 Submit directory (this is the directory where you have sbatched your
 job):
