@@ -47,7 +47,7 @@ similar to
 |FedgenDC1-Welcome|
 
 
-.. Note::
+.. note::
 
       Upon your very first connection to each FEDGEN HPC Cluster, you will be greeted by a warning such as the one below:
 
