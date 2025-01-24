@@ -6,7 +6,7 @@ node, the compute nodes, the accelerator nodes, the management nodes and the sto
 workflow, users primarily access FEDGEN HPC by connecting to the login
 node, where they compile and test code before submitting jobs to
 the `SLURM
-queue <../job_scheduling/SLURM%20Workload%20ManagerMAIN.rst>`__
+queue <../job_scheduling/SLURM%20Workload%20ManagerMAIN.html>`__
 which automatically assigns a compute node(s) to the submitted job. This
 HPC layout is in the diagram below.
 
@@ -15,7 +15,7 @@ HPC layout is in the diagram below.
 Login Node
 ===========
 The Login node is the only node directly accessible over the internet.
-Users connect to the login from their personal computers/workstation using `ssh <../access/Working%20With%20An%20SSH%20Client.rst>`_ before accessing other parts of the FEDGEN HPC Cluster. Users initiate their jobs primarily from the login node.
+Users connect to the login from their personal computers/workstation using `ssh <../access/Working%20With%20An%20SSH%20Client.html>`_ before accessing other parts of the FEDGEN HPC Cluster. Users initiate their jobs primarily from the login node.
 
 Compute Nodes
 ===============
