@@ -39,14 +39,14 @@ First time login users will be prompted to change their password.
 Passwords must adhere to standard complexity requirements.
 
 The more complex the password, the more robust it is against brute
-force. see **password section** below
+force. see `password section <https://hpcdocs.fedgen.net/en/latest/access/Working%20With%20An%20SSH%20Client.html#using-secured-passwords>`_ below
 
 If everything worked properly, you should be greeted by a message
 similar to
 
 |FedgenDC1-Welcome|
 
-**Note**
+.. Note::
 
       Upon your very first connection to each FEDGEN HPC Cluster, you will be
       greeted by a warning such as:
